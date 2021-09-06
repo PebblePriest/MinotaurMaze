@@ -6,16 +6,23 @@ using UnityEngine.AI;
 public class AI : MonoBehaviour
 {
     Animator anim;
-    public Transform player;
+    GameObject player;
     StateEditor currentState;
+    Transform target;
+    GameObject boss;
+    SpriteRenderer theBossR;
 
-    //void Start()
-    //{
-    //    anim = this.GetComponent<Animator>();
-    //    currentState = new Idle(this.gameObject, anim, player);
-    //}
-    // void Update()
-    //{
-    //    currentState = currentState.Process();
-    //}
+    void Start()
+    {
+        anim = this.GetComponent<Animator>();
+        boss = this.gameObject;
+        player = GameObject.FindGameObjectWithTag("Player");
+        theBossR = GetComponent<SpriteRenderer>();
+        currentState = new Idle(this.gameObject, anim, player, boss, theBossR);
+        
+    }
+    void Update()
+    {
+        currentState = currentState.Process();
+    }
 }
