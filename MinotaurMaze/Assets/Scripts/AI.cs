@@ -9,13 +9,13 @@ public class AI : MonoBehaviour
     public Transform player;
     StateEditor currentState;
 
-    void Start()
-    {
-        anim = this.GetComponent<Animator>();
-        currentState = new Idle(this.gameObject, anim, player);
-    }
-     void Update()
-    {
-        currentState = currentState.Process();
-    }
+    //void Start()
+    //{
+    //    anim = this.GetComponent<Animator>();
+    //    currentState = new Idle(this.gameObject, anim, player);
+    //}
+    // void Update()
+    //{
+    //    currentState = currentState.Process();
+    //}
 }
