@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    Animator anim;
+    public Transform player;
+    StateEditor currentState;
+
     void Start()
     {
-        
+        anim = this.GetComponent<Animator>();
+        currentState = new Idle(this.gameObject, anim, player);
     }
-
-    // Update is called once per frame
-    void Update()
+     void Update()
     {
-        
+        currentState = currentState.Process();
     }
 }
