@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 323017066}
   - component: {fileID: 323017067}
   m_Layer: 0
-  m_Name: Cyclops_PlaceHolder
+  m_Name: Minotaur
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -265,7 +265,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 66a6aeecdec78cd4f880304c2e2126ce, type: 3}
+  m_Sprite: {fileID: -4411125528273042429, guid: e25178ebae75e6344ba309328fc43fb6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -284,8 +284,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323017061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.32, z: 0}
-  m_LocalScale: {x: 1.62613, y: 1.62613, z: 1.62613}
+  m_LocalPosition: {x: 5.44, y: -2.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -312,7 +312,7 @@ Animator:
   m_GameObject: {fileID: 323017061}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec46921bdc75ef4448fcfa7a51b984e5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

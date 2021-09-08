@@ -18,12 +18,13 @@ public class Swipe : StateEditor
     public override void Update()
     {
 
+        if (AttackPlayer())
+        {
+            Debug.Log("Attacking");
+            nextState = new Idle(npc, anim, player, boss, theBossR);
+            stage = EVENT.EXIT;
+        }
         
-        Debug.Log("Attacking");
-        nextState = new Idle(npc, anim, player, boss, theBossR);
-        stage = EVENT.EXIT;
-
-
 
     }
 
