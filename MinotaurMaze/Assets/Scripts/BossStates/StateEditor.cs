@@ -23,7 +23,7 @@ public class StateEditor
     protected GameObject boss;
     protected SpriteRenderer theBossR;
     public float visDist = 8f;
-    float shootDist = 7.0f;
+    //float shootDist = 7.0f;
     public float speed = 1f;
     public float basicAttack = 2f;
    
