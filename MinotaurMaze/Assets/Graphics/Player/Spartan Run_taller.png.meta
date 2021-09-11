@@ -1,25 +1,25 @@
 fileFormatVersion: 2
-guid: 6ac89e4f8099ae345b85a9d81747bd84
+guid: 3ae028fd1e64cd348ac1f14b0cd623b6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6105547010825252574
-    second: Spartan Run_0
+      213: -6022071729854420745
+    second: Spartan Run_taller_0
   - first:
-      213: -2430507921149936694
-    second: Spartan Run_1
+      213: -7405477191642426002
+    second: Spartan Run_taller_1
   - first:
-      213: 4082816710790588368
-    second: Spartan Run_2
+      213: -6516911979928886741
+    second: Spartan Run_taller_2
   - first:
-      213: 5644960284760678423
-    second: Spartan Run_3
+      213: 4349888010476534528
+    second: Spartan Run_taller_3
   - first:
-      213: -5160785327724726643
-    second: Spartan Run_4
+      213: 4187564324849185999
+    second: Spartan Run_taller_4
   - first:
-      213: -6501433486886897893
-    second: Spartan Run_5
+      213: 4934543061279102839
+    second: Spartan Run_taller_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Spartan Run_0
+      name: Spartan Run_taller_0
       rect:
         serializedVersion: 2
         x: 0
@@ -123,14 +123,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: edeefa368a24bb450800000000000000
-      internalID: 6105547010825252574
+      spriteID: 7f8ea120bad4d6ca0800000000000000
+      internalID: -6022071729854420745
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spartan Run_1
+      name: Spartan Run_taller_1
       rect:
         serializedVersion: 2
         x: 48
@@ -144,14 +144,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: acbb5105ce9154ed0800000000000000
-      internalID: -2430507921149936694
+      spriteID: e6555e7eab57a3990800000000000000
+      internalID: -7405477191642426002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spartan Run_2
+      name: Spartan Run_taller_2
       rect:
         serializedVersion: 2
         x: 96
@@ -165,14 +165,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d7a3b1ba2419a830800000000000000
-      internalID: 4082816710790588368
+      spriteID: b22e9d315174f85a0800000000000000
+      internalID: -6516911979928886741
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spartan Run_3
+      name: Spartan Run_taller_3
       rect:
         serializedVersion: 2
         x: 144
@@ -186,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7102950887de65e40800000000000000
-      internalID: 5644960284760678423
+      spriteID: 00b3f2d4918ed5c30800000000000000
+      internalID: 4349888010476534528
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spartan Run_4
+      name: Spartan Run_taller_4
       rect:
         serializedVersion: 2
         x: 192
@@ -207,14 +207,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d867be266153168b0800000000000000
-      internalID: -5160785327724726643
+      spriteID: fc4fbb811973d1a30800000000000000
+      internalID: 4187564324849185999
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spartan Run_5
+      name: Spartan Run_taller_5
       rect:
         serializedVersion: 2
         x: 240
@@ -228,8 +228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b17f64390b446c5a0800000000000000
-      internalID: -6501433486886897893
+      spriteID: 777d86815c40b7440800000000000000
+      internalID: 4934543061279102839
       vertices: []
       indices: 
       edges: []

@@ -33,16 +33,15 @@ public class PlayerController : MonoBehaviour
         {
             theSR.flipX = false;
         }
+
+        anim.SetFloat("moveSpeed", Mathf.Abs(inputX));
+        anim.SetBool("isGrounded", GroundCheck.instance.isGrounded);
+        anim.SetFloat("yVelocity", theRB.velocity.y);
     }
 
     public void Move(InputAction.CallbackContext context)
     {
         inputX = context.ReadValue<Vector2>().x;
-        anim.SetBool("isRunning", true);
-        if (context.canceled)
-        {
-            anim.SetBool("isRunning", false);
-        }
     }
 
     public void Jump(InputAction.CallbackContext context)
