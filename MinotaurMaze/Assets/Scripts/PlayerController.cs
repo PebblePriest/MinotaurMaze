@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D theRB;
     private SpriteRenderer theSR;
+    private Animator anim;
 
     public float moveSpeed, jumpForce;
     
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         theRB = GetComponent<Rigidbody2D>();
         theSR = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -36,6 +38,11 @@ public class PlayerController : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         inputX = context.ReadValue<Vector2>().x;
+        anim.SetBool("isRunning", true);
+        if (context.canceled)
+        {
+            anim.SetBool("isRunning", false);
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
