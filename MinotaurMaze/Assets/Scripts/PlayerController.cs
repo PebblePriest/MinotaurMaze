@@ -5,20 +5,40 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     private Rigidbody2D theRB;
-    private SpriteRenderer theSR;
-    private Animator anim;
+    //private SpriteRenderer theSR;
+    public Animator anim;
 
     public float moveSpeed, jumpForce;
+    private float movingSpeed;
+    public float attackingMoveSpeed;
     
     private float inputX;
     private bool canDoubleJump;
 
+    public bool isAttacking;
+    private bool canJump;
+
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
+
+    public int comboAttackDamage;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         theRB = GetComponent<Rigidbody2D>();
-        theSR = GetComponent<SpriteRenderer>();
+        //theSR = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+
+        movingSpeed = moveSpeed;
     }
 
     void Update()
@@ -27,46 +47,98 @@ public class PlayerController : MonoBehaviour
 
         if(theRB.velocity.x < 0)
         {
-            theSR.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
+            //theSR.flipX = true;
         }
         else if (theRB.velocity.x > 0)
         {
-            theSR.flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
+            //theSR.flipX = false;
         }
 
-        anim.SetFloat("moveSpeed", Mathf.Abs(inputX));
+
+        anim.SetFloat("moveSpeed", Mathf.Abs(theRB.velocity.x));
         anim.SetBool("isGrounded", GroundCheck.instance.isGrounded);
         anim.SetFloat("yVelocity", theRB.velocity.y);
     }
 
+    private void FixedUpdate()
+    {
+        if (!isAttacking)
+        {
+            ResetMovement();
+        }
+        else if (isAttacking)
+        {
+            StopMovement();
+        }
+    }
+
     public void Move(InputAction.CallbackContext context)
     {
-        inputX = context.ReadValue<Vector2>().x;
+        if (context.performed)
+        {
+            inputX = context.ReadValue<Vector2>().x;
+        }
+
+        if (context.canceled)
+        {
+            inputX = 0;
+        }
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (context.performed && GroundCheck.instance.isGrounded == true)
+        if (canJump)
         {
-            theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
-            canDoubleJump = true;
-        }
-        else
-        {
-            if (context.performed && canDoubleJump)
+            if (context.performed && GroundCheck.instance.isGrounded == true)
             {
                 theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
-                canDoubleJump = false;
+                canDoubleJump = true;
+            }
+            else
+            {
+                if (context.performed && canDoubleJump)
+                {
+                    theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
+                    canDoubleJump = false;
+                }
             }
         }
-
     }
 
     public void Attack(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && GroundCheck.instance.isGrounded && !isAttacking)
         {
-            Debug.Log("Swung Sword");
+            isAttacking = true;
+
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                enemy.GetComponent<Enemy>().TakeDamage(comboAttackDamage);
+            }
         }
+    }
+
+    public void StopMovement()
+    {
+        canJump = false;
+        moveSpeed = attackingMoveSpeed;
+    }
+
+    public void ResetMovement()
+    {
+        canJump = true;
+        moveSpeed = movingSpeed;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
