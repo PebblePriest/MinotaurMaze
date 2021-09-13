@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     {
         currentHealth -= damage;
         theRB.velocity = new Vector2(knockBackForce, 0f);
-
+        Debug.Log(currentHealth);
         //play hurt animation
 
         if (currentHealth <= 0)

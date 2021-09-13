@@ -22,11 +22,13 @@ public class Walking : StateEditor
         boss.transform.position = Vector2.MoveTowards(boss.transform.position, new Vector2(player.transform.position.x, boss.transform.position.y), speed * Time.deltaTime);
         if(player.transform.position.x > boss.transform.position.x)
         {
-            theBossR.flipX = true;
+            npc.transform.localScale = new Vector3(-1, 1, 1);
+            //theBossR.flipX = true;
         }
         else if(player.transform.position.x < boss.transform.position.x)
         {
-            theBossR.flipX = false;
+            npc.transform.localScale = new Vector3(1, 1, 1);
+            //theBossR.flipX = false;
         }
         Debug.Log("Is Walking towards player");
         if(AttackPlayer())
