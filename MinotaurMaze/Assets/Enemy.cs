@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public int maxHealth = 100;
-    int currentHealth;
+    public static int currentHealth;
     public float knockBackForce;
 
     private Rigidbody2D theRB;

@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Rage
+  - LeftSide
+  - RightSide
   layers:
   - Default
   - TransparentFX

@@ -6,7 +6,7 @@ public class StateEditor
 {
     public enum STATE
     {
-        IDLE, WALKING, SWIPE, CHARGE, GROUNDPOUND, RAGE
+        IDLE, WALKING, SWIPE, CHARGE, RAGE, 
     };
     public enum EVENT
     {
@@ -26,9 +26,11 @@ public class StateEditor
     //float shootDist = 7.0f;
     public float speed = 1f;
     public float basicAttack = 2f;
-   
-
-    public StateEditor(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR)
+    protected GameObject leftSide;
+    protected GameObject rightSide;
+    public static int health;
+    public float closeDist = 10f;
+    public StateEditor(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR, GameObject _rightSide, GameObject _leftSide)
     {
         npc = _npc;
         anim = _anim;
@@ -36,6 +38,8 @@ public class StateEditor
         player = _player;
         boss = _boss;
         theBossR = _theBossR;
+        leftSide = _leftSide;
+        rightSide = _rightSide;
         
     }
     public virtual void Enter() { stage = EVENT.UPDATE; }
@@ -74,5 +78,43 @@ public class StateEditor
         }
         return false;
     }
+    public bool LeftSideAttack()
+    {
+        float dist = Vector2.Distance(leftSide.transform.position, boss.transform.position);
+        if (dist < basicAttack)
+        {
+            return true;
+        }
+        return false;
+    }
+    public bool RightSideAttack()
+    {
+        float dist = Vector2.Distance(rightSide.transform.position, boss.transform.position);
+        if (dist < basicAttack)
+        {
+            return true;
+        }
+        return false;
+    }
+    public bool ChargeLeftSide()
+    {
+        float dist = Vector2.Distance(leftSide.transform.position, player.transform.position);
+        if(dist < closeDist)
+        {
+            return true;
+        }
+        return false;
+    }
+    public bool ChargeRightSide()
+    {
+        float dist = Vector2.Distance(rightSide.transform.position, player.transform.position);
+        if (dist > closeDist)
+        {
+            return true;
+        }
+        return false;
+    }
+
+
 
 }
