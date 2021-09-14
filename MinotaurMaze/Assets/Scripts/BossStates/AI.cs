@@ -5,23 +5,28 @@ using UnityEngine.AI;
 
 public class AI : MonoBehaviour
 {
-    Animator anim;
-    GameObject player;
-    StateEditor currentState;
+    public static AI instance;
+    public Animator anim;
+    public GameObject player;
+    public StateEditor currentState;
     Transform target;
-    GameObject boss;
-    SpriteRenderer theBossR;
-    GameObject leftSide;
-    GameObject rightSide;
+    public GameObject boss;
+    public SpriteRenderer theBossR;
+    public GameObject leftSide;
+    public GameObject rightSide;
 
-  
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         anim = this.GetComponent<Animator>();
         boss = this.gameObject;
         player = GameObject.FindGameObjectWithTag("Player");
+        rightSide = GameObject.FindGameObjectWithTag("RightSide");
         leftSide = GameObject.FindGameObjectWithTag("LeftSide");
-        rightSide = GameObject.FindGameObjectWithTag("LeftSide");
         theBossR = GetComponent<SpriteRenderer>();
         currentState = new Idle(this.gameObject, anim, player, boss, theBossR, leftSide, rightSide);
         

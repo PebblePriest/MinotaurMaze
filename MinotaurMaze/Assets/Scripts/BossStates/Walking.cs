@@ -28,10 +28,12 @@ public class Walking : StateEditor
             if (player.transform.position.x > boss.transform.position.x)
             {
                 npc.transform.localScale = new Vector3(-1, 1, 1);
+            //Going Right
                 //theBossR.flipX = true;
             }
             else if (player.transform.position.x < boss.transform.position.x)
             {
+           //Going Left
                 npc.transform.localScale = new Vector3(1, 1, 1);
                 //theBossR.flipX = false;
             }

@@ -29,7 +29,9 @@ public class StateEditor
     protected GameObject leftSide;
     protected GameObject rightSide;
     public static int health;
-    public float closeDist = 10f;
+    public float closeDist = 5f;
+    public float rDist;
+    public float lDist;
     public StateEditor(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR, GameObject _rightSide, GameObject _leftSide)
     {
         npc = _npc;
@@ -78,42 +80,60 @@ public class StateEditor
         }
         return false;
     }
-    public bool LeftSideAttack()
+    public bool ChargeLocation()
     {
-        float dist = Vector2.Distance(leftSide.transform.position, boss.transform.position);
-        if (dist < basicAttack)
+        float rDist = Vector2.Distance(player.transform.position, rightSide.transform.position);
+        float lDist = Vector2.Distance(player.transform.position, leftSide.transform.position);
+
+        if(rDist < lDist)
         {
             return true;
         }
-        return false;
+        else 
+            return false;
+        
+       
     }
-    public bool RightSideAttack()
-    {
-        float dist = Vector2.Distance(rightSide.transform.position, boss.transform.position);
-        if (dist < basicAttack)
-        {
-            return true;
-        }
-        return false;
-    }
-    public bool ChargeLeftSide()
-    {
-        float dist = Vector2.Distance(leftSide.transform.position, player.transform.position);
-        if(dist < closeDist)
-        {
-            return true;
-        }
-        return false;
-    }
-    public bool ChargeRightSide()
-    {
-        float dist = Vector2.Distance(rightSide.transform.position, player.transform.position);
-        if (dist > closeDist)
-        {
-            return true;
-        }
-        return false;
-    }
+    //public bool LeftSideAttack()
+    //{
+    //    float dist = Vector2.Distance(leftSide.transform.position, boss.transform.position);
+    //    if (dist < basicAttack)
+    //    {
+    //        return true;
+    //    }
+    //    return false;
+    //}
+    //public bool RightSideAttack()
+    //{
+    //    float dist = Vector2.Distance(-rightSide.transform.position, boss.transform.position);
+    //    if (dist < basicAttack)
+    //    {
+    //        return true;
+    //    }
+    //    return false;
+    //}
+    //public bool ChargeLeftSide()
+    //{
+    //     float dist = Vector2.Distance(leftSide.transform.position, player.transform.position);
+    //    Debug.Log(dist + "Charge Left");
+    //    if(dist < closeDist)
+    //    {
+            
+    //        return true;
+    //    }
+    //    return false;
+    //}
+    //public bool ChargeRightSide()
+    //{
+    //    float dist = Vector2.Distance(rightSide.transform.position, player.transform.position);
+    //    Debug.Log(dist + "Charge Right");
+    //    if (dist < closeDist)
+    //    {
+            
+    //        return false;
+    //    }
+    //    return true;
+    //}
 
 
 
