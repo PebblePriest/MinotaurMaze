@@ -10,12 +10,12 @@ public class Charge : StateEditor
     public Charge(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR, GameObject _rightSide, GameObject _leftSide) : base(_npc, _anim, _player, _boss, _theBossR, _leftSide, _rightSide)
     {
         name = STATE.CHARGE;
-        speed = 5f;
+        speed = 20f;
 
     }
     public override void Enter()
     {
-        //anim.SetTrigger("isCharging");
+        anim.SetTrigger("isCharging");
         timer = 0;
         if (ChargeLocation())
         {

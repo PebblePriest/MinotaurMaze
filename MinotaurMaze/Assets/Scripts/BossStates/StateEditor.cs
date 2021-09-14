@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class StateEditor 
 {
+    public static StateEditor instance;
+
+    
+
     public enum STATE
     {
         IDLE, WALKING, SWIPE, CHARGE, RAGE, 
@@ -34,6 +38,7 @@ public class StateEditor
     public float lDist;
     public StateEditor(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR, GameObject _rightSide, GameObject _leftSide)
     {
+        instance = this;
         npc = _npc;
         anim = _anim;
         stage = EVENT.ENTER;

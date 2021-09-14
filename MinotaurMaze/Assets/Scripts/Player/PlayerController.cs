@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
 
     public int comboAttackDamage;
 
+    public float knockBackLength;
+    private float knockBackCounter;
+
     private void Awake()
     {
         instance = this;
@@ -43,19 +46,34 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        theRB.velocity = new Vector2(inputX * moveSpeed, theRB.velocity.y);
-
-        if(theRB.velocity.x < 0)
+        if(knockBackCounter <= 0)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-            //theSR.flipX = true;
-        }
-        else if (theRB.velocity.x > 0)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-            //theSR.flipX = false;
-        }
+            theRB.velocity = new Vector2(inputX * moveSpeed, theRB.velocity.y);
 
+            if (theRB.velocity.x < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                //theSR.flipX = true;
+            }
+            else if (theRB.velocity.x > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                //theSR.flipX = false;
+            }
+        }
+       
+        else
+        {
+            knockBackCounter -= Time.deltaTime;
+            if (transform.localScale == new Vector3(1, 1, 1))
+            {
+                theRB.velocity = new Vector2(+PlayerHealth.instance.knockBackForce, theRB.velocity.y);
+            }
+            else
+            {
+                theRB.velocity = new Vector2(-PlayerHealth.instance.knockBackForce, theRB.velocity.y);
+            }
+        }
 
         anim.SetFloat("moveSpeed", Mathf.Abs(theRB.velocity.x));
         anim.SetBool("isGrounded", GroundCheck.instance.isGrounded);
@@ -140,6 +158,12 @@ public class PlayerController : MonoBehaviour
             return;
 
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    public void KnockBack()
+    {
+        knockBackCounter = knockBackLength;
+        theRB.velocity = new Vector2(0, PlayerHealth.instance.knockBackForce);
     }
 
 }

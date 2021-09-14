@@ -2,24 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
+    public static PlayerHealth instance;
     public int maxHealth = 100;
     public static int currentHealth;
-    public float knockBackForce;
+    public int knockBackForce;
 
     private Rigidbody2D theRB;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+    // Start is called before the first frame update
     void Start()
     {
         theRB = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
     }
-
+    
     public void TakeDamage(int damage)
     {
+        knockBackForce = damage;
         currentHealth -= damage;
-        theRB.velocity = new Vector2(knockBackForce, 0f);
+
+        PlayerController.instance.KnockBack();
+        theRB.velocity = new Vector2(knockBackForce, knockBackForce);
+        
+        //play hurt animation
 
         if (currentHealth <= 0)
         {
@@ -30,6 +41,6 @@ public class Enemy : MonoBehaviour
     void Die()
     {
         Destroy(gameObject);
-        Debug.Log("Enemy Died");
+        Debug.Log("Player Died");
     }
 }

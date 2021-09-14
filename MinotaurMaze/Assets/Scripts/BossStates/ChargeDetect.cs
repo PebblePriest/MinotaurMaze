@@ -5,25 +5,45 @@ using UnityEngine.AI;
 
 public class ChargeDetect : MonoBehaviour
 {
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Attack Type")]
+    public bool isCharge; 
+    public bool isSwipe;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("Attack Values")]
+    public int ChargeDamage;
+    public int SwipeDamage;
+
+    [Header("Blocks")]
+    public GameObject FallBlock;
+    public GameObject[] fbPoints;
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        var ai = AI.instance;
-        if(other.gameObject.tag == "Ground")
+        if (isCharge)
         {
-            
-            ai.currentState = new Idle(ai.gameObject, ai.anim, ai.player, ai.boss, ai.theBossR, ai.leftSide, ai.rightSide);
+            var ai = AI.instance;
+            if (other.gameObject.tag == "Ground")
+            {
+                foreach (GameObject point in fbPoints)
+                {
+                    Instantiate(FallBlock, point.transform.position, point.transform.rotation);
+                }
+
+                ai.anim.ResetTrigger("isCharging");
+                ai.currentState = new Idle(ai.gameObject, ai.anim, ai.player, ai.boss, ai.theBossR, ai.leftSide, ai.rightSide);
+            }
+            if (other.gameObject.tag == "Player")
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage(ChargeDamage);
+            }
+        }
+
+        if (isSwipe)
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage(SwipeDamage);
+            }
         }
     }
 }
