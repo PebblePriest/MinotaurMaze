@@ -290,10 +290,10 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2, y: 2}
+  m_Size: {x: 4, y: 4.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &323017065
@@ -304,7 +304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323017061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.29, y: -2.1, z: 0}
+  m_LocalPosition: {x: 3.29, y: -1.98, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 952839501}
@@ -550,6 +550,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64220d9148f18304f8678e1ba3a7abac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCharge: 1
+  isSwipe: 0
   ChargeDamage: 20
   SwipeDamage: 0
   FallBlock: {fileID: 182847812853760272, guid: 587128b77019db74c96b6d8b33ebdd27, type: 3}
@@ -557,8 +559,6 @@ MonoBehaviour:
   - {fileID: 867041133}
   - {fileID: 543516068}
   - {fileID: 953520665}
-  isCharge: 1
-  isSwipe: 0
 --- !u!61 &952839503
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -689,12 +689,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64220d9148f18304f8678e1ba3a7abac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isCharge: 0
+  isSwipe: 1
   ChargeDamage: 0
   SwipeDamage: 10
   FallBlock: {fileID: 0}
   fbPoints: []
-  isCharge: 0
-  isSwipe: 1
 --- !u!58 &1075574260
 CircleCollider2D:
   m_ObjectHideFlags: 0

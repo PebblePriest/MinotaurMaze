@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Walking : StateEditor
 {
-    public int timer;
+    public float timer;
     
     public Walking(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR, GameObject _rightSide, GameObject _leftSide) : base(_npc, _anim, _player, _boss, _theBossR, _leftSide, _rightSide)
     {
@@ -43,16 +43,16 @@ public class Walking : StateEditor
                 nextState = new Swipe(npc, anim, player, boss, theBossR, leftSide, rightSide);
                 stage = EVENT.EXIT;
             }
-            if (timer == 3000)//this needs replaced with player health when available
+            if (timer >= 4)//this needs replaced with player health when available
             {
                 timer = 0;
                 nextState = new Charge(npc, anim, player, boss, theBossR, leftSide, rightSide);
                 stage = EVENT.EXIT;
             }
            
-        timer++;
-        
-        
+        timer += Time.deltaTime;
+
+        Debug.Log(timer);
        
 
     }
