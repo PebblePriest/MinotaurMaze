@@ -282,10 +282,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1041505789
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4411125528273042429, guid: e25178ebae75e6344ba309328fc43fb6, type: 3}
+  m_Sprite: {fileID: 7464661216298690663, guid: ca63b54028425b34c9e417e49c010234, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -293,7 +293,7 @@ SpriteRenderer:
   m_Size: {x: 4, y: 4.25}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &323017065
@@ -656,7 +656,7 @@ GameObject:
   - component: {fileID: 1075574258}
   - component: {fileID: 1075574260}
   - component: {fileID: 1075574259}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SwipeBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3172,12 +3172,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4762295199248649523, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762295199248649523, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
       propertyPath: comboAttackDamage
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4762295199248649528, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762295199248649528, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4762295199248649532, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
       propertyPath: m_RootOrder
@@ -3222,6 +3230,14 @@ PrefabInstance:
     - target: {fileID: 4762295199248649532, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762295199248649533, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762295199248649533, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -302328387
       objectReference: {fileID: 0}
     - target: {fileID: 4762295199248649534, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
       propertyPath: m_Material

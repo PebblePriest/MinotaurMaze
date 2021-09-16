@@ -51,10 +51,6 @@ public class Walking : StateEditor
             }
            
         timer += Time.deltaTime;
-
-        Debug.Log(timer);
-       
-
     }
 
     public override void Exit()

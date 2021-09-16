@@ -67,11 +67,11 @@ public class PlayerController : MonoBehaviour
             knockBackCounter -= Time.deltaTime;
             if (transform.localScale == new Vector3(1, 1, 1))
             {
-                theRB.velocity = new Vector2(+PlayerHealth.instance.knockBackForce, theRB.velocity.y);
+                theRB.velocity = new Vector2(-1f, theRB.velocity.y);
             }
             else
             {
-                theRB.velocity = new Vector2(-PlayerHealth.instance.knockBackForce, theRB.velocity.y);
+                theRB.velocity = new Vector2(+1f, theRB.velocity.y);
             }
         }
 
@@ -94,15 +94,15 @@ public class PlayerController : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (context.performed)
-        {
-            inputX = context.ReadValue<Vector2>().x;
-        }
+            if (context.performed)
+            {
+                inputX = context.ReadValue<Vector2>().x;
+            }
 
-        if (context.canceled)
-        {
-            inputX = 0;
-        }
+            if (context.canceled)
+            {
+                inputX = 0;
+            }
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
 
     public void KnockBack()
     {
-        knockBackCounter = knockBackLength;
+        knockBackCounter = .5f;
         theRB.velocity = new Vector2(0, PlayerHealth.instance.knockBackForce);
     }
 

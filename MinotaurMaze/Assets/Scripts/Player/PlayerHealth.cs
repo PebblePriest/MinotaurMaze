@@ -28,7 +28,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
 
         PlayerController.instance.KnockBack();
-        theRB.velocity = new Vector2(knockBackForce, knockBackForce);
+        
         
         //play hurt animation
 

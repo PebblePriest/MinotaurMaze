@@ -73,7 +73,6 @@ public class StateEditor
             return true;
             
         }
-        Debug.Log("Player Missing");
         return false;
     }
     public bool AttackPlayer()
