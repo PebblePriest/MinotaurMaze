@@ -8,6 +8,7 @@ TagManager:
   - Rage
   - LeftSide
   - RightSide
+  - Minotaur
   layers:
   - Default
   - TransparentFX

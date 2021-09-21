@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class cIdle : cStates
 {
+    public float timer;
     public cIdle(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR) : base(_npc, _anim, _player, _boss, _theBossR)
     {
         name = STATE.IDLE;
@@ -15,7 +16,25 @@ public class cIdle : cStates
     }
     public override void Update()
     {
-        base.Update();
+        timer += Time.deltaTime;
+        health = cEnemy.CcurrentHealth;
+
+        if (timer > 2f)
+        {
+
+            //Debug.Log("Idle Working");
+            if (FindPlayer())
+            {
+                nextState = new cWalking(npc, anim, player, cyclops, cyclopsR);
+                timer = 0;
+                stage = EVENT.EXIT;
+            }
+            else
+            {
+
+                base.Update();
+            }
+        }
     }
     public override void Exit()
     {

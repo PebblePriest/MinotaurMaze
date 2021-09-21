@@ -11,6 +11,10 @@ public class PlayerHealth : MonoBehaviour
 
     private Rigidbody2D theRB;
 
+    public GameObject H1;
+    public GameObject H2;
+    public GameObject H3;
+    public GameObject H4;
     private void Awake()
     {
         instance = this;
@@ -20,6 +24,7 @@ public class PlayerHealth : MonoBehaviour
     {
         theRB = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
+        H1.SetActive(true);
     }
     
     public void TakeDamage(int damage)
@@ -28,14 +33,30 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
 
         PlayerController.instance.KnockBack();
-        
-        
-        //play hurt animation
 
+       // Debug.Log(currentHealth);
+        //play hurt animation
+        if (currentHealth <= 75)
+        {
+            H1.SetActive(false);
+            H2.SetActive(true);
+        }
+        if (currentHealth <= 50)
+        {
+            H2.SetActive(false);
+            H3.SetActive(true);
+        }
+        if (currentHealth <= 25)
+        {
+            H3.SetActive(false);
+            H4.SetActive(true);
+        }
         if (currentHealth <= 0)
         {
+            H4.SetActive(false);
             Die();
         }
+       
     }
 
     void Die()

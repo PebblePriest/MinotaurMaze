@@ -6,7 +6,7 @@ public class cStates
 {
     public enum STATE
     {
-        IDLE, WALKING, Attack
+        IDLE, WALKING, ATTACK
     };
     public enum EVENT
     {
@@ -24,7 +24,7 @@ public class cStates
     protected SpriteRenderer cyclopsR;
     public float visDist = 8f;
     //float shootDist = 7.0f;
-    public float speed = 1f;
+    public float speed = 4f;
     public float basicAttack = 2f;
     
     public static int health;

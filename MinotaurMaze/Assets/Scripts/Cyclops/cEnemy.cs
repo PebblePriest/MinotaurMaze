@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class cEnemy : MonoBehaviour
 {
     public int maxHealth = 100;
-    public static int currentHealth;
+    public static int CcurrentHealth;
     public float knockBackForce;
 
 
@@ -13,20 +13,19 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-
         theRB = GetComponent<Rigidbody2D>();
-        currentHealth = maxHealth;
-       
+        CcurrentHealth = maxHealth;
+
     }
 
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
+        CcurrentHealth -= damage;
         theRB.velocity = new Vector2(knockBackForce, 0f);
-    
-        if (currentHealth <= 0)
+
+        if (CcurrentHealth <= 0)
         {
-            
+
             Die();
         }
     }
