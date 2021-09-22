@@ -9,8 +9,6 @@ public class PlayerHealth : MonoBehaviour
     public static int currentHealth;
     public int knockBackForce;
 
-    private Rigidbody2D theRB;
-
     public GameObject H1;
     public GameObject H2;
     public GameObject H3;
@@ -19,10 +17,9 @@ public class PlayerHealth : MonoBehaviour
     {
         instance = this;
     }
-    // Start is called before the first frame update
+
     void Start()
     {
-        theRB = GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         H1.SetActive(true);
     }
