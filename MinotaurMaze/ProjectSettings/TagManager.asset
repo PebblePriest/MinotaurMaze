@@ -9,6 +9,8 @@ TagManager:
   - LeftSide
   - RightSide
   - Minotaur
+  - Boss
+  - Enemy
   layers:
   - Default
   - TransparentFX

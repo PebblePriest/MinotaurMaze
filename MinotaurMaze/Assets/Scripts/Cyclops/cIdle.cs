@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cIdle : cStates
+public class CIdle : CStates
 {
     public float timer;
-    public cIdle(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR) : base(_npc, _anim, _player, _boss, _theBossR)
+    public CIdle(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR) : base(_npc, _anim, _player, _boss, _theBossR)
     {
         name = STATE.IDLE;
     }
     public override void Enter()
     {
-        anim.SetTrigger("isIdle");
+        //anim.SetTrigger("isIdle");
         base.Enter();
     }
     public override void Update()
     {
         timer += Time.deltaTime;
-        health = cEnemy.CcurrentHealth;
+        health = CEnemy.CcurrentHealth;
 
         if (timer > 2f)
         {
@@ -25,7 +25,7 @@ public class cIdle : cStates
             //Debug.Log("Idle Working");
             if (FindPlayer())
             {
-                nextState = new cWalking(npc, anim, player, cyclops, cyclopsR);
+                nextState = new CWalking(npc, anim, player, cyclops, cyclopsR);
                 timer = 0;
                 stage = EVENT.EXIT;
             }
@@ -38,7 +38,7 @@ public class cIdle : cStates
     }
     public override void Exit()
     {
-        anim.ResetTrigger("isIdle");
+       // anim.ResetTrigger("isIdle");
         base.Exit();
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cEnemy : MonoBehaviour
+public class CEnemy : MonoBehaviour
 {
     public int maxHealth = 100;
     public static int CcurrentHealth;

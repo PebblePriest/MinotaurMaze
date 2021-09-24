@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cStates 
+public class CStates 
 {
     public enum STATE
     {
@@ -18,7 +18,7 @@ public class cStates
     protected GameObject npc;
     protected Animator anim;
     protected GameObject player;
-    protected cStates nextState;
+    protected CStates nextState;
     protected Transform target;
     protected GameObject cyclops;
     protected SpriteRenderer cyclopsR;
@@ -29,7 +29,7 @@ public class cStates
     
     public static int health;
 
-    public cStates(GameObject _npc, Animator _anim, GameObject _player, GameObject _cyclops, SpriteRenderer _cyclopsR)
+    public CStates(GameObject _npc, Animator _anim, GameObject _player, GameObject _cyclops, SpriteRenderer _cyclopsR)
     {
         npc = _npc;
         anim = _anim;
@@ -42,7 +42,7 @@ public class cStates
     public virtual void Enter() { stage = EVENT.UPDATE; }
     public virtual void Update() { stage = EVENT.UPDATE; }
     public virtual void Exit() { stage = EVENT.EXIT; }
-    public cStates Process()
+    public CStates Process()
     {
         if (stage == EVENT.ENTER) Enter();
         if (stage == EVENT.UPDATE) Update();

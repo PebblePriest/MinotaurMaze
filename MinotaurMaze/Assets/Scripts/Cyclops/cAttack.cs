@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cAttack : cStates
+public class CAttack : CStates
 {
     public float timer;
-    public cAttack(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR) : base(_npc, _anim, _player, _boss, _theBossR)
+    public CAttack(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR) : base(_npc, _anim, _player, _boss, _theBossR)
     {
         name = STATE.ATTACK;
     }
     public override void Enter()
     {
-        anim.SetTrigger("isSwiping");
+        //anim.SetTrigger("isSwiping");
         base.Enter();
 
     }
@@ -25,7 +25,7 @@ public class cAttack : cStates
         {
             //Debug.Log("timer over");
             timer = 0;
-            nextState = new cIdle(npc, anim, player, cyclops, cyclopsR);
+            nextState = new CIdle(npc, anim, player, cyclops, cyclopsR);
             stage = EVENT.EXIT;
         }
 
@@ -35,7 +35,7 @@ public class cAttack : cStates
     public override void Exit()
     {
         //Debug.Log("swipe reset");
-        anim.ResetTrigger("isSwiping");
+        //anim.ResetTrigger("isSwiping");
         base.Exit();
     }
 }

@@ -132,11 +132,24 @@ public class PlayerController : MonoBehaviour
             isAttacking = true;
 
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+           
+               
+                foreach (Collider2D enemy in hitEnemies)
+                {
+                    if(enemy.gameObject.tag == "Boss")
+                    {
+                    
+                    enemy.GetComponent<Enemy>().TakeDamage(comboAttackDamage);
+                    }
+                    else
+                    {
+                    
+                    enemy.GetComponent<CEnemy>().TakeDamage(comboAttackDamage);
+                }
+                    
+                }
 
-            foreach (Collider2D enemy in hitEnemies)
-            {
-                enemy.GetComponent<Enemy>().TakeDamage(comboAttackDamage);
-            }
+
         }
     }
 
