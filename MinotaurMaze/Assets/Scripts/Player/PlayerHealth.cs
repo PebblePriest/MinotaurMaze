@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -13,10 +14,8 @@ public class PlayerHealth : MonoBehaviour
     public float invincibleLength;
     private float invincibleCounter;
 
-    public GameObject H1;
-    public GameObject H2;
-    public GameObject H3;
-    public GameObject H4;
+    public Slider healthSlider;
+
     private void Awake()
     {
         instance = this;
@@ -26,7 +25,6 @@ public class PlayerHealth : MonoBehaviour
     {
         theSR = GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
-        H1.SetActive(true);
     }
 
     private void Update()
@@ -50,27 +48,13 @@ public class PlayerHealth : MonoBehaviour
             currentHealth -= damage;
 
             PlayerController.instance.KnockBack();
-
+            healthSlider.value = currentHealth;
             //Debug.Log(currentHealth);
             //play hurt animation
-            if (currentHealth <= 75)
-            {
-                H1.SetActive(false);
-                H2.SetActive(true);
-            }
-            if (currentHealth <= 50)
-            {
-                H2.SetActive(false);
-                H3.SetActive(true);
-            }
-            if (currentHealth <= 25)
-            {
-                H3.SetActive(false);
-                H4.SetActive(true);
-            }
+            PlayerController.instance.anim.SetTrigger("isHurt");
+            
             if (currentHealth <= 0)
             {
-                H4.SetActive(false);
                 Die();
             }
             else
