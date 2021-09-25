@@ -70,7 +70,12 @@ public class PlayerHealth : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        GameManager.instance.RespawnPlayer();
         Debug.Log("Player Died");
+    }
+
+    public void ResetHealth()
+    {
+        currentHealth = maxHealth;
     }
 }
