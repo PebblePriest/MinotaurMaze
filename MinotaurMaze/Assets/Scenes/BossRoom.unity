@@ -191,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   knockBackForce: 0
+  invincibleLength: 2
   H1: {fileID: 1479572375}
   H2: {fileID: 359362420}
   H3: {fileID: 1149685867}
@@ -36846,8 +36847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5293dbc30f7764184b99018a206a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
-  knockBackForce: 0
 --- !u!70 &2131622315
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -36971,11 +36970,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4762295199248649532, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -102.95
+      value: -7.23
       objectReference: {fileID: 0}
     - target: {fileID: 4762295199248649532, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.81
+      value: 3.02
       objectReference: {fileID: 0}
     - target: {fileID: 4762295199248649532, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -37008,6 +37007,22 @@ PrefabInstance:
     - target: {fileID: 4762295199248649532, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762295199248649533, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762295199248649533, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762295199248649533, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762295199248649533, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4762295199248649533, guid: 35e1417165253e94ca2ebaaad89f0fc5, type: 3}
       propertyPath: m_SortingLayer
