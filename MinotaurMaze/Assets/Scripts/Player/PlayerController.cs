@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     public float knockBackLength;
     private float knockBackCounter;
 
+
+
     private void Awake()
     {
         instance = this;
@@ -38,15 +40,22 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         theRB = GetComponent<Rigidbody2D>();
-        //theSR = GetComponent<SpriteRenderer>();
-        anim = GetComponent<Animator>();
 
         movingSpeed = moveSpeed;
     }
 
     void Update()
     {
-        if(knockBackCounter <= 0)
+        if (inputX == 0)
+        {
+            theRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        }
+        else
+        {
+            theRB.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
+        }
+
+        if (knockBackCounter <= 0)
         {
             theRB.velocity = new Vector2(inputX * moveSpeed, theRB.velocity.y);
 

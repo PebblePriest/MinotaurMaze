@@ -19,6 +19,12 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene("BossRoom");
+    }
+
+    public void LoadGame()
+    {
         SceneManager.LoadScene("BossRoom");
     }
 

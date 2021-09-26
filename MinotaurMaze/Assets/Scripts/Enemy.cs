@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Enemy : MonoBehaviour
     public GameObject MinoDeadBody, MinoHead;
     private Rigidbody2D theRB;
     public static bool isBoss;
+
+    public Slider HealthBar;
 
     void Start()
     {
@@ -23,6 +26,7 @@ public class Enemy : MonoBehaviour
     {
         currentHealth -= damage;
         theRB.velocity = new Vector2(knockBackForce, 0f);
+        HealthBar.value = currentHealth;
         Debug.Log(currentHealth);
         if (currentHealth <= 0)
         {
