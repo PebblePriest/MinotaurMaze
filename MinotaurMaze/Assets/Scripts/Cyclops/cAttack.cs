@@ -11,7 +11,7 @@ public class CAttack : CStates
     }
     public override void Enter()
     {
-        //anim.SetTrigger("isSwiping");
+        anim.SetTrigger("isAttacking");
         base.Enter();
 
     }
@@ -35,7 +35,7 @@ public class CAttack : CStates
     public override void Exit()
     {
         //Debug.Log("swipe reset");
-        //anim.ResetTrigger("isSwiping");
+        anim.ResetTrigger("isAttacking");
         base.Exit();
     }
 }

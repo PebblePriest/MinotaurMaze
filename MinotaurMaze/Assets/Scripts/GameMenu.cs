@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject endScreen;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,11 @@ public class GameMenu : MonoBehaviour
         PlayerController.instance.transform.position = new Vector2(PlayerPrefs.GetFloat("PlayerX"), PlayerPrefs.GetFloat("PlayerY"));
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
+        endScreen.SetActive(false);
+        //if (endScreen.activeSelf)
+        //{
+            
+        //}
     }
 
     public void ReturnToMenu()

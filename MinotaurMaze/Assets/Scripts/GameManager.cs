@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 
     public float waitToRespawn;
 
+    public GameObject EndScreen;
+
     private void Awake()
     {
         instance = this;
@@ -37,5 +39,18 @@ public class GameManager : MonoBehaviour
         PlayerHealth.instance.ResetHealth();
 
         PlayerController.instance.transform.position = CheckPointController.instance.spawnPoint;
+    }
+
+    public void EndGame()
+    {
+        StartCoroutine(EndGameCo());
+    }
+
+    private IEnumerator EndGameCo()
+    {
+        yield return new WaitForSeconds(5);
+
+        EndScreen.SetActive(true);
+        Time.timeScale = 0;
     }
 }

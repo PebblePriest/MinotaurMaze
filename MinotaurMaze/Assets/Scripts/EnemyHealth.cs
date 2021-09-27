@@ -9,5 +9,6 @@ public class EnemyHealth : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
             HealthBar.SetActive(true);
+            this.gameObject.SetActive(false);
     }
 }

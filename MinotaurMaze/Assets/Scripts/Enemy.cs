@@ -58,7 +58,7 @@ public class Enemy : MonoBehaviour
         }
         
         Destroy(gameObject);
-
+        GameManager.instance.EndGame();
         Debug.Log("Enemy Died");
     }
 }

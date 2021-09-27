@@ -11,7 +11,7 @@ public class CWalking : CStates
     }
     public override void Enter()
     {
-        //anim.SetTrigger("isWalking");
+        anim.SetTrigger("isWalking");
         timer = 0;
         base.Enter();
     }
@@ -40,7 +40,7 @@ public class CWalking : CStates
     }
     public override void Exit()
     {
-       //anim.ResetTrigger("isWalking");
+       anim.ResetTrigger("isWalking");
         base.Exit();
     }
 }

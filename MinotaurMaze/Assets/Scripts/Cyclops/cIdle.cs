@@ -11,7 +11,7 @@ public class CIdle : CStates
     }
     public override void Enter()
     {
-        //anim.SetTrigger("isIdle");
+        anim.SetTrigger("isIdle");
         base.Enter();
     }
     public override void Update()
@@ -38,7 +38,7 @@ public class CIdle : CStates
     }
     public override void Exit()
     {
-       // anim.ResetTrigger("isIdle");
+        anim.ResetTrigger("isIdle");
         base.Exit();
     }
 }

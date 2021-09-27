@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class CyclopsAI : MonoBehaviour
 {
-    Animator anim;
-    GameObject player;
-    CStates currentState;
-    Transform target;
-    GameObject cyclops;
-    SpriteRenderer cyclopsR;
+    public Animator anim;
+    public GameObject player;
+    public CStates currentState;
+    public Transform target;
+    public GameObject cyclops;
+    public SpriteRenderer cyclopsR;
 
 
 
