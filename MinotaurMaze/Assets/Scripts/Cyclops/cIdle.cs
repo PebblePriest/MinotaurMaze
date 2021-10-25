@@ -17,7 +17,7 @@ public class CIdle : CStates
     public override void Update()
     {
         timer += Time.deltaTime;
-        health = CEnemy.CcurrentHealth;
+        //health = CEnemy.CcurrentHealth;
 
         if (timer > 2f)
         {

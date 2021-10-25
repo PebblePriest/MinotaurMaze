@@ -5,7 +5,7 @@ using UnityEngine;
 public class CEnemy : MonoBehaviour
 {
     public int maxHealth = 100;
-    public static int CcurrentHealth;
+    public int CcurrentHealth;
     public float knockBackForce;
 
 

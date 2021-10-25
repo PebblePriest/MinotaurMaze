@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
         if (inputX == 0 && knockBackCounter <= 0)
         {
             theRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
@@ -73,6 +74,7 @@ public class PlayerController : MonoBehaviour
        
         else
         {
+            //knock back to left/right
             knockBackCounter -= Time.deltaTime;
             if (transform.localScale == new Vector3(1, 1, 1))
             {
@@ -147,14 +149,12 @@ public class PlayerController : MonoBehaviour
                 {
                     if(enemy.gameObject.tag == "Boss")
                     {
-                    
-                    enemy.GetComponent<Enemy>().TakeDamage(comboAttackDamage);
+                        enemy.GetComponent<Enemy>().TakeDamage(comboAttackDamage);
                     }
-                    else
+                    if (enemy.gameObject.tag == "Enemy")
                     {
-                    
-                    enemy.GetComponent<CEnemy>().TakeDamage(comboAttackDamage);
-                }
+                        enemy.GetComponent<CEnemy>().TakeDamage(comboAttackDamage);
+                    }
                     
                 }
 
