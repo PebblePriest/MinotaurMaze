@@ -12,6 +12,9 @@ TagManager:
   - Boss
   - Enemy
   - Platform
+  - Bullet
+  - Background
+  - HealthSlider
   layers:
   - Default
   - TransparentFX

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; set; }
@@ -10,15 +10,18 @@ public class GameManager : MonoBehaviour
 
     public GameObject EndScreen;
 
+    public GameObject playerPrefab;
+
     private void Awake()
     {
         instance = this;
-        PlayerController.instance.transform.position = new Vector2(PlayerPrefs.GetFloat("PlayerX"), PlayerPrefs.GetFloat("PlayerY"));
+        
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        SpawnPlayer();
+        PlayerController.instance.transform.position = new Vector2(PlayerPrefs.GetFloat("PlayerX"), PlayerPrefs.GetFloat("PlayerY"));
     }
 
     // Update is called once per frame
@@ -52,5 +55,9 @@ public class GameManager : MonoBehaviour
 
         EndScreen.SetActive(true);
         Time.timeScale = 0;
+    }
+    public void SpawnPlayer()
+    {
+        PhotonNetwork.Instantiate(playerPrefab.name, playerPrefab.transform.position, playerPrefab.transform.rotation);
     }
 }

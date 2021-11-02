@@ -16,6 +16,7 @@ public class CameraScript : MonoBehaviour
     void Start()
     {
         lastPos = transform.position;
+        Background = GameObject.FindWithTag("Background").transform;
     }
 
     // Update is called once per frame

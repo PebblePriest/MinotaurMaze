@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class PlayerHealth : MonoBehaviour
+using Photon.Pun;
+public class PlayerHealth : MonoBehaviourPun, IPunObservable
 {
     public static PlayerHealth instance;
     public int maxHealth = 100;
@@ -16,28 +16,48 @@ public class PlayerHealth : MonoBehaviour
 
     public Slider healthSlider;
 
+    public PhotonView photonview;
+    private Vector3 smoothMove;
+
+    public GameObject sceneCamera;
+    public GameObject playerCamera;
     private void Awake()
     {
         instance = this;
+
     }
 
     void Start()
     {
-        theSR = GetComponent<SpriteRenderer>();
-        currentHealth = maxHealth;
+        if (photonView.IsMine)
+        {
+            sceneCamera = GameObject.Find("Main Camera");
+            healthSlider = GameObject.FindWithTag("HealthSlider").GetComponent<Slider>();
+            theSR = GetComponent<SpriteRenderer>();
+            currentHealth = maxHealth;
+            sceneCamera.SetActive(false);
+            playerCamera.SetActive(true);
+        }
+       
     }
 
     private void Update()
     {
-        if(invincibleCounter > 0)
+        if(photonView.IsMine)
         {
-            invincibleCounter -= Time.deltaTime;
-
-            if(invincibleCounter <= 0)
+            
+            if (invincibleCounter > 0)
             {
-                theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, 1f);
+                invincibleCounter -= Time.deltaTime;
+
+                if (invincibleCounter <= 0)
+                {
+                    theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, 1f);
+                }
             }
         }
+     
+       
     }
 
     public void TakeDamage(int damage)
@@ -78,5 +98,20 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthSlider.value = currentHealth;
+    }
+    public void smoothMovement()
+    {
+        transform.position = Vector3.Lerp(transform.position, smoothMove, Time.deltaTime * 10);
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if(stream.IsWriting)
+        {
+            stream.SendNext(transform.position);
+        }else if (stream.IsReading)
+        {
+            smoothMove = (Vector3)stream.ReceiveNext();
+        }
     }
 }
