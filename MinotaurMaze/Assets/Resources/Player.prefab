@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3168061252436849763}
   - component: {fileID: 3168061252436849762}
-  - component: {fileID: 3168061252436849760}
   - component: {fileID: 3168061252436849772}
+  - component: {fileID: 3168061252436849760}
   - component: {fileID: 3168061252436849773}
   - component: {fileID: 3168061252436849774}
   - component: {fileID: 3168061252436849761}
@@ -93,27 +93,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &3168061252436849760
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3168061252436849767}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 5
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!114 &3168061252436849772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +117,27 @@ MonoBehaviour:
     m_Bits: 64
   comboAttackDamage: 5
   knockBackLength: 0
+--- !u!50 &3168061252436849760
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3168061252436849767}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 5
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!114 &3168061252436849773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +259,38 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9d24602b-7ef6-42ff-8d13-d9187e2980c0
     m_ActionName: UI/OpenPause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d734dc47-cf9e-4ce5-95fc-2cee7e4c67b1
+    m_ActionName: Player2/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0f375db3-c002-436e-a43b-b7a050c5927f
+    m_ActionName: Player2/Look[/Mouse/delta]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d477c82a-50d0-4164-b377-7f0bd4d3ec89
+    m_ActionName: Player2/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e8ba3fc8-32cc-48ea-b5ad-4ce29270a2ff
+    m_ActionName: Player2/Attack[/Keyboard/j]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0067291f-e15a-4232-8948-ec99d5a5a377
+    m_ActionName: Player2/Special[/Keyboard/k]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6f269891-ce75-4bf0-8758-c8d02f64d4ce
+    m_ActionName: Player2/Shift[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2bf0d390-0b8e-4464-8830-959dea8d4e9d
+    m_ActionName: MultiPlayerSelect/Toggle[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: eae04e30-9ab7-426a-9adf-b25e405e497f
+    m_ActionName: MultiPlayerSelect/Select[/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
