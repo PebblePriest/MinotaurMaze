@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject EndScreen;
 
-    public GameObject playerPrefab;
+    public GameObject playerPrefab, player2Prefab;
 
     private void Awake()
     {
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     {
         SpawnPlayer();
         PlayerController.instance.transform.position = new Vector2(PlayerPrefs.GetFloat("PlayerX"), PlayerPrefs.GetFloat("PlayerY"));
+        Player2Controller.instance.transform.position = new Vector2(PlayerController.instance.transform.position.x -1, PlayerController.instance.transform.position.y);
     }
 
     // Update is called once per frame
@@ -59,5 +60,6 @@ public class GameManager : MonoBehaviour
     public void SpawnPlayer()
     {
         PhotonNetwork.Instantiate(playerPrefab.name, playerPrefab.transform.position, playerPrefab.transform.rotation);
+        PhotonNetwork.Instantiate(player2Prefab.name, player2Prefab.transform.position, player2Prefab.transform.rotation);
     }
 }
