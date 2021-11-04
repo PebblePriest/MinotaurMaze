@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
+using Photon.Realtime;
 
 public class MpCharSelect : MonoBehaviour
 {
     public GameObject p1, p2;
-    public Transform point1, point2, point3;
+    public Transform point1, point2, point3, point21, point22, point23;
     public int position = 1;
     private float inputX;
 
@@ -19,22 +21,56 @@ public class MpCharSelect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(position == 0)
+        if (PhotonNetwork.IsMasterClient)
         {
-            //p1.transform.position = point1.position;
-            p1.transform.position = Vector3.Lerp(p1.transform.position, point1.position, 5f * Time.deltaTime);
-        }
-        else if(position == 1)
-        {
-            //p1.transform.position = point2.position;
-            p1.transform.position = Vector3.Lerp(p1.transform.position, point2.position, 5f * Time.deltaTime);
+            
+            
+            //if(photonview.IsMine)
+            //{
 
-        }
-        else if(position == 2)
-        {
-            //p1.transform.position = point3.position;
-            p1.transform.position = Vector3.Lerp(p1.transform.position, point3.position, 5f * Time.deltaTime);
+            if (position == 0)
+            {
+                //p1.transform.position = point1.position;
+                p1.transform.position = Vector3.Lerp(p1.transform.position, point1.position, 5f * Time.deltaTime);
+            }
+            else if (position == 1)
+            {
+                //p1.transform.position = point2.position;
+                p1.transform.position = Vector3.Lerp(p1.transform.position, point2.position, 5f * Time.deltaTime);
 
+            }
+            else if (position == 2)
+            {
+                //p1.transform.position = point3.position;
+                p1.transform.position = Vector3.Lerp(p1.transform.position, point3.position, 5f * Time.deltaTime);
+
+            }
+            //}
+        }
+        else
+        {
+          
+            //if(photonview.IsMine)
+            //{
+
+            if (position == 0)
+            {
+                //p1.transform.position = point1.position;
+                p2.transform.position = Vector3.Lerp(p2.transform.position, point1.position, 5f * Time.deltaTime);
+            }
+            else if (position == 1)
+            {
+                //p1.transform.position = point2.position;
+                p2.transform.position = Vector3.Lerp(p2.transform.position, point2.position, 5f * Time.deltaTime);
+
+            }
+            else if (position == 2)
+            {
+                //p1.transform.position = point3.position;
+                p2.transform.position = Vector3.Lerp(p2.transform.position, point3.position, 5f * Time.deltaTime);
+
+            }
+            //}
         }
     }
 

@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject playerPrefab, player2Prefab;
 
+    public GameObject[] playerPrefabs;
+
     private void Awake()
     {
         instance = this;
@@ -20,6 +22,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //GameObject playerToSpawn = playerPrefabs[PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
         SpawnPlayer();
         PlayerController.instance.transform.position = new Vector2(PlayerPrefs.GetFloat("PlayerX"), PlayerPrefs.GetFloat("PlayerY"));
         Player2Controller.instance.transform.position = new Vector2(PlayerController.instance.transform.position.x -1, PlayerController.instance.transform.position.y);
