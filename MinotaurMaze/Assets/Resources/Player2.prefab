@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efccde8dbc621d4f9a6bf0eb47c4422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 5090191543144274393}
   Background: {fileID: 0}
   minHeight: -11.3
   maxHeight: 4.1
@@ -197,13 +197,15 @@ GameObject:
   - component: {fileID: 5090191543144274406}
   - component: {fileID: 5090191543144274407}
   - component: {fileID: 5090191543144274392}
+  - component: {fileID: -6092741348012172944}
+  - component: {fileID: -5460207611109326842}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5090191543144274393
 Transform:
   m_ObjectHideFlags: 0
@@ -296,7 +298,6 @@ MonoBehaviour:
     m_Bits: 0
   comboAttackDamage: 0
   knockBackLength: 0
-  photonview: {fileID: 0}
 --- !u!114 &5090191543144274396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,10 +554,44 @@ MonoBehaviour:
   Synchronization: 3
   OwnershipTransfer: 0
   observableSearch: 2
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: -6092741348012172944}
+  - {fileID: -5460207611109326842}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &-6092741348012172944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5090191543144274398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 1
+  m_UseLocal: 1
+--- !u!114 &-5460207611109326842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5090191543144274398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!1 &5090191543629194282
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,6 +31,7 @@ public class Player2Controller : MonoBehaviour
     public float knockBackLength;
     private float knockBackCounter;
 
+    PhotonView view;
 
     private void Awake()
     {
@@ -39,6 +40,7 @@ public class Player2Controller : MonoBehaviour
 
     void Start()
     {
+        view = GetComponent<PhotonView>();
             theRB = GetComponent<Rigidbody2D>();
 
             movingSpeed = moveSpeed;
@@ -46,6 +48,10 @@ public class Player2Controller : MonoBehaviour
 
     void Update()
     {
+        if (view.IsMine)
+        {
+
+
             //keeps player from sliding down slopes
             if (inputX == 0 && knockBackCounter <= 0)
             {
@@ -89,10 +95,14 @@ public class Player2Controller : MonoBehaviour
             anim.SetFloat("moveSpeed", Mathf.Abs(theRB.velocity.x));
             anim.SetBool("isGrounded", GroundCheck.instance.isGrounded);
             anim.SetFloat("yVelocity", theRB.velocity.y);
+
+        }
     }
 
     private void FixedUpdate()
     {
+        if (view.IsMine)
+        {
             //keep player from flipping between moving and attacking
             if (!isAttacking)
             {
@@ -102,36 +112,47 @@ public class Player2Controller : MonoBehaviour
             {
                 StopMovement();
             }
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (view.IsMine)
         {
-            inputX = context.ReadValue<Vector2>().x;
-        }
 
-        if (context.canceled)
-        {
-            inputX = 0;
+
+            if (context.performed)
+            {
+                inputX = context.ReadValue<Vector2>().x;
+            }
+
+            if (context.canceled)
+            {
+                inputX = 0;
+            }
         }
+        
     }
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (canJump)
+        if (view.IsMine)
         {
-            if (context.performed && GroundCheck.instance.isGrounded == true)
+
+            if (canJump)
             {
-                theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
-                //canDoubleJump = true;
-            }
-            else
-            {
-                if (context.performed && canDoubleJump)
+                if (context.performed && GroundCheck.instance.isGrounded == true)
                 {
                     theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
-                    canDoubleJump = false;
+                    //canDoubleJump = true;
+                }
+                else
+                {
+                    if (context.performed && canDoubleJump)
+                    {
+                        theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
+                        canDoubleJump = false;
+                    }
                 }
             }
         }
@@ -139,43 +160,53 @@ public class Player2Controller : MonoBehaviour
 
     public void Attack(InputAction.CallbackContext context)
     {
-        if (context.performed && GroundCheck.instance.isGrounded && !isAttacking)
+        if (view.IsMine)
         {
-            isAttacking = true;
 
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-
-            foreach (Collider2D enemy in hitEnemies)
+            if (context.performed && GroundCheck.instance.isGrounded && !isAttacking)
             {
-                if (enemy.gameObject.tag == "Boss")
+                isAttacking = true;
+
+                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+
+                foreach (Collider2D enemy in hitEnemies)
                 {
-                    enemy.GetComponent<Enemy>().TakeDamage(comboAttackDamage);
+                    if (enemy.gameObject.tag == "Boss")
+                    {
+                        enemy.GetComponent<Enemy>().TakeDamage(comboAttackDamage);
+                    }
+                    if (enemy.gameObject.tag == "Enemy")
+                    {
+                        enemy.GetComponent<CEnemy>().TakeDamage(comboAttackDamage);
+                    }
+
                 }
-                if (enemy.gameObject.tag == "Enemy")
-                {
-                    enemy.GetComponent<CEnemy>().TakeDamage(comboAttackDamage);
-                }
+
 
             }
-
-
         }
     }
 
     public void Special(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (view.IsMine)
         {
-            Debug.Log("Based on host, perform special ability");
+            if (context.performed)
+            {
+                Debug.Log("Based on host, perform special ability");
+            }
         }
     }
 
     public void Shift(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (view.IsMine)
         {
-            Debug.Log("Force leave host body");
+            if (context.performed)
+            {
+                Debug.Log("Force leave host body");
+            }
         }
     }
 
@@ -201,7 +232,10 @@ public class Player2Controller : MonoBehaviour
 
     public void KnockBack()
     {
+        if (view.IsMine)
+        {
             knockBackCounter = .5f;
             theRB.velocity = new Vector2(0, PlayerHealth.instance.knockBackForce);
+        }
     }
 }

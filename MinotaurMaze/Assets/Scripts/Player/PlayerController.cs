@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Photon.Pun;
 
 public class PlayerController : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class PlayerController : MonoBehaviour
     public float knockBackLength;
     private float knockBackCounter;
 
-
+    PhotonView view;
 
     private void Awake()
     {
@@ -39,6 +40,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        view = GetComponent<PhotonView>();
+
         theRB = GetComponent<Rigidbody2D>();
 
         movingSpeed = moveSpeed;
@@ -46,62 +49,67 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //keeps player from sliding down slopes
-        if (inputX == 0 && knockBackCounter <= 0)
+        if (view.IsMine)
         {
-            theRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-        }
-        else
-        {
-            theRB.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
-        }
 
-        //Controls movement, lets player move as long as not being knocked back
-        if (knockBackCounter <= 0)
-        {
-            theRB.velocity = new Vector2(inputX * moveSpeed, theRB.velocity.y);
-
-            if (theRB.velocity.x < 0)
+            //keeps player from sliding down slopes
+            if (inputX == 0 && knockBackCounter <= 0)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
-            }
-            else if (theRB.velocity.x > 0)
-            {
-                transform.localScale = new Vector3(1, 1, 1);
-            }
-        }
-       
-        else
-        {
-            //knock back to left/right
-            knockBackCounter -= Time.deltaTime;
-            if (transform.localScale == new Vector3(1, 1, 1))
-            {
-                theRB.velocity = new Vector2(-1f, theRB.velocity.y);
+                theRB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
             }
             else
             {
-                theRB.velocity = new Vector2(+1f, theRB.velocity.y);
+                theRB.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
             }
-        }
 
-        //manage animations
-        anim.SetFloat("moveSpeed", Mathf.Abs(theRB.velocity.x));
-        anim.SetBool("isGrounded", GroundCheck.instance.isGrounded);
-        anim.SetFloat("yVelocity", theRB.velocity.y);
+            //Controls movement, lets player move as long as not being knocked back
+            if (knockBackCounter <= 0)
+            {
+                theRB.velocity = new Vector2(inputX * moveSpeed, theRB.velocity.y);
+
+                if (theRB.velocity.x < 0)
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                }
+                else if (theRB.velocity.x > 0)
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                }
+            }
+
+            else
+            {
+                //knock back to left/right
+                knockBackCounter -= Time.deltaTime;
+                if (transform.localScale == new Vector3(1, 1, 1))
+                {
+                    theRB.velocity = new Vector2(-1f, theRB.velocity.y);
+                }
+                else
+                {
+                    theRB.velocity = new Vector2(+1f, theRB.velocity.y);
+                }
+            }
+
+            //manage animations
+            anim.SetFloat("moveSpeed", Mathf.Abs(theRB.velocity.x));
+            anim.SetBool("isGrounded", GroundCheck.instance.isGrounded);
+            anim.SetFloat("yVelocity", theRB.velocity.y);
+
+        }
     }
 
     private void FixedUpdate()
     {
-        //keep player from flipping between moving and attacking
-        if (!isAttacking)
-        {
-            ResetMovement();
-        }
-        else if (isAttacking)
-        {
-            StopMovement();
-        }
+            //keep player from flipping between moving and attacking
+            if (!isAttacking)
+            {
+                ResetMovement();
+            }
+            else if (isAttacking)
+            {
+                StopMovement();
+            }
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -119,36 +127,37 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
-        if (canJump)
-        {
-            if (context.performed && GroundCheck.instance.isGrounded == true)
+            if (canJump)
             {
-                theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
-                canDoubleJump = true;
-            }
-            else
-            {
-                if (context.performed && canDoubleJump)
+                if (context.performed && GroundCheck.instance.isGrounded == true)
                 {
                     theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
-                    canDoubleJump = false;
+                    canDoubleJump = true;
+                }
+                else
+                {
+                    if (context.performed && canDoubleJump)
+                    {
+                        theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
+                        canDoubleJump = false;
+                    }
                 }
             }
-        }
     }
 
     public void Attack(InputAction.CallbackContext context)
     {
-        if (context.performed && GroundCheck.instance.isGrounded && !isAttacking)
-        {
-            isAttacking = true;
+       
+            if (context.performed && GroundCheck.instance.isGrounded && !isAttacking)
+            {
+                isAttacking = true;
 
-            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-           
-               
+                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+
                 foreach (Collider2D enemy in hitEnemies)
                 {
-                    if(enemy.gameObject.tag == "Boss")
+                    if (enemy.gameObject.tag == "Boss")
                     {
                         enemy.GetComponent<Enemy>().TakeDamage(comboAttackDamage);
                     }
@@ -156,10 +165,11 @@ public class PlayerController : MonoBehaviour
                     {
                         enemy.GetComponent<CEnemy>().TakeDamage(comboAttackDamage);
                     }
-                    
+
                 }
 
 
+            
         }
     }
 
@@ -185,8 +195,11 @@ public class PlayerController : MonoBehaviour
 
     public void KnockBack()
     {
-        knockBackCounter = .5f;
-        theRB.velocity = new Vector2(0, PlayerHealth.instance.knockBackForce);
+        if (view.IsMine)
+        {
+            knockBackCounter = .5f;
+            theRB.velocity = new Vector2(0, PlayerHealth.instance.knockBackForce);
+        }
     }
 
 }
