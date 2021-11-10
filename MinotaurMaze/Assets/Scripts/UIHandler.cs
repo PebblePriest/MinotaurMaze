@@ -43,7 +43,6 @@ public class UIHandler : MonoBehaviourPunCallbacks
         lobbyPanel.SetActive(false);
         roomPanel.SetActive(true);
         roomName.text = "Room Name: " + PhotonNetwork.CurrentRoom.Name;
-        UpdatePlayerList();
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)
@@ -84,68 +83,8 @@ public class UIHandler : MonoBehaviourPunCallbacks
         roomPanel.SetActive(false);
         lobbyPanel.SetActive(true);
     }
-    void UpdatePlayerList()
-    {
-        foreach( PlayerItem item in playerItemsList)
-        {
-            Destroy(item.gameObject);
-        }
-        playerItemsList.Clear();
-        if(PhotonNetwork.CurrentRoom == null)
-        {
-            return;
-        }
-        
-        foreach (KeyValuePair<int, Player> player in PhotonNetwork.CurrentRoom.Players)
-        {
-            float count = 0;
-            count++;
-            if (count == 1)
-            {
-                SetPlayerName(player.Value);
-            }
-            else if(count == 2)
-            {
-                SetPlayerName2(player.Value);
-            }
-            //PlayerItem newPlayerItem = Instantiate(playerItemPrefab, playerItemParent);
-            //newPlayerItem.SetPlayerName(player.Value);
-            //if(player.Value == PhotonNetwork.LocalPlayer)
-            //{
-            //    newPlayerItem.ApplyChanges();
-            //}
-            //playerItemsList.Add(newPlayerItem);
-        }
-
-    }
-    public void SetPlayerName(Player _player)
-    {
-        p1.text = _player.NickName;
-    }
-    public void SetPlayerName2(Player _player)
-    {
-        p2.text = _player.NickName;
-    }
-    public override void OnPlayerEnteredRoom(Player newPlayer)
-    {
-        UpdatePlayerList();
-    }
-    public override void OnPlayerLeftRoom(Player otherPlayer)
-    {
-        UpdatePlayerList();
-
-    }
-    private void Update()
-    {
-        if(PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= 2)
-        {
-            playBtn.SetActive(true);
-        }
-        else
-        {
-            playBtn.SetActive(false);
-        }
-    }
+    
+    
     public void OnClickPlayButton()
     {
         PhotonNetwork.LoadLevel(1);

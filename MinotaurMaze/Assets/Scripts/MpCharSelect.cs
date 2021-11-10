@@ -1,103 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using Photon.Pun;
 using Photon.Realtime;
 
-public class MpCharSelect : MonoBehaviour
+public class MpCharSelect : MonoBehaviourPunCallbacks, IPunObservable
 {
-    public GameObject p1, p2;
-    public Transform point1, point2, point3, point21, point22, point23;
+    public static MpCharSelect instance;
+    public GameObject startButton;
     public int position = 1;
     private float inputX;
+    public bool isSpartan, isEye;
+    PhotonView view;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        instance = this;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public void LateUpdate()
     {
-        if (PhotonNetwork.IsMasterClient)
+       
+        if(isEye == true && isSpartan == true)
         {
-            
-            
-            //if(photonview.IsMine)
-            //{
-
-            if (position == 0)
-            {
-                //p1.transform.position = point1.position;
-                p1.transform.position = Vector3.Lerp(p1.transform.position, point1.position, 5f * Time.deltaTime);
-            }
-            else if (position == 1)
-            {
-                //p1.transform.position = point2.position;
-                p1.transform.position = Vector3.Lerp(p1.transform.position, point2.position, 5f * Time.deltaTime);
-
-            }
-            else if (position == 2)
-            {
-                //p1.transform.position = point3.position;
-                p1.transform.position = Vector3.Lerp(p1.transform.position, point3.position, 5f * Time.deltaTime);
-
-            }
-            //}
+            startButton.SetActive(true);
         }
         else
         {
-          
-            //if(photonview.IsMine)
-            //{
-
-            if (position == 0)
-            {
-                //p1.transform.position = point1.position;
-                p2.transform.position = Vector3.Lerp(p2.transform.position, point1.position, 5f * Time.deltaTime);
-            }
-            else if (position == 1)
-            {
-                //p1.transform.position = point2.position;
-                p2.transform.position = Vector3.Lerp(p2.transform.position, point2.position, 5f * Time.deltaTime);
-
-            }
-            else if (position == 2)
-            {
-                //p1.transform.position = point3.position;
-                p2.transform.position = Vector3.Lerp(p2.transform.position, point3.position, 5f * Time.deltaTime);
-
-            }
-            //}
+            startButton.SetActive(false);
+        }
+    }
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(isSpartan);
+            stream.SendNext(isEye);
+        }
+        else
+        {
+            this.isSpartan = (bool)stream.ReceiveNext();
+            this.isEye = (bool)stream.ReceiveNext();
         }
     }
 
-    public void SelectionMove(InputAction.CallbackContext context)
+    public void StartMulti()
     {
-        if (context.performed)
-        {
-            inputX = context.ReadValue<Vector2>().x;
-
-            if(position >= 0 && inputX > 0 && position !=2)
-            {
-                position++;
-            }
-            else if(position <= 2 && inputX < 0 && position != 0)
-            {
-                position--;
-            }
-        }
-
-        if (context.canceled)
-        {
-            inputX = 0;
-        }
-    }
-
-    public void StartMulti(InputAction.CallbackContext context)
-    {
-
+        PhotonNetwork.LoadLevel(1);
     }
 }

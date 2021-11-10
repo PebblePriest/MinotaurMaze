@@ -12,14 +12,16 @@ public class Launcher : MonoBehaviourPunCallbacks
     public Text buttonText;
     public void OnClick_ConnecBtn()
     {
-        if(usernameInput.text.Length >= 1)
-        {
-            PhotonNetwork.NickName = usernameInput.text;
-            buttonText.text = "Connecting...";
-            PhotonNetwork.AutomaticallySyncScene = true;
-            PhotonNetwork.ConnectUsingSettings();
+
+        buttonText.text = "Connecting...";
+        PhotonNetwork.AutomaticallySyncScene = true;
+        PhotonNetwork.ConnectUsingSettings();
+        //if (usernameInput.text.Length >= 1)
+        //{
+        //    //PhotonNetwork.NickName = usernameInput.text;
             
-        }
+            
+        //}
         
     }
     public override void OnConnectedToMaster()
