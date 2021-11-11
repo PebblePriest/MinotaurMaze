@@ -241,8 +241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waitToRespawn: 0.5
   EndScreen: {fileID: 853915585}
-  playerPrefab: {fileID: 3168061252436849767, guid: c8a5f3a495c767849a5c5e3be4475b3c, type: 3}
-  player2Prefab: {fileID: 5090191543144274398, guid: f9eb3f5d2c2b68942b2fcfeecb020f32, type: 3}
+  playerPrefab: {fileID: 3676885716634258456, guid: a994fdcca7970ee458925e25b3ed23e8, type: 3}
   playerPrefabs: []
 --- !u!4 &46198855
 Transform:
