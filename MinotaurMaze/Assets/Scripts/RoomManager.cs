@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class RoomManager : MonoBehaviourPunCallbacks, IInRoomCallbacks
 {
     //Room Info
-    public static RoomManager room;
+    public RoomManager room;
     private PhotonView PV;
     public int currentScene;
     public int playScene;
@@ -26,16 +26,16 @@ public class RoomManager : MonoBehaviourPunCallbacks, IInRoomCallbacks
 
     private void Awake()
     {
-        if (RoomManager.room == null)
+        if (room == null)
         {
-            RoomManager.room = this;
+            room = this;
         }
         else
         {
-            if (RoomManager.room != this)
+            if (room != this)
             {
-                Destroy(RoomManager.room.gameObject);
-                RoomManager.room = this;
+                Destroy(room.gameObject);
+                room = this;
             }
         }
         DontDestroyOnLoad(this.gameObject);
@@ -71,6 +71,7 @@ public class RoomManager : MonoBehaviourPunCallbacks, IInRoomCallbacks
         myNumberInRoom = playersInRoom;
         Debug.Log("I am player " + myNumberInRoom);
         PhotonNetwork.NickName = myNumberInRoom.ToString();
+        
       
     }
     public void StartMulti()
@@ -86,6 +87,16 @@ public class RoomManager : MonoBehaviourPunCallbacks, IInRoomCallbacks
         photonPlayers = PhotonNetwork.PlayerList;
         playersInRoom++;
         
+    }
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        base.OnPlayerLeftRoom(otherPlayer);
+        Debug.Log("Player has left the room!");
+        if (PV.IsMine)
+        {
+            myNumberInRoom = 1;
+            PhotonNetwork.NickName = myNumberInRoom.ToString();
+        }
     }
 
 

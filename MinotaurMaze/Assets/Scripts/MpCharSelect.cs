@@ -8,8 +8,8 @@ using Photon.Realtime;
 
 public class MpCharSelect : MonoBehaviourPunCallbacks, IPunObservable
 {
-    public static MpCharSelect instance;
-    public RoomManager room;
+    public MpCharSelect instance;
+    
     public GameObject startButton;
     public int position = 1;
     private float inputX;
@@ -17,18 +17,26 @@ public class MpCharSelect : MonoBehaviourPunCallbacks, IPunObservable
     public GameObject p1, p2;
     public Transform point1, point2, point3, point4, point5, point6;
     public PhotonView PV;
+
     
+    public RoomManager room;
 
     private void Awake()
     {
         instance = this;
-        PV = GetComponent<PhotonView>();
+        
     }
-    
-    public void LateUpdate()
+    private void Start()
     {
-        if(PV.IsMine)
-        {
+        PV = GetComponent<PhotonView>();
+        
+    }
+
+    public void Update()
+    {
+        Debug.Log("I am in the update");
+       
+            Debug.Log("I am player " + room.myNumberInRoom);
             Debug.Log("The Photon View is Mine!");
             if (room.myNumberInRoom == 1)
             {
@@ -50,7 +58,7 @@ public class MpCharSelect : MonoBehaviourPunCallbacks, IPunObservable
                     isEye = true;
                 }
             }
-            else if (room.myNumberInRoom == 2)
+             if (room.myNumberInRoom == 2)
             {
                 Debug.Log("I am Player 2!!!");
                 if (position == 0)
@@ -69,9 +77,14 @@ public class MpCharSelect : MonoBehaviourPunCallbacks, IPunObservable
                     p2.transform.position = Vector3.Lerp(p2.transform.position, point6.position, 5f * Time.deltaTime);
                     isEye = true;
                 }
-            }
+            
            
         }
+       
+
+    }
+    public void LateUpdate()
+    {
         if (isEye == true && isSpartan == true)
         {
             startButton.SetActive(true);
@@ -80,7 +93,6 @@ public class MpCharSelect : MonoBehaviourPunCallbacks, IPunObservable
         {
             startButton.SetActive(false);
         }
-
     }
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
