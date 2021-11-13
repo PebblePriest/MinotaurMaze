@@ -24,64 +24,71 @@ public class MpCharSelect : MonoBehaviourPunCallbacks, IPunObservable
     private void Awake()
     {
         instance = this;
-        
-    }
-    private void Start()
-    {
         PV = GetComponent<PhotonView>();
+    }
+    public void Start()
+    {
+        
+        
         
     }
 
     public void Update()
     {
-        Debug.Log("I am in the update");
-       
-            Debug.Log("I am player " + room.myNumberInRoom);
-            Debug.Log("The Photon View is Mine!");
-            if (room.myNumberInRoom == 1)
-            {
-                Debug.Log("I am player 1!!!!!");
-                if (position == 0)
-                {
-                    p1.transform.position = Vector3.Lerp(p1.transform.position, point1.position, 5f * Time.deltaTime);
-                    isSpartan = true;
-                }
-                else if (position == 1)
-                {
-                    p1.transform.position = Vector3.Lerp(p1.transform.position, point2.position, 5f * Time.deltaTime);
-                    isSpartan = false;
-                    isEye = false;
-                }
-                else if (position == 2)
-                {
-                    p1.transform.position = Vector3.Lerp(p1.transform.position, point3.position, 5f * Time.deltaTime);
-                    isEye = true;
-                }
-            }
-             if (room.myNumberInRoom == 2)
-            {
-                Debug.Log("I am Player 2!!!");
-                if (position == 0)
-                {
-                    p2.transform.position = Vector3.Lerp(p2.transform.position, point4.position, 5f * Time.deltaTime);
-                    isSpartan = true;
-                }
-                else if (position == 1)
-                {
-                    p2.transform.position = Vector3.Lerp(p2.transform.position, point5.position, 5f * Time.deltaTime);
-                    isSpartan = false;
-                    isEye = false;
-                }
-                else if (position == 2)
-                {
-                    p2.transform.position = Vector3.Lerp(p2.transform.position, point6.position, 5f * Time.deltaTime);
-                    isEye = true;
-                }
-            
-           
-        }
+        
+        ChangePosition();
        
 
+    }
+    
+    public void ChangePosition()
+    {
+        Debug.Log("I am in the update");
+
+        Debug.Log("I am player " + room.myNumberInRoom);
+        Debug.Log("The Photon View is Mine!");
+        if (room.myNumberInRoom == 1)
+        {
+            Debug.Log("I am player 1!!!!!");
+            if (position == 0)
+            {
+                p1.transform.position = Vector3.Lerp(p1.transform.position, point1.position, 5f * Time.deltaTime);
+                isSpartan = true;
+            }
+            else if (position == 1)
+            {
+                p1.transform.position = Vector3.Lerp(p1.transform.position, point2.position, 5f * Time.deltaTime);
+                isSpartan = false;
+                isEye = false;
+            }
+            else if (position == 2)
+            {
+                p1.transform.position = Vector3.Lerp(p1.transform.position, point3.position, 5f * Time.deltaTime);
+                isEye = true;
+            }
+        }
+        if (room.myNumberInRoom == 2)
+        {
+            Debug.Log("I am Player 2!!!");
+            if (position == 0)
+            {
+                p2.transform.position = Vector3.Lerp(p2.transform.position, point4.position, 5f * Time.deltaTime);
+                isSpartan = true;
+            }
+            else if (position == 1)
+            {
+                p2.transform.position = Vector3.Lerp(p2.transform.position, point5.position, 5f * Time.deltaTime);
+                isSpartan = false;
+                isEye = false;
+            }
+            else if (position == 2)
+            {
+                p2.transform.position = Vector3.Lerp(p2.transform.position, point6.position, 5f * Time.deltaTime);
+                isEye = true;
+            }
+
+
+        }
     }
     public void LateUpdate()
     {
@@ -100,11 +107,13 @@ public class MpCharSelect : MonoBehaviourPunCallbacks, IPunObservable
         {
             stream.SendNext(isSpartan);
             stream.SendNext(isEye);
+           
         }
         else
         {
             this.isSpartan = (bool)stream.ReceiveNext();
             this.isEye = (bool)stream.ReceiveNext();
+            
         }
     }
     public void SelectionMove(InputAction.CallbackContext context)

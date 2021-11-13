@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e25d4604f035eb45958b44e1f1a1d78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  room: {fileID: 0}
   currentScene: 0
   playScene: 1
   playersInRoom: 0
@@ -933,7 +934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
-  m_SynchronizeScale: 1
+  m_SynchronizeScale: 0
   m_UseLocal: 1
 --- !u!114 &431590092
 MonoBehaviour:
@@ -1836,8 +1837,9 @@ GameObject:
   - component: {fileID: 950427644}
   - component: {fileID: 950427647}
   - component: {fileID: 950427646}
-  - component: {fileID: 950427648}
   - component: {fileID: 950427649}
+  - component: {fileID: 950427648}
+  - component: {fileID: 950427650}
   m_Layer: 5
   m_Name: CharSelect
   m_TagString: Untagged
@@ -1922,7 +1924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4052fd908018b24d8d0ef53e4d38e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  room: {fileID: 57116994}
+  instance: {fileID: 0}
   startButton: {fileID: 2119836468}
   position: 1
   isSpartan: 0
@@ -1935,7 +1937,8 @@ MonoBehaviour:
   point4: {fileID: 1878313618}
   point5: {fileID: 1902895256}
   point6: {fileID: 1424656840}
-  PV: {fileID: 950427648}
+  PV: {fileID: 0}
+  room: {fileID: 57116994}
 --- !u!225 &950427647
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1968,6 +1971,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 950427646}
+  - {fileID: 950427650}
   sceneViewId: 4
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -2122,9 +2126,25 @@ MonoBehaviour:
     m_ActionName: MultiPlayerSelect2/Select[/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: 4e2f2f4c-59b2-4cdd-998e-b96a955b139b
+  m_DefaultActionMap: MultiPlayerSelect
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &950427650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950427642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
+  m_UseLocal: 1
 --- !u!1 &978727558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2393,8 +2413,8 @@ GameObject:
   - component: {fileID: 1740971920}
   - component: {fileID: 1075868772}
   - component: {fileID: 1075868771}
-  - component: {fileID: 1075868770}
   - component: {fileID: 1075868769}
+  - component: {fileID: 1075868770}
   m_Layer: 5
   m_Name: p2
   m_TagString: Untagged
@@ -2415,7 +2435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizePosition: 1
-  m_SynchronizeRotation: 0
+  m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
   m_UseLocal: 1
 --- !u!114 &1075868770
@@ -4870,8 +4890,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 950427646}
-        m_TargetAssemblyTypeName: MpCharSelect, Assembly-CSharp
+      - m_Target: {fileID: 57116994}
+        m_TargetAssemblyTypeName: RoomManager, Assembly-CSharp
         m_MethodName: StartMulti
         m_Mode: 1
         m_Arguments:
