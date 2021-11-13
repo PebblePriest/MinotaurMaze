@@ -144,5 +144,4 @@ public class MpCharSelect : MonoBehaviourPunCallbacks, IPunObservable
         }
     }
 
-
 }

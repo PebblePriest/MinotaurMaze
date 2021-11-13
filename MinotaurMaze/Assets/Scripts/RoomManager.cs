@@ -20,8 +20,8 @@ public class RoomManager : MonoBehaviourPunCallbacks, IInRoomCallbacks
     public int myNumberInRoom;
 
     public int playerInGame;
-   
 
+    public GameObject player1, player2;
 
 
     private void Awake()
@@ -61,9 +61,12 @@ public class RoomManager : MonoBehaviourPunCallbacks, IInRoomCallbacks
             GameManager.instance.SpawnPlayer();
         }
     }
-  
-       
-    
+
+    public override void OnCreatedRoom()
+    {
+        PhotonNetwork.Instantiate(player1.name, player1.transform.position, player1.transform.rotation, 0);
+    }
+
     public override void OnJoinedRoom()
     {
         photonPlayers = PhotonNetwork.PlayerList;
@@ -71,8 +74,15 @@ public class RoomManager : MonoBehaviourPunCallbacks, IInRoomCallbacks
         myNumberInRoom = playersInRoom;
         Debug.Log("I am player " + myNumberInRoom);
         PhotonNetwork.NickName = myNumberInRoom.ToString();
-        
-      
+        if (myNumberInRoom == 1)
+        {
+            PhotonNetwork.Instantiate(player1.name, player1.transform.position, player1.transform.rotation, 0);
+        }
+
+        if (myNumberInRoom == 2)
+        {
+            PhotonNetwork.Instantiate(player2.name, player2.transform.position, player2.transform.rotation, 0);
+        }
     }
     public void StartMulti()
     {
