@@ -10,7 +10,7 @@ public class Player2Controller : MonoBehaviour
 
     private Rigidbody2D theRB;
     //private SpriteRenderer theSR;
-    public Animator anim;
+    //public Animator anim;
 
     public float moveSpeed, jumpForce;
     private float movingSpeed;
@@ -92,9 +92,9 @@ public class Player2Controller : MonoBehaviour
             }
 
             //manage animations
-            anim.SetFloat("moveSpeed", Mathf.Abs(theRB.velocity.x));
-            anim.SetBool("isGrounded", GroundCheck.instance.isGrounded);
-            anim.SetFloat("yVelocity", theRB.velocity.y);
+            //anim.SetFloat("moveSpeed", Mathf.Abs(theRB.velocity.x));
+            //anim.SetBool("isGrounded", GroundCheck.instance.isGrounded);
+            //anim.SetFloat("yVelocity", theRB.velocity.y);
 
         }
     }

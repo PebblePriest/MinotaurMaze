@@ -58,7 +58,7 @@ public class RoomManager : MonoBehaviourPunCallbacks, IInRoomCallbacks
         currentScene = scene.buildIndex;
         if(currentScene == playScene)
         {
-            GameManager.instance.SpawnPlayer();
+            //GameManager.instance.SpawnPlayer();
         }
     }
 

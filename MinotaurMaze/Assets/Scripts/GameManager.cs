@@ -4,15 +4,14 @@ using UnityEngine;
 using Photon.Pun;
 public class GameManager : MonoBehaviour
 {
-    public RoomManager room;
     public static GameManager instance { get; set; }
 
     public float waitToRespawn;
 
     public GameObject EndScreen;
 
-    public GameObject playerPrefab;
 
+    public Transform[] spawnPoints;
     public GameObject[] playerPrefabs;
 
     private void Awake()
@@ -23,7 +22,10 @@ public class GameManager : MonoBehaviour
   
     void Start()
     {
-       
+        int randomNumber = Random.Range(0, spawnPoints.Length);
+        Transform spawnPoint = spawnPoints[randomNumber];
+        GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
+        PhotonNetwork.Instantiate(playerToSpawn.name, CheckPointController.instance.spawnPoint, Quaternion.identity);
     }
 
    
@@ -58,10 +60,10 @@ public class GameManager : MonoBehaviour
         EndScreen.SetActive(true);
         Time.timeScale = 0;
     }
-    public void SpawnPlayer()
-    {
+    //public void SpawnPlayer()
+    //{
 
-        PhotonNetwork.Instantiate(playerPrefab.name, playerPrefab.transform.position, playerPrefab.transform.rotation, 0);
-        //PhotonNetwork.Instantiate(player2Prefab.name, player2Prefab.transform.position, player2Prefab.transform.rotation);
-    }
+    //    //PhotonNetwork.Instantiate(playerPrefab.name, playerPrefab.transform.position, playerPrefab.transform.rotation, 0);
+    //    //PhotonNetwork.Instantiate(player2Prefab.name, player2Prefab.transform.position, player2Prefab.transform.rotation);
+    //}
 }

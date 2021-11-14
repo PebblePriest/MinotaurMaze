@@ -1,42 +1,84 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
-using UnityEngine.InputSystem;
-public class PlayerItem : MonoBehaviour
+using UnityEngine.UI;
+
+public class PlayerItem : MonoBehaviourPunCallbacks
 {
-    
-    
-    public Image backgroundImage;
+    Image backgroundImage;
     public Color highlightColor;
-    public GameObject p1, p2;
-    Transform point1, point2, point3, point21, point22, point23;
-    public int position = 1;
-    private float inputX;
-    public bool player1, player2;
-    
-    
-    public void Awake()
+    public GameObject leftArrowButton, rightArrowButton;
+
+    ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();
+    public Image playerAvatar;
+    public Sprite[] avatars;
+
+    Player player;
+
+    private void Awake()
     {
         backgroundImage = GetComponent<Image>();
-        point1 = GameObject.Find("TransformPnts/p1Pnt1").transform;
-        point2 = GameObject.Find("p1Pnt2").transform;
-        point3 = GameObject.Find("p1Pnt3").transform;
-        point21 = GameObject.Find("p2Pnt1").transform;
-        point22 = GameObject.Find("p2Pnt2").transform;
-        point23 = GameObject.Find("p2Pt3").transform;
-        p1 = GameObject.Find("p1");
-        p2 = GameObject.Find("p2");
-
     }
 
-    
-   
+    public void SetPlayerInfo(Player _player)
+    {
+        player = _player;
+        UpdatePlayerItem(player);
+    }
 
-   
-    
+    public void ApplyLocalChanges()
+    {
+        backgroundImage.color = highlightColor;
+        leftArrowButton.SetActive(true);
+        rightArrowButton.SetActive(true);
+    }
 
+    public void OnClickLeftArrow()
+    {
+        if((int)playerProperties["playerAvatar"] == 0)
+        {
+            playerProperties["playerAvatar"] = avatars.Length - 1;
+        }
+        else
+        {
+            playerProperties["playerAvatar"] = (int)playerProperties["playerAvatar"] - 1;
+        }
+        PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+    }
 
+    public void OnClickRightArrow()
+    {
+        if ((int)playerProperties["playerAvatar"] == avatars.Length - 1)
+        {
+            playerProperties["playerAvatar"] = 0;
+        }
+        else
+        {
+            playerProperties["playerAvatar"] = (int)playerProperties["playerAvatar"] + 1;
+        }
+        PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+    }
+
+    public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
+    {
+        if(player == targetPlayer)
+        {
+            UpdatePlayerItem(targetPlayer);
+        }
+    }
+
+    void UpdatePlayerItem(Player player)
+    {
+        if (player.CustomProperties.ContainsKey("playerAvatar"))
+        {
+            playerAvatar.sprite = avatars[(int)player.CustomProperties["playerAvatar"]];
+            playerProperties["playerAvatar"] = (int)player.CustomProperties["playerAvatar"];
+        }
+        else
+        {
+            playerProperties["playerAvatar"] = 0;
+        }
+    }
 }
