@@ -19,15 +19,22 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
     public PhotonView photonview;
     private Vector3 smoothMove;
 
-    public GameObject sceneCamera;
+    
     public GameObject playerCamera;
     public GameObject eyeCamera;
+
+    public GameObject myCamera;
+
     private void Awake()
     {
         instance = this;
         photonview = GetComponent<PhotonView>();
-        eyeCamera = GameObject.FindWithTag("EC");
-        playerCamera = GameObject.FindWithTag("SC");
+        //eyeCamera = GameObject.FindGameObjectWithTag("EC");
+        //playerCamera = GameObject.FindGameObjectWithTag("SC");
+
+        
+        //eyeCamera.GetComponent<Camera>();
+        //playerCamera.GetComponent<Camera>();
     }
 
     void Start()
@@ -35,19 +42,20 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
         if (photonView.IsMine)
         {
            
-            sceneCamera = GameObject.Find("Main Camera");
+            //sceneCamera = GameObject.Find("Main Camera");
             healthSlider = GameObject.FindWithTag("HealthSlider").GetComponent<Slider>();
             theSR = GetComponent<SpriteRenderer>();
             currentHealth = maxHealth;
-            sceneCamera.SetActive(false);
-            if(PhotonNetwork.NickName == "Spartan")
-            {
-                playerCamera.SetActive(true);
-            }
-            if(PhotonNetwork.NickName == "Eye")
-            {
-                eyeCamera.SetActive(true); 
-            }
+            myCamera.SetActive(true);
+            //sceneCamera.SetActive(false);
+            //if(PhotonNetwork.NickName == "Spartan")
+            //{
+            //    playerCamera.SetActive(true);
+            //}
+            //if(PhotonNetwork.NickName == "Eye")
+            //{
+            //    eyeCamera.SetActive(true); 
+            //}
         }
        
     }

@@ -39,7 +39,7 @@ Transform:
   m_Children:
   - {fileID: 3168061253400354869}
   - {fileID: 3168061252939033535}
-  - {fileID: 7629138091821544964}
+  - {fileID: 8291810528485546912}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -357,9 +357,9 @@ MonoBehaviour:
   invincibleLength: 2
   healthSlider: {fileID: 0}
   photonview: {fileID: 8931309376393397938}
-  sceneCamera: {fileID: 0}
-  playerCamera: {fileID: 7629138091821544965}
+  playerCamera: {fileID: 0}
   eyeCamera: {fileID: 0}
+  myCamera: {fileID: 4926114856837333004}
 --- !u!114 &8931309376393397938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,6 +535,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isGrounded: 0
+--- !u!1 &4926114856837333004
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8291810528485546912}
+  m_Layer: 8
+  m_Name: CameraHold
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8291810528485546912
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4926114856837333004}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7629138091821544964}
+  m_Father: {fileID: 3168061252436849763}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7629138091821544965
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,11 +580,11 @@ GameObject:
   - component: {fileID: 7629138091821544963}
   m_Layer: 8
   m_Name: SpartanCamera
-  m_TagString: SpartanCamera
+  m_TagString: SC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7629138091821544964
 Transform:
   m_ObjectHideFlags: 0
@@ -561,12 +592,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7629138091821544965}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3168061252436849763}
-  m_RootOrder: 2
+  m_Father: {fileID: 8291810528485546912}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &7629138091821544961
 Camera:
