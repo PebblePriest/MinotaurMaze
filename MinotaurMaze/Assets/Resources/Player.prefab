@@ -359,6 +359,7 @@ MonoBehaviour:
   photonview: {fileID: 8931309376393397938}
   sceneCamera: {fileID: 0}
   playerCamera: {fileID: 7629138091821544965}
+  eyeCamera: {fileID: 0}
 --- !u!114 &8931309376393397938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,8 +548,8 @@ GameObject:
   - component: {fileID: 7629138091821544962}
   - component: {fileID: 7629138091821544963}
   m_Layer: 8
-  m_Name: Camera
-  m_TagString: Untagged
+  m_Name: SpartanCamera
+  m_TagString: SpartanCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

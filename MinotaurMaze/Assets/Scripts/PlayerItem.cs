@@ -14,6 +14,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();
     public Image playerAvatar;
     public Sprite[] avatars;
+    public 
 
     Player player;
 
@@ -40,10 +41,14 @@ public class PlayerItem : MonoBehaviourPunCallbacks
         if((int)playerProperties["playerAvatar"] == 0)
         {
             playerProperties["playerAvatar"] = avatars.Length - 1;
+            PhotonNetwork.NickName = "Eye";
+            
         }
         else
         {
             playerProperties["playerAvatar"] = (int)playerProperties["playerAvatar"] - 1;
+            PhotonNetwork.NickName = "Spartan";
+           
         }
         PhotonNetwork.SetPlayerCustomProperties(playerProperties);
     }
@@ -53,10 +58,14 @@ public class PlayerItem : MonoBehaviourPunCallbacks
         if ((int)playerProperties["playerAvatar"] == avatars.Length - 1)
         {
             playerProperties["playerAvatar"] = 0;
+            PhotonNetwork.NickName = "Spartan";
+           
         }
         else
         {
             playerProperties["playerAvatar"] = (int)playerProperties["playerAvatar"] + 1;
+            PhotonNetwork.NickName = "Eye";
+            
         }
         PhotonNetwork.SetPlayerCustomProperties(playerProperties);
     }

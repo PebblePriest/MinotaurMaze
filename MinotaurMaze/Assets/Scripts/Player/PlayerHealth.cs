@@ -21,22 +21,32 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
 
     public GameObject sceneCamera;
     public GameObject playerCamera;
+    public GameObject eyeCamera;
     private void Awake()
     {
         instance = this;
-
+        eyeCamera = GameObject.FindWithTag("EyeCamera");
+        playerCamera = GameObject.FindWithTag("SpartanCamera");
     }
 
     void Start()
     {
         if (photonView.IsMine)
         {
+           
             sceneCamera = GameObject.Find("Main Camera");
             healthSlider = GameObject.FindWithTag("HealthSlider").GetComponent<Slider>();
             theSR = GetComponent<SpriteRenderer>();
             currentHealth = maxHealth;
             sceneCamera.SetActive(false);
-            playerCamera.SetActive(true);
+            if (PhotonNetwork.NickName == "Spartan")
+            {
+                playerCamera.SetActive(true);
+            }
+            if(PhotonNetwork.NickName == "Eye")
+            {
+                eyeCamera.SetActive(true); 
+            }
         }
        
     }
