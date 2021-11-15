@@ -162,29 +162,29 @@ public class Player2Controller : MonoBehaviour
     {
         if (view.IsMine)
         {
+            Debug.Log("cyclops attack!");
+            //if (context.performed && GroundCheck.instance.isGrounded && !isAttacking)
+            //{
+            //    isAttacking = true;
 
-            if (context.performed && GroundCheck.instance.isGrounded && !isAttacking)
-            {
-                isAttacking = true;
-
-                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-
-                foreach (Collider2D enemy in hitEnemies)
-                {
-                    if (enemy.gameObject.tag == "Boss")
-                    {
-                        enemy.GetComponent<Enemy>().TakeDamage(comboAttackDamage);
-                    }
-                    if (enemy.gameObject.tag == "Enemy")
-                    {
-                        enemy.GetComponent<CEnemy>().TakeDamage(comboAttackDamage);
-                    }
-
-                }
+            //    Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
 
-            }
+            //    foreach (Collider2D enemy in hitEnemies)
+            //    {
+            //        if (enemy.gameObject.tag == "Boss")
+            //        {
+            //            enemy.GetComponent<Enemy>().TakeDamage(comboAttackDamage);
+            //        }
+            //        if (enemy.gameObject.tag == "Enemy")
+            //        {
+            //            enemy.GetComponent<CEnemy>().TakeDamage(comboAttackDamage);
+            //        }
+
+            //    }
+
+
+            //}
         }
     }
 

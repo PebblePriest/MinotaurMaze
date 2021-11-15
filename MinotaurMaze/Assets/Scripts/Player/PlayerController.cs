@@ -127,6 +127,8 @@ public class PlayerController : MonoBehaviour
 
     public void Jump(InputAction.CallbackContext context)
     {
+        if (view.IsMine)
+        {
             if (canJump)
             {
                 if (context.performed && GroundCheck.instance.isGrounded == true)
@@ -143,11 +145,13 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
+        }
     }
 
     public void Attack(InputAction.CallbackContext context)
     {
-       
+        if (view.IsMine)
+        {
             if (context.performed && GroundCheck.instance.isGrounded && !isAttacking)
             {
                 isAttacking = true;
@@ -165,11 +169,8 @@ public class PlayerController : MonoBehaviour
                     {
                         enemy.GetComponent<CEnemy>().TakeDamage(comboAttackDamage);
                     }
-
                 }
-
-
-            
+            }
         }
     }
 

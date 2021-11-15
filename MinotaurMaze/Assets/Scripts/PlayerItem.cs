@@ -94,6 +94,8 @@ public class PlayerItem : MonoBehaviourPunCallbacks
         else
         {
             playerProperties["playerAvatar"] = 0;
+            PhotonNetwork.SetPlayerCustomProperties(playerProperties);
         }
+        
     }
 }
