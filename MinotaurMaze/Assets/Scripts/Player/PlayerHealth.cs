@@ -25,8 +25,9 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
     private void Awake()
     {
         instance = this;
-        eyeCamera = GameObject.FindWithTag("EyeCamera");
-        playerCamera = GameObject.FindWithTag("SpartanCamera");
+        photonview = GetComponent<PhotonView>();
+        eyeCamera = GameObject.FindWithTag("EC");
+        playerCamera = GameObject.FindWithTag("SC");
     }
 
     void Start()
@@ -39,7 +40,7 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
             theSR = GetComponent<SpriteRenderer>();
             currentHealth = maxHealth;
             sceneCamera.SetActive(false);
-            if (PhotonNetwork.NickName == "Spartan")
+            if(PhotonNetwork.NickName == "Spartan")
             {
                 playerCamera.SetActive(true);
             }

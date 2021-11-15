@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: 5090191542172351752}
   m_Layer: 8
   m_Name: EyeCamera
-  m_TagString: EyeCamera
+  m_TagString: EC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5090191542172351753
 Transform:
   m_ObjectHideFlags: 0
@@ -425,7 +425,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &5090191543144274406
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

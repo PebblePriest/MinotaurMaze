@@ -15,8 +15,8 @@ TagManager:
   - Bullet
   - Background
   - HealthSlider
-  - SpartanCamera
-  - EyeCamera
+  - SC
+  - EC
   layers:
   - Default
   - TransparentFX
