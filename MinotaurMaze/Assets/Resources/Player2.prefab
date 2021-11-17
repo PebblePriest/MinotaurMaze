@@ -474,7 +474,7 @@ MonoBehaviour:
   invincibleLength: 0
   healthSlider: {fileID: 0}
   photonview: {fileID: 0}
-  myCamera: {fileID: 0}
+  myCamera: {fileID: 6840670853726387700}
 --- !u!114 &4493685779972065381
 MonoBehaviour:
   m_ObjectHideFlags: 0
