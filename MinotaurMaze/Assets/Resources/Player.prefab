@@ -268,10 +268,6 @@ MonoBehaviour:
     m_ActionName: Player2/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 0f375db3-c002-436e-a43b-b7a050c5927f
-    m_ActionName: Player2/Look[/Mouse/delta]
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: d477c82a-50d0-4164-b377-7f0bd4d3ec89
     m_ActionName: Player2/Jump[/Keyboard/space]
   - m_PersistentCalls:
@@ -359,8 +355,6 @@ MonoBehaviour:
   invincibleLength: 2
   healthSlider: {fileID: 0}
   photonview: {fileID: 8931309376393397938}
-  playerCamera: {fileID: 0}
-  eyeCamera: {fileID: 0}
   myCamera: {fileID: 4926114856837333004}
 --- !u!114 &8931309376393397938
 MonoBehaviour:

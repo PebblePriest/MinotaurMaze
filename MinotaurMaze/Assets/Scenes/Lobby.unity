@@ -1298,7 +1298,7 @@ MonoBehaviour:
   lobbyPanel: {fileID: 272189808}
   roomPanel: {fileID: 8654014536503238859}
   roomName: {fileID: 8654014536002379774}
-  roomItemPrefab: {fileID: 7828775174793388972, guid: e2c860a88aeab044589d0baba3088eb9, type: 3}
+  roomItemPrefab: {fileID: 6928232580565843668, guid: e2c860a88aeab044589d0baba3088eb9, type: 3}
   contentObject: {fileID: 937633547}
   timeBetweenUpdates: 1.5
   playerItemsList: []
@@ -1352,7 +1352,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2.1789837}
+  m_AnchoredPosition: {x: 0, y: 662.20575}
   m_SizeDelta: {x: 0, y: 1080}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &937633548
@@ -1464,7 +1464,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 834135553}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.3922474
+  m_Size: 0.08724682
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

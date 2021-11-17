@@ -19,10 +19,6 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
     public PhotonView photonview;
     private Vector3 smoothMove;
 
-    
-    public GameObject playerCamera;
-    public GameObject eyeCamera;
-
     public GameObject myCamera;
 
     private void Awake()
