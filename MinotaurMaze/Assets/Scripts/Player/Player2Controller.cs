@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
 
-public class Player2Controller : MonoBehaviour
+public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
 {
     public static Player2Controller instance;
 
@@ -104,7 +104,7 @@ public class Player2Controller : MonoBehaviour
             if (!canAct)
             {
                 actTimer += Time.deltaTime;
-                if(actTimer >= 1.5)
+                if (actTimer >= 1.5)
                 {
                     actTimer = 0;
                     canAct = true;
@@ -149,7 +149,7 @@ public class Player2Controller : MonoBehaviour
                 inputX = 0;
             }
         }
-        
+
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -221,7 +221,7 @@ public class Player2Controller : MonoBehaviour
                     moveSpeed = 0f;
                     Debug.Log(moveSpeed);
                 }
-                else if(isBox)
+                else if (isBox)
                 {
                     anim.SetTrigger("outBox");
                     canAct = false;
@@ -300,10 +300,10 @@ public class Player2Controller : MonoBehaviour
     {
         if (isEye)
         {
-            
+
             if (other.gameObject.tag == "Husk")
             {
-                if(other.GetComponent<Husk>().canUse == true)
+                if (other.GetComponent<Husk>().canUse == true)
                 {
                     canEnterHusk = true;
                     currentHusk = other.gameObject;
@@ -316,12 +316,30 @@ public class Player2Controller : MonoBehaviour
     {
         if (isEye)
         {
-            
+
             if (other.gameObject.tag == "Husk")
             {
                 currentHusk = null;
                 canEnterHusk = false;
             }
+        }
+    }
+
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(eye.activeSelf);
+            stream.SendNext(playerCyc.activeSelf);
+            stream.SendNext(husk.activeSelf);
+
+        }
+        else if (stream.IsReading)
+        {
+            eye.SetActive((bool)stream.ReceiveNext());
+            playerCyc.SetActive((bool)stream.ReceiveNext());
+            husk.SetActive((bool)stream.ReceiveNext());
         }
     }
 }
