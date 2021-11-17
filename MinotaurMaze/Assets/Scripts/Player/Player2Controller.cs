@@ -255,7 +255,8 @@ public class Player2Controller : MonoBehaviour
             {
                 if (context.performed && !isBox && canAct)
                 {
-                    GameObject newHusk = Instantiate(husk, transform.position, transform.rotation);
+                    //GameObject newHusk = husk[PhotonNetwork.LocalPlayer];
+                    GameObject newHusk = PhotonNetwork.Instantiate(husk.name, transform.position, transform.rotation);
                     newHusk.transform.localScale = new Vector3(gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
                     eye.transform.position = this.gameObject.transform.position;
                     eye.SetActive(true);

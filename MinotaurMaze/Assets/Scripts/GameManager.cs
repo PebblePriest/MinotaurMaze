@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public float waitToRespawn;
     public GameObject EndScreen;
     public GameObject[] playerPrefabs;
+    public Transform[] enemySpawnPoints;
+    public GameObject CyclopsPrefab;
 
     private void Awake()
     {
@@ -18,6 +20,10 @@ public class GameManager : MonoBehaviour
     {
         GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
         PhotonNetwork.Instantiate(playerToSpawn.name, CheckPointController.instance.spawnPoint, Quaternion.identity);
+        foreach(Transform spawnPoint in enemySpawnPoints)
+        {
+            PhotonNetwork.Instantiate(CyclopsPrefab.name, spawnPoint.position, transform.rotation);
+        }
     }
 
    

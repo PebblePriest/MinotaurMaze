@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 public class Enemy : MonoBehaviour
 {
@@ -39,10 +40,10 @@ public class Enemy : MonoBehaviour
     {
         if(gameObject.tag == "Boss")
         {
-            GameObject mBody = Instantiate(MinoDeadBody, transform.position, Quaternion.identity);
+            GameObject mBody = PhotonNetwork.Instantiate(MinoDeadBody.name, transform.position, Quaternion.identity);
             mBody.transform.localScale = new Vector3(gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
 
-            GameObject mHead = Instantiate(MinoHead, transform.position, Quaternion.identity);
+            GameObject mHead = PhotonNetwork.Instantiate(MinoHead.name, transform.position, Quaternion.identity);
             mHead.transform.localScale = new Vector3(gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
             mHead.GetComponent<Rigidbody2D>().AddForce(transform.up * 12, ForceMode2D.Impulse);
             if (mHead.transform.localScale == new Vector3(1, 1, 1))
