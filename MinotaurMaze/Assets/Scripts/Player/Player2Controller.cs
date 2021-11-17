@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
 
-public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
+public class Player2Controller : MonoBehaviourPunCallbacks
 {
     public static Player2Controller instance;
 
@@ -326,20 +326,29 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
     }
 
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(eye.activeSelf);
-            stream.SendNext(playerCyc.activeSelf);
-            stream.SendNext(husk.activeSelf);
+    //public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    //{
+    //    if (stream.IsWriting)
+    //    {
+    //        stream.SendNext(eye.activeSelf);
+    //        stream.SendNext(playerCyc.activeSelf);
+    //        stream.SendNext(husk.activeSelf);
 
-        }
-        else if (stream.IsReading)
-        {
-            eye.SetActive((bool)stream.ReceiveNext());
-            playerCyc.SetActive((bool)stream.ReceiveNext());
-            husk.SetActive((bool)stream.ReceiveNext());
-        }
+    //    }
+    //    else if (stream.IsReading)
+    //    {
+    //        eye.SetActive((bool)stream.ReceiveNext());
+    //        playerCyc.SetActive((bool)stream.ReceiveNext());
+    //        husk.SetActive((bool)stream.ReceiveNext());
+    //    }
+    //}
+
+    [PunRPC]
+    public void RPC_Configure(bool eyeBool, bool cycBool, GameObject empHusk)
+    {
+        isEye = eyeBool;
+        isCyc = cycBool;
+        husk = empHusk;
     }
+    
 }

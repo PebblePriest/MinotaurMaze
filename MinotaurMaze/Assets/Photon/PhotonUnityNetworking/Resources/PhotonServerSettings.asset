@@ -40,6 +40,8 @@ MonoBehaviour:
   - Fire
   - RespawnSpaceship
   - cyclopsHusk
+  - Player2
+  - RPC_Configure
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1
