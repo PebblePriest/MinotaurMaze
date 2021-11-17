@@ -10,11 +10,10 @@ public class Player2Controller : MonoBehaviour
 
     private Rigidbody2D theRB;
     //private SpriteRenderer theSR;
-    //public Animator anim;
+    public Animator anim;
 
-    public float moveSpeed, jumpForce;
+    public float moveSpeed, jumpForce, attackingMoveSpeed;
     private float movingSpeed;
-    public float attackingMoveSpeed;
 
     private float inputX;
     private bool canDoubleJump;
@@ -31,6 +30,16 @@ public class Player2Controller : MonoBehaviour
     public float knockBackLength;
     private float knockBackCounter;
 
+    public GameObject eye, playerCyc, husk;
+    private bool isBox, canAct;
+    private float actTimer;
+
+    public bool isEye, isCyc, canEnterHusk;
+
+    public GroundCheck ground;
+
+    public GameObject currentHusk;
+
     PhotonView view;
 
     private void Awake()
@@ -41,9 +50,9 @@ public class Player2Controller : MonoBehaviour
     void Start()
     {
         view = GetComponent<PhotonView>();
-            theRB = GetComponent<Rigidbody2D>();
-
-            movingSpeed = moveSpeed;
+        theRB = GetComponent<Rigidbody2D>();
+        canAct = false;
+        movingSpeed = moveSpeed;
     }
 
     void Update()
@@ -91,8 +100,19 @@ public class Player2Controller : MonoBehaviour
                 }
             }
 
+            //keep player from spamming the special button
+            if (!canAct)
+            {
+                actTimer += Time.deltaTime;
+                if(actTimer >= 1.5)
+                {
+                    actTimer = 0;
+                    canAct = true;
+                }
+            }
+
             //manage animations
-            //anim.SetFloat("moveSpeed", Mathf.Abs(theRB.velocity.x));
+            anim.SetFloat("xVel", Mathf.Abs(theRB.velocity.x));
             //anim.SetBool("isGrounded", GroundCheck.instance.isGrounded);
             //anim.SetFloat("yVelocity", theRB.velocity.y);
 
@@ -106,7 +126,7 @@ public class Player2Controller : MonoBehaviour
             //keep player from flipping between moving and attacking
             if (!isAttacking)
             {
-                ResetMovement();
+                //ResetMovement();
             }
             else if (isAttacking)
             {
@@ -119,9 +139,7 @@ public class Player2Controller : MonoBehaviour
     {
         if (view.IsMine)
         {
-
-
-            if (context.performed)
+            if (context.performed && canAct)
             {
                 inputX = context.ReadValue<Vector2>().x;
             }
@@ -141,7 +159,7 @@ public class Player2Controller : MonoBehaviour
 
             if (canJump)
             {
-                if (context.performed && GroundCheck.instance.isGrounded == true)
+                if (context.performed && ground.isGrounded == true)
                 {
                     theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
                     //canDoubleJump = true;
@@ -192,28 +210,66 @@ public class Player2Controller : MonoBehaviour
     {
         if (view.IsMine)
         {
-            if (context.performed)
+            if (context.performed && canAct)
             {
-                Debug.Log("Based on host, perform special ability");
+                if (!isBox)
+                {
+                    anim.SetTrigger("toBox");
+                    canAct = false;
+                    isBox = true;
+                    StopMovement();
+                    moveSpeed = 0f;
+                    Debug.Log(moveSpeed);
+                }
+                else if(isBox)
+                {
+                    anim.SetTrigger("outBox");
+                    canAct = false;
+                    isBox = false;
+                    ResetMovement();
+                }
             }
         }
     }
 
-    public void Shift(InputAction.CallbackContext context)
+    public void Husk(InputAction.CallbackContext context)
     {
         if (view.IsMine)
         {
-            if (context.performed)
+            if (isEye)
             {
-                Debug.Log("Force leave host body");
+                if (context.performed && !isBox && canAct)
+                {
+                    if (canEnterHusk)
+                    {
+                        //destroyHusk = true;
+                        Destroy(currentHusk);
+                        playerCyc.transform.position = this.gameObject.transform.position;
+                        playerCyc.SetActive(true);
+                        this.gameObject.SetActive(false);
+                    }
+                }
+            }
+
+            if (isCyc)
+            {
+                if (context.performed && !isBox && canAct)
+                {
+                    GameObject newHusk = Instantiate(husk, transform.position, transform.rotation);
+                    newHusk.transform.localScale = new Vector3(gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+                    eye.transform.position = this.gameObject.transform.position;
+                    eye.SetActive(true);
+                    this.gameObject.SetActive(false);
+                }
             }
         }
     }
+
 
     public void StopMovement()
     {
         canJump = false;
-        moveSpeed = attackingMoveSpeed;
+        moveSpeed = 0f;
     }
 
     public void ResetMovement()
@@ -236,6 +292,35 @@ public class Player2Controller : MonoBehaviour
         {
             knockBackCounter = .5f;
             theRB.velocity = new Vector2(0, PlayerHealth.instance.knockBackForce);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (isEye)
+        {
+            
+            if (other.gameObject.tag == "Husk")
+            {
+                if(other.GetComponent<Husk>().canUse == true)
+                {
+                    canEnterHusk = true;
+                    currentHusk = other.gameObject;
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (isEye)
+        {
+            
+            if (other.gameObject.tag == "Husk")
+            {
+                currentHusk = null;
+                canEnterHusk = false;
+            }
         }
     }
 }

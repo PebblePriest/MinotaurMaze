@@ -17,6 +17,7 @@ TagManager:
   - HealthSlider
   - SC
   - EC
+  - Husk
   layers:
   - Default
   - TransparentFX

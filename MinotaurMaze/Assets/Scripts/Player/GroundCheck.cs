@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class GroundCheck : MonoBehaviour
 {
-    public static GroundCheck instance;
     public bool isGrounded;
-
-    void Awake()
-    {
-        instance = this;
-    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

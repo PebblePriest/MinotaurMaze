@@ -263,14 +263,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Look",
-                    "type": "Value",
-                    "id": "0f375db3-c002-436e-a43b-b7a050c5927f",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Jump",
                     "type": "Button",
                     "id": "d477c82a-50d0-4164-b377-7f0bd4d3ec89",
@@ -295,7 +287,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Shift",
+                    "name": "Husk",
                     "type": "Button",
                     "id": "6f269891-ce75-4bf0-8758-c8d02f64d4ce",
                     "expectedControlType": "Button",
@@ -438,39 +430,6 @@
                 },
                 {
                     "name": "",
-                    "id": "77df9b99-7238-46fe-8fe3-dcc115fa11d5",
-                    "path": "<Gamepad>/rightStick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "e8afad39-19fd-4490-b92d-5484ee203974",
-                    "path": "<Pointer>/delta",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse;Touch",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3d277006-41a9-423e-a6be-fc5d5e9a6877",
-                    "path": "<Joystick>/{Hatswitch}",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Joystick",
-                    "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "51a42d7a-2a11-49b0-86c6-b62439654876",
                     "path": "<Keyboard>/space",
                     "interactions": "",
@@ -542,7 +501,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shift",
+                    "action": "Husk",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -553,7 +512,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shift",
+                    "action": "Husk",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 8931309376393397938}
   - component: {fileID: -3830978363118387235}
   - component: {fileID: 9211582476526185658}
+  - component: {fileID: -1395753136522208071}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -118,6 +119,7 @@ MonoBehaviour:
     m_Bits: 64
   comboAttackDamage: 5
   knockBackLength: 0
+  ground: {fileID: 3168061253400354871}
 --- !u!50 &3168061252436849760
 Rigidbody2D:
   serializedVersion: 4
@@ -382,6 +384,7 @@ MonoBehaviour:
   - {fileID: 7629138090325192763}
   - {fileID: -3830978363118387235}
   - {fileID: 9211582476526185658}
+  - {fileID: -1395753136522208071}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -434,6 +437,22 @@ MonoBehaviour:
   m_SynchronizeLayers:
   - SynchronizeType: 0
     LayerIndex: 0
+--- !u!114 &-1395753136522208071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3168061252436849767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7cb724808c322458aa4d15f5035fa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizeVelocity: 1
+  m_SynchronizeAngularVelocity: 1
+  m_TeleportEnabled: 0
+  m_TeleportIfDistanceGreaterThan: 3
 --- !u!1 &3168061252939033534
 GameObject:
   m_ObjectHideFlags: 0

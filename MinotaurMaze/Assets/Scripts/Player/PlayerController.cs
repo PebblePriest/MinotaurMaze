@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     public float knockBackLength;
     private float knockBackCounter;
 
+    public GroundCheck ground;
+
     PhotonView view;
 
     private void Awake()
@@ -93,7 +95,7 @@ public class PlayerController : MonoBehaviour
 
             //manage animations
             anim.SetFloat("moveSpeed", Mathf.Abs(theRB.velocity.x));
-            anim.SetBool("isGrounded", GroundCheck.instance.isGrounded);
+            anim.SetBool("isGrounded", ground.isGrounded);
             anim.SetFloat("yVelocity", theRB.velocity.y);
 
         }
@@ -131,7 +133,7 @@ public class PlayerController : MonoBehaviour
         {
             if (canJump)
             {
-                if (context.performed && GroundCheck.instance.isGrounded == true)
+                if (context.performed && ground.isGrounded == true)
                 {
                     theRB.velocity = new Vector2(theRB.velocity.x, jumpForce);
                     canDoubleJump = true;
@@ -152,7 +154,7 @@ public class PlayerController : MonoBehaviour
     {
         if (view.IsMine)
         {
-            if (context.performed && GroundCheck.instance.isGrounded && !isAttacking)
+            if (context.performed && ground.isGrounded && !isAttacking)
             {
                 isAttacking = true;
 
