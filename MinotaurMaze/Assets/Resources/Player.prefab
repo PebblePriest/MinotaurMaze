@@ -298,6 +298,10 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 20f9130e-5181-4071-88b9-cc05a6369339
     m_ActionName: MultiPlayerSelect2/Select[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c85ba6f6-caf9-4545-88f9-2aac13388eb3
+    m_ActionName: Player2/Look[/Mouse/delta]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
