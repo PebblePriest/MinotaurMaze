@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CWalking : CStates
+public class CyclopsWalking : CyclopsStates
 {
     public float timer;
-    public CWalking(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR) : base(_npc, _anim, _player, _boss, _theBossR)
+    public CyclopsWalking(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR) : base(_npc, _anim, _player, _boss, _theBossR)
     {
         name = STATE.WALKING;
     }
@@ -33,14 +33,14 @@ public class CWalking : CStates
         //Debug.Log("Is Walking towards player");
         if (AttackPlayer())
         {
-            nextState = new CAttack(npc, anim, player, cyclops, cyclopsR);
+            nextState = new CyclopsAttack(npc, anim, player, cyclops, cyclopsR);
             stage = EVENT.EXIT;
         }
         timer += Time.deltaTime;
     }
     public override void Exit()
     {
-       anim.ResetTrigger("isWalking");
+        anim.ResetTrigger("isWalking");
         base.Exit();
     }
 }

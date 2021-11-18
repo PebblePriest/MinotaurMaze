@@ -265,7 +265,7 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
             }
         }
     }
-
+   
 
     public void StopMovement()
     {

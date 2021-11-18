@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CAttack : CStates
+public class CyclopsAttack : CyclopsStates
 {
     public float timer;
-    public CAttack(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR) : base(_npc, _anim, _player, _boss, _theBossR)
+    public CyclopsAttack(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR) : base(_npc, _anim, _player, _boss, _theBossR)
     {
         name = STATE.ATTACK;
     }
@@ -25,7 +25,7 @@ public class CAttack : CStates
         {
             //Debug.Log("timer over");
             timer = 0;
-            nextState = new CIdle(npc, anim, player, cyclops, cyclopsR);
+            nextState = new CyclopsIdle(npc, anim, player, cyclops, cyclopsR);
             stage = EVENT.EXIT;
         }
 
@@ -39,4 +39,3 @@ public class CAttack : CStates
         base.Exit();
     }
 }
-

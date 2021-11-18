@@ -6,7 +6,7 @@ public class CyclopsAI : MonoBehaviour
 {
     public Animator anim;
     public GameObject player;
-    public CStates currentState;
+    public CyclopsStates currentState;
     public Transform target;
     public GameObject cyclops;
     public SpriteRenderer cyclopsR;
@@ -19,7 +19,7 @@ public class CyclopsAI : MonoBehaviour
         cyclops = this.gameObject;
         player = GameObject.FindGameObjectWithTag("Player");
         cyclopsR = GetComponent<SpriteRenderer>();
-        currentState = new CIdle(this.gameObject, anim, player, cyclops, cyclopsR);
+        currentState = new CyclopsIdle(this.gameObject, anim, player, cyclops, cyclopsR);
 
 
 

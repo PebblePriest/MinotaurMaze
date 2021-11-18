@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CIdle : CStates
+public class CyclopsIdle : CyclopsStates
 {
     public float timer;
-    public CIdle(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR) : base(_npc, _anim, _player, _boss, _theBossR)
+    public CyclopsIdle(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR) : base(_npc, _anim, _player, _boss, _theBossR)
     {
         name = STATE.IDLE;
     }
@@ -25,7 +25,7 @@ public class CIdle : CStates
             //Debug.Log("Idle Working");
             if (FindPlayer())
             {
-                nextState = new CWalking(npc, anim, player, cyclops, cyclopsR);
+                nextState = new CyclopsWalking(npc, anim, player, cyclops, cyclopsR);
                 timer = 0;
                 stage = EVENT.EXIT;
             }

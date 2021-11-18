@@ -248,6 +248,8 @@ MonoBehaviour:
   - {fileID: 95479714}
   - {fileID: 249410064}
   CyclopsPrefab: {fileID: 7473639068060046069, guid: b48e0ba697cf8b248ae117a91a3952ea, type: 3}
+  cyclopsHusk: {fileID: 3218593090405297686, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
+  huskSpawn: {fileID: 1075855310}
 --- !u!4 &46198855
 Transform:
   m_ObjectHideFlags: 0
@@ -962,8 +964,8 @@ GameObject:
   - component: {fileID: 456317365}
   - component: {fileID: 456317364}
   - component: {fileID: 456317363}
-  - component: {fileID: 456317368}
   - component: {fileID: 456317367}
+  - component: {fileID: 456317368}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1112,6 +1114,26 @@ MonoBehaviour:
     m_ActionName: Player/Attack[/Keyboard/j]
   - m_PersistentCalls:
       m_Calls: []
+    m_ActionId: d734dc47-cf9e-4ce5-95fc-2cee7e4c67b1
+    m_ActionName: Player2/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d477c82a-50d0-4164-b377-7f0bd4d3ec89
+    m_ActionName: Player2/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e8ba3fc8-32cc-48ea-b5ad-4ce29270a2ff
+    m_ActionName: Player2/Attack[/Keyboard/j]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0067291f-e15a-4232-8948-ec99d5a5a377
+    m_ActionName: Player2/Special[/Keyboard/k]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6f269891-ce75-4bf0-8758-c8d02f64d4ce
+    m_ActionName: Player2/Husk[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
     m_ActionId: 7de62716-c3df-4b3e-b7d6-c60f9334522e
     m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
   - m_PersistentCalls:
@@ -1151,63 +1173,11 @@ MonoBehaviour:
     m_ActionId: 4426cb1a-8d64-4e34-9346-e732dc8acce5
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 456317367}
-        m_TargetAssemblyTypeName: GameMenu, Assembly-CSharp
-        m_MethodName: OpenPauseMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 9d24602b-7ef6-42ff-8d13-d9187e2980c0
     m_ActionName: UI/OpenPause[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d734dc47-cf9e-4ce5-95fc-2cee7e4c67b1
-    m_ActionName: Player2/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0f375db3-c002-436e-a43b-b7a050c5927f
-    m_ActionName: Player2/Look[/Mouse/delta,/Pen/delta]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d477c82a-50d0-4164-b377-7f0bd4d3ec89
-    m_ActionName: Player2/Jump[/Keyboard/space]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e8ba3fc8-32cc-48ea-b5ad-4ce29270a2ff
-    m_ActionName: Player2/Attack[/Keyboard/j]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0067291f-e15a-4232-8948-ec99d5a5a377
-    m_ActionName: Player2/Special[/Keyboard/k]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 6f269891-ce75-4bf0-8758-c8d02f64d4ce
-    m_ActionName: Player2/Shift[/Keyboard/i]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2bf0d390-0b8e-4464-8830-959dea8d4e9d
-    m_ActionName: MultiPlayerSelect/Toggle[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: eae04e30-9ab7-426a-9adf-b25e405e497f
-    m_ActionName: MultiPlayerSelect/Select[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c64d075e-16d1-4681-83b9-a52b26fd895c
-    m_ActionName: MultiPlayerSelect2/Toggle[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 20f9130e-5181-4071-88b9-cc05a6369339
-    m_ActionName: MultiPlayerSelect2/Select[/Keyboard/enter]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -1709,67 +1679,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622000100}
   m_CullTransparentMesh: 1
---- !u!1001 &647575427
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -7116969915792047349, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
-      propertyPath: sceneViewId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218593090405297685, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218593090405297685, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 6.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218593090405297685, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218593090405297685, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218593090405297685, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218593090405297685, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218593090405297685, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218593090405297685, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218593090405297685, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218593090405297685, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218593090405297685, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3218593090405297686, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
-      propertyPath: m_Name
-      value: cyclopsHusk
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
 --- !u!1 &802242364
 GameObject:
   m_ObjectHideFlags: 0
@@ -2246,6 +2155,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1075855309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1075855310}
+  m_Layer: 0
+  m_Name: HuskSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1075855310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075855309}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.35, y: -0.62, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1106677455
 GameObject:
   m_ObjectHideFlags: 0

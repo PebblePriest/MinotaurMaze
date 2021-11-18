@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 7473639068060046066}
   - component: {fileID: 7473639068060046065}
   - component: {fileID: 7473639068060046070}
-  - component: {fileID: 7473639068060046064}
   - component: {fileID: 7473639068060046071}
-  - component: {fileID: 7473639068060046068}
   - component: {fileID: 7473639068882873183}
   - component: {fileID: 7473639068882873185}
   - component: {fileID: 6332343985709926633}
   - component: {fileID: 7473639068882873184}
+  - component: {fileID: 1063727761085769521}
+  - component: {fileID: 8404892141784754892}
   m_Layer: 6
   m_Name: Cyclops
   m_TagString: Enemy
@@ -112,7 +112,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!70 &7473639068060046070
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -129,25 +129,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.49197575, y: -0.028333087}
   m_Size: {x: 0.9958626, y: 2.0566661}
   m_Direction: 0
---- !u!95 &7473639068060046064
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7473639068060046069}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f4444cc3ed9138648b9792050a863131, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7473639068060046071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,21 +146,6 @@ MonoBehaviour:
   target: {fileID: 0}
   cyclops: {fileID: 0}
   cyclopsR: {fileID: 0}
---- !u!114 &7473639068060046068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7473639068060046069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df5293dbc30f7764184b99018a206a91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 20
-  CcurrentHealth: 0
-  knockBackForce: 0
 --- !u!114 &7473639068882873183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,19 +217,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
-  m_SynchronizeParameters:
-  - Type: 9
-    SynchronizeType: 1
-    Name: isAttacking
-  - Type: 9
-    SynchronizeType: 1
-    Name: isIdle
-  - Type: 9
-    SynchronizeType: 1
-    Name: isWalking
+  m_SynchronizeParameters: []
   m_SynchronizeLayers:
   - SynchronizeType: 1
     LayerIndex: 0
+--- !u!114 &1063727761085769521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7473639068060046069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 245f079ff605ef0489a2b604665fa8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 30
+  CcurrentHealth: 0
+  knockBackForce: 0
+  cyclopsHusk: {fileID: 3218593090405297686, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
+--- !u!95 &8404892141784754892
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7473639068060046069}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f4444cc3ed9138648b9792050a863131, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7473639068177565056
 GameObject:
   m_ObjectHideFlags: 0

@@ -282,31 +282,11 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 6f269891-ce75-4bf0-8758-c8d02f64d4ce
     m_ActionName: Player2/Shift[/Keyboard/i]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2bf0d390-0b8e-4464-8830-959dea8d4e9d
-    m_ActionName: MultiPlayerSelect/Toggle[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: eae04e30-9ab7-426a-9adf-b25e405e497f
-    m_ActionName: MultiPlayerSelect/Select[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c64d075e-16d1-4681-83b9-a52b26fd895c
-    m_ActionName: MultiPlayerSelect2/Toggle[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 20f9130e-5181-4071-88b9-cc05a6369339
-    m_ActionName: MultiPlayerSelect2/Select[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c85ba6f6-caf9-4545-88f9-2aac13388eb3
-    m_ActionName: Player2/Look[/Mouse/delta]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 7629138091821544961}
 --- !u!95 &3168061252436849774
 Animator:
   serializedVersion: 3

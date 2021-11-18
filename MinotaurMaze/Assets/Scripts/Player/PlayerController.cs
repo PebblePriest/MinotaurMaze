@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour
                     }
                     if (enemy.gameObject.tag == "Enemy")
                     {
-                        enemy.GetComponent<CEnemy>().TakeDamage(comboAttackDamage);
+                        enemy.GetComponent<CyclopsEnemy>().TakeDamage(comboAttackDamage);
                     }
                 }
             }

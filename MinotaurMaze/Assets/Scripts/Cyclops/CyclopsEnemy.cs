@@ -1,19 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class CEnemy : MonoBehaviour
+public class CyclopsEnemy : MonoBehaviour
 {
     public int maxHealth = 100;
     public int CcurrentHealth;
     public float knockBackForce;
-
+    public GameObject cyclopsHusk;
+    private PhotonView PV;
 
     private Rigidbody2D theRB;
 
     void Start()
     {
         theRB = GetComponent<Rigidbody2D>();
+        PV = GetComponent<PhotonView>();
         CcurrentHealth = maxHealth;
 
     }
@@ -32,7 +35,12 @@ public class CEnemy : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
-        Debug.Log("Enemy Died");
+        if(PV.IsMine)
+        {
+            PhotonNetwork.Instantiate(cyclopsHusk.name, this.transform.position, this.transform.rotation);
+            PhotonNetwork.Destroy(gameObject);
+            Debug.Log("Enemy Died");
+        }
+       
     }
 }
