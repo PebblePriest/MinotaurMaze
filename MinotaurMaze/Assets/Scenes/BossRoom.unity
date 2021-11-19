@@ -243,7 +243,7 @@ MonoBehaviour:
   EndScreen: {fileID: 853915585}
   playerPrefabs:
   - {fileID: 3168061252436849767, guid: c8a5f3a495c767849a5c5e3be4475b3c, type: 3}
-  - {fileID: 4493685781937553514, guid: c9b2b1630d9d40b449c2e1d0e5a0f598, type: 3}
+  - {fileID: 2855920432051949003, guid: 0ac5627cc38e6d741b49a708de206609, type: 3}
   enemySpawnPoints:
   - {fileID: 95479714}
   - {fileID: 249410064}

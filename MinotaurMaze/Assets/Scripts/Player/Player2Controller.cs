@@ -30,9 +30,9 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
     public float knockBackLength;
     private float knockBackCounter;
 
-    public GameObject eye, playerCyc, husk;
-    private bool isBox, canAct;
-    private float actTimer;
+    public GameObject eye, playerCyc, husk, boxMode;
+    private bool canAct, enterHusk;
+    private float actTimer, huskTimer;
 
     public bool isEye, isCyc, canEnterHusk;
 
@@ -78,11 +78,11 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
 
                 if (theRB.velocity.x < 0)
                 {
-                    transform.localScale = new Vector3(-1, 1, 1);
+                    transform.localScale = new Vector3(-1.65f, 1.65f, 1.65f);
                 }
                 else if (theRB.velocity.x > 0)
                 {
-                    transform.localScale = new Vector3(1, 1, 1);
+                    transform.localScale = new Vector3(1.65f, 1.65f, 1.65f);
                 }
             }
 
@@ -90,7 +90,7 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
             {
                 //knock back to left/right
                 knockBackCounter -= Time.deltaTime;
-                if (transform.localScale == new Vector3(1, 1, 1))
+                if (transform.localScale == new Vector3(1.65f, 1.65f, 1.65f))
                 {
                     theRB.velocity = new Vector2(-1f, theRB.velocity.y);
                 }
@@ -108,6 +108,18 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
                 {
                     actTimer = 0;
                     canAct = true;
+                }
+            }
+
+            if (isEye && enterHusk)
+            {
+                huskTimer += Time.deltaTime;
+                anim.SetBool("enterCyc", true);
+                if(huskTimer >= 1f)
+                {
+                    GameObject newBox = PhotonNetwork.Instantiate(boxMode.name, transform.position, transform.rotation);
+                    newBox.transform.localScale = new Vector3(gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+                    PhotonNetwork.Destroy(gameObject);
                 }
             }
 
@@ -212,22 +224,27 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
         {
             if (context.performed && canAct)
             {
-                if (!isBox)
-                {
-                    anim.SetTrigger("toBox");
-                    canAct = false;
-                    isBox = true;
-                    StopMovement();
-                    moveSpeed = 0f;
-                    Debug.Log(moveSpeed);
-                }
-                else if (isBox)
-                {
-                    anim.SetTrigger("outBox");
-                    canAct = false;
-                    isBox = false;
-                    ResetMovement();
-                }
+                enterHusk = true;
+
+                /// Switches to box mode, good for local play
+                //if (!isBox)
+                //{
+                //    anim.SetTrigger("toBox");
+                //    canAct = false;
+                //    isBox = true;
+                //    StopMovement();
+                //    moveSpeed = 0f;
+                //    transform.gameObject.tag = "Ground";
+                //    Debug.Log(moveSpeed);
+                //}
+                //else if (isBox)
+                //{
+                //    anim.SetTrigger("outBox");
+                //    canAct = false;
+                //    isBox = false;
+                //    transform.gameObject.tag = "Player";
+                //    ResetMovement();
+                //}
             }
         }
     }
@@ -238,29 +255,28 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
         {
             if (isEye)
             {
-                if (context.performed && !isBox && canAct)
+                if (context.performed && canAct)
                 {
                     if (canEnterHusk)
                     {
-                        //destroyHusk = true;
-                        Destroy(currentHusk);
-                        playerCyc.transform.position = this.gameObject.transform.position;
-                        playerCyc.SetActive(true);
-                        this.gameObject.SetActive(false);
+                        PhotonNetwork.Destroy(currentHusk);
+                        GameObject newCyc = PhotonNetwork.Instantiate(playerCyc.name, transform.position, transform.rotation);
+                        newCyc.transform.localScale = new Vector3(gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+                        PhotonNetwork.Destroy(gameObject);
                     }
                 }
             }
 
             if (isCyc)
             {
-                if (context.performed && !isBox && canAct)
+                if (context.performed && canAct)
                 {
-                    //GameObject newHusk = husk[PhotonNetwork.LocalPlayer];
                     GameObject newHusk = PhotonNetwork.Instantiate(husk.name, transform.position, transform.rotation);
                     newHusk.transform.localScale = new Vector3(gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
-                    eye.transform.position = this.gameObject.transform.position;
-                    eye.SetActive(true);
-                    this.gameObject.SetActive(false);
+
+                    GameObject newEye = PhotonNetwork.Instantiate(eye.name, transform.position, transform.rotation);
+                    newEye.transform.localScale = new Vector3(gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+                    PhotonNetwork.Destroy(gameObject);
                 }
             }
         }
@@ -341,13 +357,5 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
             this.isCyc = (bool)stream.ReceiveNext();
         }
     }
-
-    //[PunRPC]
-    //public void RPC_Configure(bool eyeBool, bool cycBool, GameObject empHusk)
-    //{
-    //    isEye = eyeBool;
-    //    isCyc = cycBool;
-    //    husk = empHusk;
-    //}
     
 }
