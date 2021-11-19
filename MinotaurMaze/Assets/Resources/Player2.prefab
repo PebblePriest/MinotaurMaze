@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efccde8dbc621d4f9a6bf0eb47c4422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4493685781937553509}
+  player: {fileID: 4493685781757586871}
   Background: {fileID: 0}
   minHeight: -11.3
   maxHeight: 4.1

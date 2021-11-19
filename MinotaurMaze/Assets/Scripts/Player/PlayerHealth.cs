@@ -31,12 +31,12 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
     {
         if (photonView.IsMine)
         {
-            Debug.Log("I am activating Camera!");
+            
             healthSlider = GameObject.FindWithTag("HealthSlider").GetComponent<Slider>();
             theSR = GetComponent<SpriteRenderer>();
             currentHealth = maxHealth;
-            myCamera.SetActive(true);
-            Debug.Log("I activated my camera");
+            
+           
         }
        
     }
@@ -45,7 +45,8 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
     {
         if(photonView.IsMine)
         {
-            
+            Debug.Log("I activated my camera");
+            myCamera.SetActive(true);
             if (invincibleCounter > 0)
             {
                 invincibleCounter -= Time.deltaTime;
