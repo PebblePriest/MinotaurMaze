@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CyclopsAI : MonoBehaviour
+public class CyclopsAi : MonoBehaviour
 {
     public Animator anim;
     public GameObject player;
