@@ -28,9 +28,7 @@ public class CyclopsEnemy : MonoBehaviour
 
         if (CcurrentHealth <= 0)
         {
-
             Die();
-            PhotonNetwork.Instantiate(cyclopsHusk.name, this.transform.position, this.transform.rotation);
         }
     }
 
@@ -38,10 +36,12 @@ public class CyclopsEnemy : MonoBehaviour
     {
         if(PV.IsMine)
         {
-            PhotonNetwork.Destroy(gameObject);
             Debug.Log("Enemy Died");
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.Instantiate(cyclopsHusk.name, this.transform.position, this.transform.rotation);
+            }
+            PhotonNetwork.Destroy(gameObject);
         }
-        
-
     }
 }

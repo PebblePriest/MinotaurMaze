@@ -114,11 +114,12 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
             if (isEye && enterHusk)
             {
                 huskTimer += Time.deltaTime;
-                anim.SetBool("enterCyc", true);
+                anim.SetTrigger("enterCyc");
                 if(huskTimer >= 1f)
                 {
-                    GameObject newBox = PhotonNetwork.Instantiate(boxMode.name, transform.position, transform.rotation);
-                    newBox.transform.localScale = new Vector3(gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+                    PhotonNetwork.Destroy(currentHusk);
+                    GameObject newCyc = PhotonNetwork.Instantiate(playerCyc.name, transform.position, transform.rotation);
+                    newCyc.transform.localScale = new Vector3(gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
                     PhotonNetwork.Destroy(gameObject);
                 }
             }
@@ -224,8 +225,9 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
         {
             if (context.performed && canAct)
             {
-                enterHusk = true;
-
+                GameObject newBox = PhotonNetwork.Instantiate(boxMode.name, transform.position, transform.rotation);
+                newBox.transform.localScale = new Vector3(gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+                PhotonNetwork.Destroy(gameObject);
                 /// Switches to box mode, good for local play
                 //if (!isBox)
                 //{
@@ -259,10 +261,7 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
                 {
                     if (canEnterHusk)
                     {
-                        PhotonNetwork.Destroy(currentHusk);
-                        GameObject newCyc = PhotonNetwork.Instantiate(playerCyc.name, transform.position, transform.rotation);
-                        newCyc.transform.localScale = new Vector3(gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
-                        PhotonNetwork.Destroy(gameObject);
+                        enterHusk = true;
                     }
                 }
             }
