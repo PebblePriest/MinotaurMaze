@@ -42,6 +42,13 @@ MonoBehaviour:
   - cyclopsHusk
   - Player2
   - RPC_Configure
+  - RPC_MinotaurHealth
+  - RPC_PlayerChange
+  - OnTriggerEnter2D
+  - TurnOnHealth
+  - SetHealthBar
+  - SetHealth
+  - HealthChange
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

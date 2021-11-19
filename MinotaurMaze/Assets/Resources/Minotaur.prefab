@@ -262,6 +262,7 @@ MonoBehaviour:
   knockBackForce: 100
   MinoDeadBody: {fileID: 6719595010117915972, guid: cca3c18715c8c7a4383997050641c8c2, type: 3}
   MinoHead: {fileID: 8183279900213503133, guid: d2a71bcc706ca414fa5dd987a8bb67bf, type: 3}
+  PV: {fileID: 0}
   HealthBar: {fileID: 0}
 --- !u!114 &6518284980919301547
 MonoBehaviour:

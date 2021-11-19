@@ -18,6 +18,7 @@ TagManager:
   - SC
   - EC
   - Husk
+  - BossHealthBar
   layers:
   - Default
   - TransparentFX

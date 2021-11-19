@@ -12,28 +12,34 @@ public class Enemy : MonoBehaviour
     public GameObject MinoDeadBody, MinoHead;
     private Rigidbody2D theRB;
     public static bool isBoss;
-
+    public PhotonView PV;
     public Slider HealthBar;
 
     void Start()
     {
         theRB = GetComponent<Rigidbody2D>();
+        PV = GetComponent<PhotonView>();
         currentHealth = maxHealth;
-       
-       
-    }
+        HealthBar = GameObject.FindWithTag("BossHealthBar").GetComponent<Slider>();
 
+    }
+    
     public void TakeDamage(int damage)
     {
-        currentHealth -= damage;
-        theRB.velocity = new Vector2(knockBackForce, 0f);
-        HealthBar.value = currentHealth;
-        Debug.Log(currentHealth);
+        PV.RPC("HealthChange", RpcTarget.AllBuffered, damage);
         if (currentHealth <= 0)
         {
             
             Die();
         }
+    }
+    [PunRPC]
+    void HealthChange(int damage)
+    {
+        currentHealth -= damage;
+        theRB.velocity = new Vector2(knockBackForce, 0f);
+        HealthBar.value = currentHealth;
+        Debug.Log(currentHealth);
     }
 
     void Die()
@@ -57,9 +63,12 @@ public class Enemy : MonoBehaviour
 
             }
         }
-        
-        Destroy(gameObject);
-        GameManager.instance.EndGame();
-        Debug.Log("Enemy Died");
+        if(PV.IsMine)
+        {
+            PhotonNetwork.Destroy(gameObject);
+            GameManager.instance.EndGame();
+            Debug.Log("Enemy Died");
+        }
+       
     }
 }
