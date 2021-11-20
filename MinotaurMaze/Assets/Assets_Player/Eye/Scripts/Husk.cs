@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Husk : MonoBehaviour
 {
     private SpriteRenderer theSR;
     public bool canUse;
     private float timer;
+    public Player2Controller p2;
+    public PhotonView PV;
     private void Start()
     {
+        PV = GetComponent<PhotonView>();
         theSR = GetComponent<SpriteRenderer>();
     }
     private void Update()
@@ -23,6 +27,7 @@ public class Husk : MonoBehaviour
                 canUse = true;
             }
         }
+        
     }
 
 

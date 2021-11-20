@@ -19,6 +19,9 @@ TagManager:
   - EC
   - Husk
   - BossHealthBar
+  - Player2Health
+  - EndScreen
+  - BlockSpawns
   layers:
   - Default
   - TransparentFX

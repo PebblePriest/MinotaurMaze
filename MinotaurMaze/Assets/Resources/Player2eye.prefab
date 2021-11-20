@@ -234,8 +234,8 @@ GameObject:
   - component: {fileID: 2855920432051948977}
   - component: {fileID: 2855920432051948976}
   - component: {fileID: 2855920432051948978}
-  - component: {fileID: 2855920432051949005}
   - component: {fileID: 2855920432051948979}
+  - component: {fileID: 2598190720839536686}
   - component: {fileID: 2855920432051949004}
   - component: {fileID: 7749507951114232755}
   - component: {fileID: 4851598799280850112}
@@ -343,10 +343,13 @@ MonoBehaviour:
   playerCyc: {fileID: 5295946289551854412, guid: c291183fb773ae541bd79dc6e8b6fc95, type: 3}
   husk: {fileID: 3218593090405297686, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
   boxMode: {fileID: 0}
+  canAct: 0
+  enterHusk: 0
   isEye: 1
   isCyc: 0
   canEnterHusk: 0
   ground: {fileID: 2855920430831070302}
+  player2: 0
   currentHusk: {fileID: 0}
 --- !u!114 &2855920432051948977
 MonoBehaviour:
@@ -522,24 +525,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2855920432051949005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2855920432051949003}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74a6117eb35f7f54d92b23d8bc1e93b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  knockBackForce: 0
-  invincibleLength: 0
-  healthSlider: {fileID: 0}
-  photonview: {fileID: 0}
-  myCamera: {fileID: 5120718178617679243}
 --- !u!70 &2855920432051948979
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -556,6 +541,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0.056673348, y: -0.36365414}
   m_Size: {x: 1.2254637, y: 2.2361393}
   m_Direction: 0
+--- !u!114 &2598190720839536686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2855920432051949003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2434ba38e194ba44a9f0b44bf8f6899d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCamera: {fileID: 5120718178617679243}
+  PV: {fileID: 2855920432051949004}
 --- !u!114 &2855920432051949004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -576,10 +575,9 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 2855920432051948982}
-  - {fileID: 2855920432051949005}
-  - {fileID: 2855920432051949006}
   - {fileID: 7749507951114232755}
   - {fileID: 4851598799280850112}
+  - {fileID: 2855920432051949006}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

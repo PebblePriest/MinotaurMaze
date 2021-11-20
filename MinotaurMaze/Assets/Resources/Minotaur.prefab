@@ -264,6 +264,7 @@ MonoBehaviour:
   MinoHead: {fileID: 8183279900213503133, guid: d2a71bcc706ca414fa5dd987a8bb67bf, type: 3}
   PV: {fileID: 0}
   HealthBar: {fileID: 0}
+  EndScreen: {fileID: 0}
 --- !u!114 &6518284980919301547
 MonoBehaviour:
   m_ObjectHideFlags: 0

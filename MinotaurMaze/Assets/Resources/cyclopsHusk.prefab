@@ -125,6 +125,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canUse: 0
+  p2: {fileID: 0}
+  PV: {fileID: 0}
 --- !u!114 &-7116969915792047349
 MonoBehaviour:
   m_ObjectHideFlags: 0

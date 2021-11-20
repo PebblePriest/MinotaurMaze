@@ -49,6 +49,12 @@ MonoBehaviour:
   - SetHealthBar
   - SetHealth
   - HealthChange
+  - PlayerTakesDamage
+  - CyclopsTakeDmg
+  - EndGame
+  - PTD
+  - HealthUpdate
+  - TakeDmg
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

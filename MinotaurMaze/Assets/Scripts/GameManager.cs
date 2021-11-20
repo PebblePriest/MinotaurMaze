@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get; set; }
     public float waitToRespawn;
-    public GameObject EndScreen;
     public GameObject[] playerPrefabs;
     public GameObject[] enemySpawnPoints;
     public GameObject CyclopsPrefab;
@@ -32,13 +31,6 @@ public class GameManager : MonoBehaviour
         }
        
     }
-
-   
-    void Update()
-    {
-        
-    }
-
     public void RespawnPlayer()
     {
         StartCoroutine(RespawnCo());
@@ -52,23 +44,4 @@ public class GameManager : MonoBehaviour
 
         PlayerController.instance.transform.position = CheckPointController.instance.spawnPoint;
     }
-
-    public void EndGame()
-    {
-        StartCoroutine(EndGameCo());
-    }
-
-    private IEnumerator EndGameCo()
-    {
-        yield return new WaitForSeconds(5);
-
-        EndScreen.SetActive(true);
-        Time.timeScale = 0;
-    }
-    //public void SpawnPlayer()
-    //{
-
-    //    //PhotonNetwork.Instantiate(playerPrefab.name, playerPrefab.transform.position, playerPrefab.transform.rotation, 0);
-    //    //PhotonNetwork.Instantiate(player2Prefab.name, player2Prefab.transform.position, player2Prefab.transform.rotation);
-    //}
 }

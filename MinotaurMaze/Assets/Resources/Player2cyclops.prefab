@@ -85,8 +85,8 @@ GameObject:
   - component: {fileID: 5295946289551854415}
   - component: {fileID: 5295946289551854414}
   - component: {fileID: 5295946289551854413}
+  - component: {fileID: 6205717222794930042}
   - component: {fileID: 5295946289551854452}
-  - component: {fileID: 5295946289551854453}
   - component: {fileID: 5295946289551854456}
   - component: {fileID: 5295946289551854454}
   - component: {fileID: 6720441337741222134}
@@ -193,10 +193,13 @@ MonoBehaviour:
   playerCyc: {fileID: 5295946289551854412}
   husk: {fileID: 3218593090405297686, guid: a8dec9f961e6a57479f320e5a7f5ab63, type: 3}
   boxMode: {fileID: 9133086705050791810, guid: 864416dde630f6d419346fd26d0808fb, type: 3}
+  canAct: 0
+  enterHusk: 0
   isEye: 0
   isCyc: 1
   canEnterHusk: 0
   ground: {fileID: 5295946288861306670}
+  player2: 0
   currentHusk: {fileID: 0}
 --- !u!114 &5295946289551854415
 MonoBehaviour:
@@ -393,6 +396,20 @@ CapsuleCollider2D:
   m_Offset: {x: -0.06894839, y: -0.50351685}
   m_Size: {x: 1.247453, y: 1.9598366}
   m_Direction: 0
+--- !u!114 &6205717222794930042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5295946289551854412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2434ba38e194ba44a9f0b44bf8f6899d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCamera: {fileID: 5968679233861978320}
+  PV: {fileID: 5295946289551854456}
 --- !u!95 &5295946289551854452
 Animator:
   serializedVersion: 3
@@ -412,24 +429,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5295946289551854453
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5295946289551854412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74a6117eb35f7f54d92b23d8bc1e93b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  knockBackForce: 0
-  invincibleLength: 0
-  healthSlider: {fileID: 0}
-  photonview: {fileID: 0}
-  myCamera: {fileID: 5968679233861978320}
 --- !u!114 &5295946289551854456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -450,7 +449,6 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 5295946289551854448}
-  - {fileID: 5295946289551854453}
   - {fileID: 5295946289551854454}
   - {fileID: 6720441337741222134}
   - {fileID: 6554498172464312497}
@@ -475,12 +473,6 @@ MonoBehaviour:
   - Type: 1
     SynchronizeType: 1
     Name: xVel
-  - Type: 9
-    SynchronizeType: 1
-    Name: toBox
-  - Type: 9
-    SynchronizeType: 1
-    Name: outBox
   - Type: 4
     SynchronizeType: 1
     Name: isAttacking

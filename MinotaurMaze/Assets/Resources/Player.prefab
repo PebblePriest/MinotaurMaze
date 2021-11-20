@@ -338,7 +338,7 @@ MonoBehaviour:
   knockBackForce: 0
   invincibleLength: 2
   healthSlider: {fileID: 0}
-  photonview: {fileID: 8931309376393397938}
+  PV: {fileID: 0}
   myCamera: {fileID: 4926114856837333004}
 --- !u!114 &8931309376393397938
 MonoBehaviour:

@@ -31,13 +31,13 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
     private float knockBackCounter;
 
     public GameObject eye, playerCyc, husk, boxMode;
-    private bool canAct, enterHusk;
+    public bool canAct, enterHusk;
     private float actTimer, huskTimer;
 
     public bool isEye, isCyc, canEnterHusk;
 
     public GroundCheck ground;
-
+    public bool player2 = false;
     public GameObject currentHusk;
 
     PhotonView view;
@@ -49,6 +49,7 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
 
     void Start()
     {
+        
         view = GetComponent<PhotonView>();
         theRB = GetComponent<Rigidbody2D>();
         canAct = false;

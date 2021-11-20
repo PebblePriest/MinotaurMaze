@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-
+using Photon.Pun;
 public class ChargeDetect : MonoBehaviour
 {
     [Header("Attack Type")]
@@ -17,6 +17,11 @@ public class ChargeDetect : MonoBehaviour
     public GameObject FallBlock;
     public GameObject[] fbPoints;
 
+    
+    public void Start()
+    {
+        fbPoints = GameObject.FindGameObjectsWithTag("BlockSpawns");
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (isCharge)
@@ -26,7 +31,7 @@ public class ChargeDetect : MonoBehaviour
             {
                 foreach (GameObject point in fbPoints)
                 {
-                    Instantiate(FallBlock, point.transform.position, point.transform.rotation);
+                    PhotonNetwork.Instantiate(FallBlock.name, point.transform.position, point.transform.rotation);
                 }
 
                 ai.anim.ResetTrigger("isCharging");

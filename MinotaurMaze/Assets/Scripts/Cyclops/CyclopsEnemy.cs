@@ -23,13 +23,19 @@ public class CyclopsEnemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        CcurrentHealth -= damage;
-        theRB.velocity = new Vector2(knockBackForce, 0f);
+        PV.RPC("CyclopsTakeDmg", RpcTarget.AllBuffered, damage);
 
         if (CcurrentHealth <= 0)
         {
             Die();
         }
+    }
+    [PunRPC]
+    void CyclopsTakeDmg(int damage)
+    {
+        CcurrentHealth -= damage;
+        theRB.velocity = new Vector2(knockBackForce, 0f);
+
     }
 
     void Die()

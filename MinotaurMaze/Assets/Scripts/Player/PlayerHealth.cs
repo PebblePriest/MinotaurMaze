@@ -15,8 +15,8 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
     private float invincibleCounter;
 
     public Slider healthSlider;
-
-    public PhotonView photonview;
+    
+    public PhotonView PV;
     private Vector3 smoothMove;
 
     public GameObject myCamera;
@@ -24,17 +24,19 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
     private void Awake()
     {
         instance = this;
-        photonview = GetComponent<PhotonView>();
+        PV = GetComponent<PhotonView>();
     }
 
     void Start()
     {
-        if (photonView.IsMine)
+        if (PV.IsMine)
         {
-            
-            healthSlider = GameObject.FindWithTag("HealthSlider").GetComponent<Slider>();
-            theSR = GetComponent<SpriteRenderer>();
             currentHealth = maxHealth;
+            healthSlider = GameObject.FindGameObjectWithTag("HealthSlider").GetComponent<Slider>();
+            Debug.Log(healthSlider + " is found!");
+            
+            theSR = GetComponent<SpriteRenderer>();
+            
             
            
         }
@@ -43,10 +45,12 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
 
     private void Update()
     {
-        if(photonView.IsMine)
+        if(PV.IsMine)
         {
+            healthSlider.value = currentHealth;
             Debug.Log("I activated my camera");
             myCamera.SetActive(true);
+            //PV.RPC("HealthUpdate", RpcTarget.AllBuffered);
             if (invincibleCounter > 0)
             {
                 invincibleCounter -= Time.deltaTime;
@@ -63,19 +67,14 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
 
     public void TakeDamage(int damage)
     {
-        if (invincibleCounter <= 0)
+        if(invincibleCounter <= 0)
         {
-            knockBackForce = damage;
-            currentHealth -= damage;
-
-            PlayerController.instance.KnockBack();
-            healthSlider.value = currentHealth;
-            //Debug.Log(currentHealth);
-            //play hurt animation
-            PlayerController.instance.anim.SetTrigger("isHurt");
+           
+            PV.RPC("PTD", RpcTarget.AllBuffered, damage);
             
             if (currentHealth <= 0)
             {
+                Debug.Log("Supposed to be dead!");
                 Die();
             }
             else
@@ -86,9 +85,22 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
                 theSR.color = new Color(theSR.color.r, theSR.color.g, theSR.color.b, 0.5f);
             }
         }
+        
        
     }
+    [PunRPC]
+    public void PTD(int damage)
+    {
+        
+            knockBackForce = damage;
+            currentHealth -= damage;
 
+            PlayerController.instance.KnockBack();
+            healthSlider.value = currentHealth;
+        //Debug.Log(currentHealth);
+        //play hurt animation
+        PlayerController.instance.anim.SetTrigger("isHurt");   
+    }
     void Die()
     {
         GameManager.instance.RespawnPlayer();

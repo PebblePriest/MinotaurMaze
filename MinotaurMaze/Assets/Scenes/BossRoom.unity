@@ -240,7 +240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waitToRespawn: 0.5
-  EndScreen: {fileID: 853915585}
   playerPrefabs:
   - {fileID: 3168061252436849767, guid: c8a5f3a495c767849a5c5e3be4475b3c, type: 3}
   - {fileID: 2855920432051949003, guid: 0ac5627cc38e6d741b49a708de206609, type: 3}
@@ -1525,7 +1524,7 @@ GameObject:
   - component: {fileID: 543516069}
   m_Layer: 0
   m_Name: FP2
-  m_TagString: Untagged
+  m_TagString: BlockSpawns
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1884,7 +1883,7 @@ GameObject:
   - component: {fileID: 853915587}
   m_Layer: 5
   m_Name: EndScreen
-  m_TagString: Untagged
+  m_TagString: EndScreen
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1992,7 +1991,7 @@ GameObject:
   - component: {fileID: 867041134}
   m_Layer: 0
   m_Name: FP1
-  m_TagString: Untagged
+  m_TagString: BlockSpawns
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2214,7 +2213,7 @@ GameObject:
   - component: {fileID: 953520666}
   m_Layer: 0
   m_Name: FP3
-  m_TagString: Untagged
+  m_TagString: BlockSpawns
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
