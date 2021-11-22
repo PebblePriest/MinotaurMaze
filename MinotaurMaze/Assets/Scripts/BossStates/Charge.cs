@@ -13,6 +13,9 @@ public class Charge : StateEditor
         speed = 20f;
 
     }
+    /// <summary>
+    /// Charge state for the minotaur, looking for the direction of the player and then going that direction if he has not interected with him for a certain amount of time.
+    /// </summary>
     public override void Enter()
     {
         anim.SetTrigger("isCharging");

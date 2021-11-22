@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 2855920432051949006}
   m_Layer: 8
   m_Name: Player2eye
-  m_TagString: Player
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -350,6 +350,8 @@ MonoBehaviour:
   ground: {fileID: 2855920430831070302}
   player2: 0
   currentHusk: {fileID: 0}
+  originalHusk: {fileID: 0}
+  killOld: 0
 --- !u!114 &2855920432051948977
 MonoBehaviour:
   m_ObjectHideFlags: 0

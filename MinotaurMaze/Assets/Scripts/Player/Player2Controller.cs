@@ -39,7 +39,8 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
     public GroundCheck ground;
     public bool player2 = false;
     public GameObject currentHusk;
-
+    public GameObject originalHusk;
+    public bool killOld = false;
     PhotonView view;
 
     private void Awake()
@@ -114,11 +115,12 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
 
             if (isEye && enterHusk)
             {
+                
                 huskTimer += Time.deltaTime;
                 anim.SetTrigger("enterCyc");
                 if(huskTimer >= 1f)
                 {
-                    PhotonNetwork.Destroy(currentHusk);
+                    view.RPC("KillOld", RpcTarget.All);
                     GameObject newCyc = PhotonNetwork.Instantiate(playerCyc.name, transform.position, transform.rotation);
                     newCyc.transform.localScale = new Vector3(gameObject.transform.localScale.x, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
                     PhotonNetwork.Destroy(gameObject);
@@ -131,6 +133,12 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
             //anim.SetFloat("yVelocity", theRB.velocity.y);
 
         }
+    }
+    [PunRPC]
+    void KillOld()
+    {
+        //Gets rid of the old Husk
+        PhotonNetwork.Destroy(currentHusk);
     }
 
     private void FixedUpdate()
@@ -219,7 +227,10 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
             //}
         }
     }
-
+    /// <summary>
+    /// This allows player2 to go into a box state, allowing player 1 to use them as a sort of platform.
+    /// </summary>
+    /// <param name="context"></param>
     public void Special(InputAction.CallbackContext context)
     {
         if (view.IsMine)
@@ -251,7 +262,10 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
             }
         }
     }
-
+    /// <summary>
+    /// This looks for player 2 entering a new husk, a dead body left behind by the enemies.
+    /// </summary>
+    /// <param name="context"></param>
     public void Husk(InputAction.CallbackContext context)
     {
         if (view.IsMine)
@@ -311,7 +325,10 @@ public class Player2Controller : MonoBehaviourPunCallbacks, IPunObservable
             theRB.velocity = new Vector2(0, PlayerHealth.instance.knockBackForce);
         }
     }
-
+    /// <summary>
+    /// This looks to see if player 2 is colliding with a husk, so they can enter it.
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (isEye)

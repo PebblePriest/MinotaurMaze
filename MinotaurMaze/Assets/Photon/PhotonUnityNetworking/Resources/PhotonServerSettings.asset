@@ -56,6 +56,8 @@ MonoBehaviour:
   - HealthUpdate
   - TakeDmg
   - SetPlayerHealth
+  - Wall
+  - KillOld
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

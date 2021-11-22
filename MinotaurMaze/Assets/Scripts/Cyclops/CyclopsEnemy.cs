@@ -30,6 +30,10 @@ public class CyclopsEnemy : MonoBehaviour
             Die();
         }
     }
+    /// <summary>
+    /// pass the damage taken over the network
+    /// </summary>
+    /// <param name="damage"></param>
     [PunRPC]
     void CyclopsTakeDmg(int damage)
     {
@@ -37,7 +41,9 @@ public class CyclopsEnemy : MonoBehaviour
         theRB.velocity = new Vector2(knockBackForce, 0f);
 
     }
-
+    /// <summary>
+    /// deletes the cyclops, if it is the master client, it spawns a husk.
+    /// </summary>
     void Die()
     {
         if(PV.IsMine)

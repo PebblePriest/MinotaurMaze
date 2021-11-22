@@ -10,13 +10,20 @@ public class Husk : MonoBehaviour
     private float timer;
     public Player2Controller p2;
     public PhotonView PV;
+    public GameObject body;
     private void Start()
     {
         PV = GetComponent<PhotonView>();
         theSR = GetComponent<SpriteRenderer>();
+       
+        
     }
+    /// <summary>
+    /// After a wait time, the husk will become available for the player to enter
+    /// </summary>
     private void Update()
     {
+       
         if (!canUse)
         {
             theSR.color = new Color(0.5f, 0.5f, 0.5f);
@@ -29,6 +36,7 @@ public class Husk : MonoBehaviour
         }
         
     }
+    
 
 
 }

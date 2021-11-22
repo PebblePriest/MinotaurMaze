@@ -28,7 +28,14 @@ public class CyclopsStates
     public float basicAttack = 2f;
 
     public static int health;
-
+    /// <summary>
+    /// cyclops states for the ai
+    /// </summary>
+    /// <param name="_npc"></param>
+    /// <param name="_anim"></param>
+    /// <param name="_player"></param>
+    /// <param name="_cyclops"></param>
+    /// <param name="_cyclopsR"></param>
     public CyclopsStates(GameObject _npc, Animator _anim, GameObject _player, GameObject _cyclops, SpriteRenderer _cyclopsR)
     {
         npc = _npc;
@@ -53,6 +60,10 @@ public class CyclopsStates
         }
         return this;
     }
+    /// <summary>
+    /// Logic for finding the player location on the scene
+    /// </summary>
+    /// <returns></returns>
     public bool FindPlayer()
     {
 
@@ -66,6 +77,10 @@ public class CyclopsStates
         Debug.Log("Player Missing");
         return false;
     }
+    /// <summary>
+    /// If the player is within these parameters, it will attack the player
+    /// </summary>
+    /// <returns></returns>
     public bool AttackPlayer()
     {
         float dist = Vector2.Distance(player.transform.position, cyclops.transform.position);

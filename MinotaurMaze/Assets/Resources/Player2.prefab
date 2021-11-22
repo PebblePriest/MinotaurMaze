@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1111934441873959276}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Untagged
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -118,6 +118,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player2eye
       objectReference: {fileID: 0}
+    - target: {fileID: 2855920432051949003, guid: 0ac5627cc38e6d741b49a708de206609, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2855920432051949004, guid: 0ac5627cc38e6d741b49a708de206609, type: 3}
       propertyPath: ObservedComponents.Array.size
       value: 4
@@ -206,6 +210,10 @@ PrefabInstance:
     - target: {fileID: 5295946289551854412, guid: c291183fb773ae541bd79dc6e8b6fc95, type: 3}
       propertyPath: m_Name
       value: Player2cyclops
+      objectReference: {fileID: 0}
+    - target: {fileID: 5295946289551854412, guid: c291183fb773ae541bd79dc6e8b6fc95, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5295946289551854415, guid: c291183fb773ae541bd79dc6e8b6fc95, type: 3}
       propertyPath: m_Camera

@@ -12,6 +12,9 @@ public class Player2Health : MonoBehaviour
     {
         PV = GetComponent<PhotonView>();
     }
+    /// <summary>
+    /// Sets the camera for player 2
+    /// </summary>
     private void Update()
     {
         if(PV.IsMine)

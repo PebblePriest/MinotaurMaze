@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class BossWallBlock : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class BossWallBlock : MonoBehaviour
 
     private BoxCollider2D col;
 
+    public PhotonView PV;
+
     private void Awake()
     {
         instance = this;
@@ -17,15 +20,24 @@ public class BossWallBlock : MonoBehaviour
 
     private void Start()
     {
+        PV = GetComponent<PhotonView>();
         col = GetComponent<BoxCollider2D>();
     }
-
+    /// <summary>
+    /// This is activated once the boss is dead, letting the player pass and continue into the level.
+    /// </summary>
     public void wallDisable()
     {
+        PV.RPC("Wall", RpcTarget.AllBuffered);
+    }
+    [PunRPC]
+    void Wall()
+    {
         col.enabled = !col.enabled;
-        foreach(GameObject part in columnParts)
+        foreach (GameObject part in columnParts)
         {
-            GetComponent<SpriteRenderer>().color = new Color(.5f, .5f, .5f);
+            part.GetComponent<SpriteRenderer>().color = new Color(.5f, .5f, .5f);
         }
     }
+
 }
