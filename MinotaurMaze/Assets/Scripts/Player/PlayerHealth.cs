@@ -34,7 +34,9 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
         healthSlider = GameObject.FindWithTag("HealthSlider").GetComponent<Slider>();
         theSR = GetComponent<SpriteRenderer>();
     }
-
+    /// <summary>
+    /// sets the camera as well as the player health for player 1 and the invincible counter for getting hit and getting Iframes.
+    /// </summary>
     private void Update()
     {
         healthSlider.value = currentHealth;
@@ -56,7 +58,10 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
        
     }
    
-
+    /// <summary>
+    /// If player 1 takes damage, it subtracts their health over the network for the health bar.
+    /// </summary>
+    /// <param name="damage"></param>
     public void TakeDamage(int damage)
     {
         if(invincibleCounter <= 0)
@@ -82,6 +87,10 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
         
        
     }
+    /// <summary>
+    /// Network logic for health decrease
+    /// </summary>
+    /// <param name="damage"></param>
     [PunRPC]
     public void PTD(int damage)
     {

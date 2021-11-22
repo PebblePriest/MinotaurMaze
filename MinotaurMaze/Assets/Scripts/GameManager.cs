@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
   
     void Start()
     {
+        //spawn in players and enemies
         GameObject playerToSpawn = playerPrefabs[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerAvatar"]];
         PhotonNetwork.Instantiate(playerToSpawn.name, CheckPointController.instance.spawnPoint, Quaternion.identity);
       

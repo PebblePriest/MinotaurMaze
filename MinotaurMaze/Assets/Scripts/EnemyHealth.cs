@@ -24,7 +24,7 @@ public class EnemyHealth : MonoBehaviour
     
     void OnTriggerEnter2D(Collider2D other)
     {
-       
+       //When hitting the collision box, you spawn the enemy as well as the health bar for the enemy
             if (PV.IsMine)
             {
                 PV.RPC("SetHealth", RpcTarget.AllBuffered);
@@ -45,6 +45,7 @@ public class EnemyHealth : MonoBehaviour
     [PunRPC]
     void SetHealth()
     {
+        //set the minotaur health active
         HealthBar.SetActive(true);
     }
    

@@ -10,6 +10,10 @@ public class FallBlock : MonoBehaviour
     {
         
     }
+    /// <summary>
+    /// If the player is hit with the block, they take damage, otherwise if it hits the ground it disapears.
+    /// </summary>
+    /// <param name="other"></param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         

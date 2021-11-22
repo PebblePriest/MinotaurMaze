@@ -24,7 +24,10 @@ public class Enemy : MonoBehaviour
         HealthBar = GameObject.FindWithTag("BossHealthBar").GetComponent<Slider>();
 
     }
-    
+    /// <summary>
+    /// If player 1 hits the enemy, change the health bar and set the new health
+    /// </summary>
+    /// <param name="damage"></param>
     public void TakeDamage(int damage)
     {
         PV.RPC("HealthChange", RpcTarget.AllBuffered, damage);
@@ -34,6 +37,10 @@ public class Enemy : MonoBehaviour
             Die();
         }
     }
+    /// <summary>
+    /// network logic for health decrease
+    /// </summary>
+    /// <param name="damage"></param>
     [PunRPC]
     void HealthChange(int damage)
     {
@@ -51,7 +58,7 @@ public class Enemy : MonoBehaviour
             if (PhotonNetwork.IsMasterClient)
             {
 
-
+                //spawns a death animation and new gameobjects where the boss dies, as well as lets players pass through the wall.
                 if (gameObject.tag == "Boss")
                 {
                     GameObject mBody = PhotonNetwork.Instantiate(MinoDeadBody.name, transform.position, Quaternion.identity);

@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 6554498172464312497}
   m_Layer: 8
   m_Name: Player2cyclops
-  m_TagString: Player
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -201,6 +201,8 @@ MonoBehaviour:
   ground: {fileID: 5295946288861306670}
   player2: 0
   currentHusk: {fileID: 0}
+  originalHusk: {fileID: 0}
+  killOld: 0
 --- !u!114 &5295946289551854415
 MonoBehaviour:
   m_ObjectHideFlags: 0

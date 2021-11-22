@@ -22,6 +22,10 @@ public class ChargeDetect : MonoBehaviour
     {
         fbPoints = GameObject.FindGameObjectsWithTag("BlockSpawns");
     }
+    /// <summary>
+    /// if the player is within a certain range, it will either use a swipe or a charge attack for both enemy types.
+    /// </summary>
+    /// <param name="other"></param>
     void OnTriggerEnter2D(Collider2D other)
     {
         if (isCharge)
@@ -31,7 +35,11 @@ public class ChargeDetect : MonoBehaviour
             {
                 foreach (GameObject point in fbPoints)
                 {
-                    PhotonNetwork.Instantiate(FallBlock.name, point.transform.position, point.transform.rotation);
+                    if(PhotonNetwork.IsMasterClient)
+                    {
+                        PhotonNetwork.Instantiate(FallBlock.name, point.transform.position, point.transform.rotation);
+                    }
+                    
                 }
 
                 ai.anim.ResetTrigger("isCharging");
@@ -47,8 +55,8 @@ public class ChargeDetect : MonoBehaviour
         {
             if (other.gameObject.tag == "Player")
             {
-                other.gameObject.GetComponent<PlayerHealth>().TakeDamage(SwipeDamage);
-                //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage(SwipeDamage);
+                
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage(SwipeDamage);
             }
         }
     }
