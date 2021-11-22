@@ -29,6 +29,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
     }
 
+    // creates a room if a room name has been entered in the text box
     public void OnClickCreate()
     {
         if(roomInputField.text.Length >= 1)
@@ -37,6 +38,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         }
     }
 
+    // manages the lobby scene to turn on and off objects and sets the name of the room equal to what was entered in the previous field.
     public override void OnJoinedRoom()
     {
         lobbyPanel.SetActive(false);
@@ -45,6 +47,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         UpdatePlayerList();
     }
 
+    // updates the list of rooms
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         if (Time.time >= nextUpdateTime)
@@ -54,6 +57,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         }
     }
 
+    // updates the available rooms to join on lobby screen
     void UpdateRoomList(List<RoomInfo> list)
     {
         foreach(RoomItem item in roomItemsList)
@@ -91,6 +95,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         PhotonNetwork.JoinLobby();
     }
 
+    // spawns the "player card" in the room
     void UpdatePlayerList()
     {
         foreach(PlayerItem item in playerItemsList)
@@ -127,6 +132,7 @@ public class LobbyManager : MonoBehaviourPunCallbacks
         UpdatePlayerList();
     }
 
+    // lets the game be started if the room has 2 players.
     private void Update()
     {
         if (PhotonNetwork.IsMasterClient && PhotonNetwork.CurrentRoom.PlayerCount >= 2)

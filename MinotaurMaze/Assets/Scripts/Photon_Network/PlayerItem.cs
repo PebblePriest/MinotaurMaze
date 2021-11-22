@@ -29,6 +29,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
         UpdatePlayerItem(player);
     }
 
+    // manages options in the player card
     public void ApplyLocalChanges()
     {
         backgroundImage.color = highlightColor;
@@ -36,6 +37,7 @@ public class PlayerItem : MonoBehaviourPunCallbacks
         rightArrowButton.SetActive(true);
     }
 
+    // Goes through the two different playable characters when clicking the arrow, right does the same.
     public void OnClickLeftArrow()
     {
         if((int)playerProperties["playerAvatar"] == 0)

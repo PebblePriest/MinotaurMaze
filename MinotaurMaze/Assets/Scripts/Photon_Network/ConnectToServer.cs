@@ -9,6 +9,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
 {
     public Text buttonText;
     
+    // button click function for connecting
     public void OnClickConnect()
     {
         buttonText.text = "Connecting...";
@@ -16,6 +17,7 @@ public class ConnectToServer : MonoBehaviourPunCallbacks
         PhotonNetwork.ConnectUsingSettings();
     }
 
+    // connect to lobby
     public override void OnConnectedToMaster()
     {
         SceneManager.LoadScene("Lobby");

@@ -25,6 +25,7 @@ public class Player2BoxMode : MonoBehaviour
 
     private void Update()
     {
+        // timer to ensure that the entire animtion plays when going in and out of the box mode.
         if (startTimer)
         {
             anim.SetTrigger("outBox");
@@ -38,6 +39,7 @@ public class Player2BoxMode : MonoBehaviour
         }
     }
 
+    // button press to start a timer for going into box mode
     public void Special(InputAction.CallbackContext context)
     {
         if (view.IsMine)
