@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
     private float invincibleCounter;
 
     public Slider healthSlider;
-    
+    public GameObject HealthBar;
     public PhotonView PV;
     private Vector3 smoothMove;
 
@@ -25,32 +25,23 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
     {
         instance = this;
         PV = GetComponent<PhotonView>();
+        //HealthBar = GameObject.FindGameObjectWithTag("HealthSlider");
     }
 
     void Start()
     {
-        if (PV.IsMine)
-        {
-            currentHealth = maxHealth;
-            healthSlider = GameObject.FindGameObjectWithTag("HealthSlider").GetComponent<Slider>();
-            Debug.Log(healthSlider + " is found!");
-            
-            theSR = GetComponent<SpriteRenderer>();
-            
-            
-           
-        }
-       
+        currentHealth = maxHealth;
+        healthSlider = GameObject.FindWithTag("HealthSlider").GetComponent<Slider>();
+        theSR = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
-        if(PV.IsMine)
+        healthSlider.value = currentHealth;
+        if (PV.IsMine)
         {
-            healthSlider.value = currentHealth;
             Debug.Log("I activated my camera");
             myCamera.SetActive(true);
-            //PV.RPC("HealthUpdate", RpcTarget.AllBuffered);
             if (invincibleCounter > 0)
             {
                 invincibleCounter -= Time.deltaTime;
@@ -64,14 +55,17 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
      
        
     }
+   
 
     public void TakeDamage(int damage)
     {
         if(invincibleCounter <= 0)
         {
-           
+
             PV.RPC("PTD", RpcTarget.AllBuffered, damage);
-            
+            knockBackForce = damage;
+            PlayerController.instance.KnockBack();
+            PlayerController.instance.anim.SetTrigger("isHurt");
             if (currentHealth <= 0)
             {
                 Debug.Log("Supposed to be dead!");
@@ -91,15 +85,9 @@ public class PlayerHealth : MonoBehaviourPun, IPunObservable
     [PunRPC]
     public void PTD(int damage)
     {
-        
-            knockBackForce = damage;
             currentHealth -= damage;
-
-            PlayerController.instance.KnockBack();
             healthSlider.value = currentHealth;
-        //Debug.Log(currentHealth);
-        //play hurt animation
-        PlayerController.instance.anim.SetTrigger("isHurt");   
+            Debug.Log(currentHealth + " player");     
     }
     void Die()
     {
