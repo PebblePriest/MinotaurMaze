@@ -70,6 +70,8 @@ public class Enemy : MonoBehaviour
                         mHead.GetComponent<Rigidbody2D>().AddForce(transform.right * -5, ForceMode2D.Impulse);
 
                     }
+
+                    BossWallBlock.instance.wallDisable();
                 }
             }
 

@@ -6,7 +6,7 @@ public class CameraScript : MonoBehaviour
 {
     public Transform player;
 
-    public Transform Background;
+    //public Transform Background;
 
     public float minHeight, maxHeight, leftEdge, rightEdge;
 
@@ -16,7 +16,7 @@ public class CameraScript : MonoBehaviour
     void Start()
     {
         lastPos = transform.position;
-        Background = GameObject.FindWithTag("Background").transform;
+        //Background = GameObject.FindWithTag("Background").transform;
     }
 
     // Update is called once per frame
@@ -31,8 +31,8 @@ public class CameraScript : MonoBehaviour
 
         Vector2 amountToMove = new Vector2(transform.position.x - lastPos.x, transform.position.y - lastPos.y);
 
-        //Background.position = Background.position + new Vector3(amountToMove.x, amountToMove.y, 0f);
-        Background.position += new Vector3(amountToMove.x, amountToMove.y, 0f) * 0.5f;
+        ////Background.position = Background.position + new Vector3(amountToMove.x, amountToMove.y, 0f);
+        //Background.position += new Vector3(amountToMove.x, amountToMove.y, 0f) * 0.5f;
 
         lastPos = transform.position;
     }

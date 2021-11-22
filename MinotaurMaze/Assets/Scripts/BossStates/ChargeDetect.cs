@@ -47,7 +47,8 @@ public class ChargeDetect : MonoBehaviour
         {
             if (other.gameObject.tag == "Player")
             {
-                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage(SwipeDamage);
+                other.gameObject.GetComponent<PlayerHealth>().TakeDamage(SwipeDamage);
+                //GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().TakeDamage(SwipeDamage);
             }
         }
     }

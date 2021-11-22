@@ -608,7 +608,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5295946289551854450}
-  Background: {fileID: 0}
   minHeight: -6
   maxHeight: 4.41
   leftEdge: 3.63
