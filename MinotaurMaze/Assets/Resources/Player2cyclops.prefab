@@ -389,7 +389,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 5295946289551854412}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 329836697618d174aa38454fd71eab48, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -607,12 +607,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efccde8dbc621d4f9a6bf0eb47c4422, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 5295946289551854450}
   Background: {fileID: 0}
-  minHeight: -11.3
-  maxHeight: 4.1
-  leftEdge: 7.07
-  rightEdge: 103.9
+  minHeight: -6
+  maxHeight: 4.41
+  leftEdge: 3.63
+  rightEdge: 162
 --- !u!1 &5968679233861978320
 GameObject:
   m_ObjectHideFlags: 0

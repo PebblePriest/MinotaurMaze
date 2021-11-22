@@ -98,10 +98,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 9133086705050791924}
   Background: {fileID: 0}
-  minHeight: -11.3
-  maxHeight: 4.1
-  leftEdge: 7.07
-  rightEdge: 103.9
+  minHeight: -6
+  maxHeight: 4.41
+  leftEdge: 3.63
+  rightEdge: 162
 --- !u!1 &4249775714108616448
 GameObject:
   m_ObjectHideFlags: 0
