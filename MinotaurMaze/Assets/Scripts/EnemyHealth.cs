@@ -12,6 +12,7 @@ public class EnemyHealth : MonoBehaviour
     public Transform MinoSpawnPoint;
     public GameObject box;
     public PhotonView PV;
+    private int spawn = 0;
    
     
     public void Start()
@@ -28,12 +29,16 @@ public class EnemyHealth : MonoBehaviour
             if (PV.IsMine)
             {
                 PV.RPC("SetHealth", RpcTarget.AllBuffered);
-                
-                
-                if (PhotonNetwork.IsMasterClient)
-                {
-                 PhotonNetwork.Instantiate(MinotaurBoss.name, MinoSpawnPoint.position, transform.rotation);
+                if(spawn == 0)
+                 {
+                 if (PhotonNetwork.IsMasterClient)
+                 {
+                    PhotonNetwork.Instantiate(MinotaurBoss.name, MinoSpawnPoint.position, transform.rotation);
+                    spawn = 1;
+                    }
                 }
+                
+               
                     PhotonNetwork.Destroy(box);
             }
        
