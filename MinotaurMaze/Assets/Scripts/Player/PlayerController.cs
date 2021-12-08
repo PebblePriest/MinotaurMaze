@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     public GroundCheck ground;
 
+    public bool combo1, combo2, combo3;
+
     PhotonView view;
 
     private void Awake()
@@ -98,24 +100,29 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isGrounded", ground.isGrounded);
             anim.SetFloat("yVelocity", theRB.velocity.y);
 
+            anim.SetBool("combo1", combo1);
+            anim.SetBool("combo2", combo2);
+            anim.SetBool("combo3", combo3);
         }
     }
 
     private void FixedUpdate()
     {
             //keep player from flipping between moving and attacking
-            if (!isAttacking)
-            {
-                ResetMovement();
-            }
-            else if (isAttacking)
-            {
-                StopMovement();
-            }
+            //if (!isAttacking)
+            //{
+            //    ResetMovement();
+            //}
+            //else if (isAttacking)
+            //{
+            //    StopMovement();
+            //}
     }
 
     public void Move(InputAction.CallbackContext context)
     {
+        if (view.IsMine)
+        {
             if (context.performed)
             {
                 inputX = context.ReadValue<Vector2>().x;
@@ -125,6 +132,7 @@ public class PlayerController : MonoBehaviour
             {
                 inputX = 0;
             }
+        }  
     }
 
     public void Jump(InputAction.CallbackContext context)
@@ -154,12 +162,13 @@ public class PlayerController : MonoBehaviour
     {
         if (view.IsMine)
         {
-            if (context.performed && ground.isGrounded && !isAttacking)
+
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+            // 3 Hit combo (if not attacking, on ground, not moving or being knocked back)
+            if (context.performed && ground.isGrounded && !combo1 && inputX == 0 && knockBackCounter <= 0)
             {
-                isAttacking = true;
-
-                Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
+                combo1 = true;
 
                 foreach (Collider2D enemy in hitEnemies)
                 {
@@ -174,19 +183,62 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
+
+            else if(context.performed && ground.isGrounded && !combo2)
+            {
+                combo2 = true;
+
+                foreach (Collider2D enemy in hitEnemies)
+                {
+                    if (enemy.gameObject.tag == "Boss")
+                    {
+                        enemy.GetComponent<Enemy>().TakeDamage(comboAttackDamage);
+                    }
+                    if (enemy.gameObject.tag == "Enemy")
+                    {
+                        enemy.GetComponent<CyclopsEnemy>().TakeDamage(comboAttackDamage);
+
+                    }
+                }
+            }
+
+            else if (context.performed && ground.isGrounded && !combo3)
+            {
+                combo3 = true;
+
+                foreach (Collider2D enemy in hitEnemies)
+                {
+                    if (enemy.gameObject.tag == "Boss")
+                    {
+                        enemy.GetComponent<Enemy>().TakeDamage(comboAttackDamage);
+                    }
+                    if (enemy.gameObject.tag == "Enemy")
+                    {
+                        enemy.GetComponent<CyclopsEnemy>().TakeDamage(comboAttackDamage);
+
+                    }
+                }
+            }
         }
     }
 
     public void StopMovement()
     {
         canJump = false;
-        moveSpeed = attackingMoveSpeed;
+        moveSpeed = 0;
     }
 
     public void ResetMovement()
     {
         canJump = true;
         moveSpeed = movingSpeed;
+    }
+
+    public void EndCombo()
+    {
+        combo1 = false;
+        combo2 = false;
+        combo3 = false;
     }
 
     private void OnDrawGizmosSelected()
