@@ -5,7 +5,7 @@ using UnityEngine;
 public class CyclopsIdle : CyclopsStates
 {
     public float timer;
-    public CyclopsIdle(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR) : base(_npc, _anim, _player, _boss, _theBossR)
+    public CyclopsIdle(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR, Rigidbody2D _rB) : base(_npc, _anim, _player, _boss, _theBossR, _rB)
     {
         name = STATE.IDLE;
     }
@@ -25,7 +25,7 @@ public class CyclopsIdle : CyclopsStates
             //Debug.Log("Idle Working");
             if (FindPlayer())
             {
-                nextState = new CyclopsWalking(npc, anim, player, cyclops, cyclopsR);
+                nextState = new CyclopsWalking(npc, anim, player, cyclops, cyclopsR, theRB);
                 timer = 0;
                 stage = EVENT.EXIT;
             }

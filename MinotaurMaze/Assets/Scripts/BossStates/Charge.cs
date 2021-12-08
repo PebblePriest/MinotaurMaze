@@ -7,7 +7,7 @@ public class Charge : StateEditor
     public float timer;
     public bool goRight;
     public bool goLeft;
-    public Charge(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR, GameObject _rightSide, GameObject _leftSide) : base(_npc, _anim, _player, _boss, _theBossR, _leftSide, _rightSide)
+    public Charge(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR, GameObject _rightSide, GameObject _leftSide, Rigidbody2D _rB) : base(_npc, _anim, _player, _boss, _theBossR, _leftSide, _rightSide, _rB)
     {
         name = STATE.CHARGE;
         speed = 20f;
@@ -37,8 +37,9 @@ public class Charge : StateEditor
     }
     public override void Update()
     {
+        Vector2 velocity = new Vector2(15f, 0f);
 
-        if(goRight)
+        if (goRight)
         {
             Debug.Log("Charge Right");
             boss.transform.position = Vector2.MoveTowards(boss.transform.position, new Vector2(rightSide.transform.position.x, boss.transform.position.y), speed * Time.deltaTime);

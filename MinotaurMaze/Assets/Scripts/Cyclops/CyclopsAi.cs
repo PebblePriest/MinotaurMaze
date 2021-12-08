@@ -10,6 +10,7 @@ public class CyclopsAi : MonoBehaviour
     public Transform target;
     public GameObject cyclops;
     public SpriteRenderer cyclopsR;
+    public Rigidbody2D theRB;
 
 
 
@@ -19,7 +20,8 @@ public class CyclopsAi : MonoBehaviour
         cyclops = this.gameObject;
         player = GameObject.FindGameObjectWithTag("Player");
         cyclopsR = GetComponent<SpriteRenderer>();
-        currentState = new CyclopsIdle(this.gameObject, anim, player, cyclops, cyclopsR);
+        theRB = GetComponent<Rigidbody2D>();
+        currentState = new CyclopsIdle(this.gameObject, anim, player, cyclops, cyclopsR, theRB);
 
 
 

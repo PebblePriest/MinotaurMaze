@@ -8,7 +8,7 @@ public class Idle : StateEditor
     public float timer = 0;
     public float rageActive = 0;
     
-    public Idle(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR, GameObject _rightSide, GameObject _leftSide) : base(_npc, _anim, _player, _boss, _theBossR,  _leftSide, _rightSide)
+    public Idle(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR, GameObject _rightSide, GameObject _leftSide, Rigidbody2D _rB) : base(_npc, _anim, _player, _boss, _theBossR,  _leftSide, _rightSide, _rB)
     {
         name = STATE.IDLE;
     }
@@ -33,7 +33,7 @@ public class Idle : StateEditor
                 //Debug.Log("Idle Working");
                 if (FindPlayer())
                 {
-                    nextState = new Walking(npc, anim, player, boss, theBossR, leftSide, rightSide);
+                    nextState = new Walking(npc, anim, player, boss, theBossR, leftSide, rightSide, theRB);
                     timer = 0;
                     stage = EVENT.EXIT;
                 }

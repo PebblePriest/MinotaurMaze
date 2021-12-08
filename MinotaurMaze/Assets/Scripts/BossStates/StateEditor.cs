@@ -26,6 +26,7 @@ public class StateEditor
     protected Transform target;
     protected GameObject boss;
     protected SpriteRenderer theBossR;
+    protected Rigidbody2D theRB;
     public float visDist = 14f;
     //float shootDist = 7.0f;
     public float speed = 1f;
@@ -36,7 +37,7 @@ public class StateEditor
     public float closeDist = 5f;
     public float rDist;
     public float lDist;
-    public StateEditor(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR, GameObject _rightSide, GameObject _leftSide)
+    public StateEditor(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR, GameObject _rightSide, GameObject _leftSide, Rigidbody2D _rB)
     {
         instance = this;
         npc = _npc;
@@ -47,6 +48,7 @@ public class StateEditor
         theBossR = _theBossR;
         leftSide = _leftSide;
         rightSide = _rightSide;
+        theRB = _rB;
         
     }
    

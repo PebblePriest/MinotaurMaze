@@ -22,6 +22,7 @@ public class CyclopsStates
     protected Transform target;
     protected GameObject cyclops;
     protected SpriteRenderer cyclopsR;
+    protected Rigidbody2D theRB;
     public float visDist = 8f;
     //float shootDist = 7.0f;
     public float speed = 4f;
@@ -36,7 +37,7 @@ public class CyclopsStates
     /// <param name="_player"></param>
     /// <param name="_cyclops"></param>
     /// <param name="_cyclopsR"></param>
-    public CyclopsStates(GameObject _npc, Animator _anim, GameObject _player, GameObject _cyclops, SpriteRenderer _cyclopsR)
+    public CyclopsStates(GameObject _npc, Animator _anim, GameObject _player, GameObject _cyclops, SpriteRenderer _cyclopsR, Rigidbody2D _rB)
     {
         npc = _npc;
         anim = _anim;
@@ -44,6 +45,7 @@ public class CyclopsStates
         player = _player;
         cyclops = _cyclops;
         cyclopsR = _cyclopsR;
+        theRB = _rB;
 
     }
     public virtual void Enter() { stage = EVENT.UPDATE; }

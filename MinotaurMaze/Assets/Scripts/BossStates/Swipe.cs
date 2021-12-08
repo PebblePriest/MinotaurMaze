@@ -5,7 +5,7 @@ using UnityEngine;
 public class Swipe : StateEditor
 {
     public float timer;
-    public Swipe(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR, GameObject _rightSide, GameObject _leftSide) : base(_npc, _anim, _player, _boss, _theBossR, _leftSide, _rightSide)
+    public Swipe(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR, GameObject _rightSide, GameObject _leftSide, Rigidbody2D _rB) : base(_npc, _anim, _player, _boss, _theBossR, _leftSide, _rightSide, _rB)
     {
         name = STATE.SWIPE;
     }
@@ -25,7 +25,7 @@ public class Swipe : StateEditor
             {
                 //Debug.Log("timer over");
                 timer = 0;
-                nextState = new Idle(npc, anim, player, boss, theBossR, leftSide, rightSide);
+                nextState = new Idle(npc, anim, player, boss, theBossR, leftSide, rightSide, theRB);
                 stage = EVENT.EXIT;
             }
             

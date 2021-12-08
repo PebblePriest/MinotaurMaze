@@ -43,7 +43,7 @@ public class ChargeDetect : MonoBehaviour
                 }
 
                 ai.anim.ResetTrigger("isCharging");
-                ai.currentState = new Idle(ai.gameObject, ai.anim, ai.player, ai.boss, ai.theBossR, ai.leftSide, ai.rightSide);
+                ai.currentState = new Idle(ai.gameObject, ai.anim, ai.player, ai.boss, ai.theBossR, ai.leftSide, ai.rightSide, ai.theRB);
             }
             if (other.gameObject.tag == "Player")
             {

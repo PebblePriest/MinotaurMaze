@@ -5,7 +5,7 @@ using UnityEngine;
 public class CyclopsAttack : CyclopsStates
 {
     public float timer;
-    public CyclopsAttack(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR) : base(_npc, _anim, _player, _boss, _theBossR)
+    public CyclopsAttack(GameObject _npc, Animator _anim, GameObject _player, GameObject _boss, SpriteRenderer _theBossR, Rigidbody2D _rB) : base(_npc, _anim, _player, _boss, _theBossR, _rB)
     {
         name = STATE.ATTACK;
     }
@@ -25,7 +25,7 @@ public class CyclopsAttack : CyclopsStates
         {
             //Debug.Log("timer over");
             timer = 0;
-            nextState = new CyclopsIdle(npc, anim, player, cyclops, cyclopsR);
+            nextState = new CyclopsIdle(npc, anim, player, cyclops, cyclopsR, theRB);
             stage = EVENT.EXIT;
         }
 

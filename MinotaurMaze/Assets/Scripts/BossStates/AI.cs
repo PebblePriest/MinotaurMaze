@@ -14,6 +14,7 @@ public class AI : MonoBehaviour
     public SpriteRenderer theBossR;
     public GameObject leftSide;
     public GameObject rightSide;
+    public Rigidbody2D theRB;
 
     private void Awake()
     {
@@ -28,7 +29,8 @@ public class AI : MonoBehaviour
         rightSide = GameObject.FindGameObjectWithTag("RightSide");
         leftSide = GameObject.FindGameObjectWithTag("LeftSide");
         theBossR = GetComponent<SpriteRenderer>();
-        currentState = new Idle(this.gameObject, anim, player, boss, theBossR, leftSide, rightSide);
+        theRB = GetComponent<Rigidbody2D>();
+        currentState = new Idle(this.gameObject, anim, player, boss, theBossR, leftSide, rightSide, theRB);
         
         
 
