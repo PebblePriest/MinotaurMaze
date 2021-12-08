@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 31fe29eeda7d1a54aa4a17926d5b3326
+guid: fd09c5ec6faaecc4cae440831746a763
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6595115247341534991
-    second: player2cyclops_box_0
+      213: 5315693467650289878
+    second: d_Spartan Jump_0
   - first:
-      213: 5864370060775020431
-    second: player2cyclops_box_1
+      213: 8577258615108542149
+    second: d_Spartan Jump_1
   - first:
-      213: 4807817744345971261
-    second: player2cyclops_box_2
+      213: -5342695455575526871
+    second: d_Spartan Jump_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: player2cyclops_box_0
+      name: d_Spartan Jump_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 54
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,20 +114,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0ffd82006e868b50800000000000000
-      internalID: 6595115247341534991
+      spriteID: 6d0f82a8b0325c940800000000000000
+      internalID: 5315693467650289878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player2cyclops_box_1
+      name: d_Spartan Jump_1
       rect:
         serializedVersion: 2
-        x: 54
+        x: 64
         y: 0
-        width: 54
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,20 +135,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f875eefdf7d626150800000000000000
-      internalID: 5864370060775020431
+      spriteID: 5ce1434244b880770800000000000000
+      internalID: 8577258615108542149
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: player2cyclops_box_2
+      name: d_Spartan Jump_2
       rect:
         serializedVersion: 2
-        x: 108
+        x: 128
         y: 0
-        width: 54
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3abf8cf3ccc8b240800000000000000
-      internalID: 4807817744345971261
+      spriteID: 922b35b3aceead5b0800000000000000
+      internalID: -5342695455575526871
       vertices: []
       indices: 
       edges: []

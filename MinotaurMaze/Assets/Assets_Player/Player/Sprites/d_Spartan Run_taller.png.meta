@@ -1,37 +1,25 @@
 fileFormatVersion: 2
-guid: d9c29a7c641668848992b401854036b6
+guid: e49bf6a87e94a6e4dbeb5dafa1f92324
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3397209764660123113
-    second: cyclops_0
+      213: -8626353207004510117
+    second: d_Spartan Run_taller_0
   - first:
-      213: -5121532815367140073
-    second: cyclops_1
+      213: 106981238209190222
+    second: d_Spartan Run_taller_1
   - first:
-      213: 7888643704495989468
-    second: cyclops_2
+      213: 6867947171462697497
+    second: d_Spartan Run_taller_2
   - first:
-      213: 6705992817222436733
-    second: cyclops_3
+      213: -5902322772526128211
+    second: d_Spartan Run_taller_3
   - first:
-      213: 6816740333856155444
-    second: cyclops_4
+      213: -5791971217784710092
+    second: d_Spartan Run_taller_4
   - first:
-      213: -3640002186821716800
-    second: cyclops_5
-  - first:
-      213: -7671938497984692314
-    second: cyclops_6
-  - first:
-      213: 8473839517840972384
-    second: cyclops_7
-  - first:
-      213: 1833721113108241234
-    second: cyclops_8
-  - first:
-      213: -3928810400821298732
-    second: cyclops_9
+      213: -461009368817713256
+    second: d_Spartan Run_taller_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -121,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cyclops_0
+      name: d_Spartan Run_taller_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,20 +123,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71ae1fdd7bfaad0d0800000000000000
-      internalID: -3397209764660123113
+      spriteID: b58c17d6679094880800000000000000
+      internalID: -8626353207004510117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cyclops_1
+      name: d_Spartan Run_taller_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +144,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71d098a1a09ace8b0800000000000000
-      internalID: -5121532815367140073
+      spriteID: e49171d8ed21c7100800000000000000
+      internalID: 106981238209190222
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cyclops_2
+      name: d_Spartan Run_taller_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,41 +165,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd2ea1647a71a7d60800000000000000
-      internalID: 7888643704495989468
+      spriteID: 912de238099df4f50800000000000000
+      internalID: 6867947171462697497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cyclops_3
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d774dd8ffe8701d50800000000000000
-      internalID: 6705992817222436733
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cyclops_4
+      name: d_Spartan Run_taller_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,20 +186,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 437e29d873de99e50800000000000000
-      internalID: 6816740333856155444
+      spriteID: da3a1e1d5bcb61ea0800000000000000
+      internalID: -5902322772526128211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cyclops_5
+      name: d_Spartan Run_taller_4
       rect:
         serializedVersion: 2
-        x: 240
+        x: 256
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,20 +207,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c4b8d0fb4d1c7dc0800000000000000
-      internalID: -3640002186821716800
+      spriteID: 43cd7a65dd8ce9fa0800000000000000
+      internalID: -5791971217784710092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cyclops_6
+      name: d_Spartan Run_taller_5
       rect:
         serializedVersion: 2
-        x: 288
+        x: 320
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,71 +228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6af7af0759cc78590800000000000000
-      internalID: -7671938497984692314
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cyclops_7
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06a14982520299570800000000000000
-      internalID: 8473839517840972384
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cyclops_8
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 25b53fb03afa27910800000000000000
-      internalID: 1833721113108241234
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cyclops_9
-      rect:
-        serializedVersion: 2
-        x: 432
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4d9bf2591cf0a79c0800000000000000
-      internalID: -3928810400821298732
+      spriteID: 89f3e7deb6a2a99f0800000000000000
+      internalID: -461009368817713256
       vertices: []
       indices: 
       edges: []

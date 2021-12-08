@@ -1,37 +1,52 @@
 fileFormatVersion: 2
-guid: d9c29a7c641668848992b401854036b6
+guid: 900694c7d43dc3c4d9fb2177bef8001c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3397209764660123113
-    second: cyclops_0
+      213: -2072897825889516166
+    second: d_Spartan_3Combo_0
   - first:
-      213: -5121532815367140073
-    second: cyclops_1
+      213: -654889638834475698
+    second: d_Spartan_3Combo_1
   - first:
-      213: 7888643704495989468
-    second: cyclops_2
+      213: -1060639209830857542
+    second: d_Spartan_3Combo_2
   - first:
-      213: 6705992817222436733
-    second: cyclops_3
+      213: -4552678077314147871
+    second: d_Spartan_3Combo_3
   - first:
-      213: 6816740333856155444
-    second: cyclops_4
+      213: 2830175562006817883
+    second: d_Spartan_3Combo_4
   - first:
-      213: -3640002186821716800
-    second: cyclops_5
+      213: 8457711984947921045
+    second: d_Spartan_3Combo_5
   - first:
-      213: -7671938497984692314
-    second: cyclops_6
+      213: -4063256534094126778
+    second: d_Spartan_3Combo_6
   - first:
-      213: 8473839517840972384
-    second: cyclops_7
+      213: -2414712450371519696
+    second: d_Spartan_3Combo_7
   - first:
-      213: 1833721113108241234
-    second: cyclops_8
+      213: -5906866252877449777
+    second: d_Spartan_3Combo_8
   - first:
-      213: -3928810400821298732
-    second: cyclops_9
+      213: -1038814509858277378
+    second: d_Spartan_3Combo_9
+  - first:
+      213: 4439984732910227028
+    second: d_Spartan_3Combo_10
+  - first:
+      213: 646501208087679122
+    second: d_Spartan_3Combo_11
+  - first:
+      213: -3360619238122880457
+    second: d_Spartan_3Combo_12
+  - first:
+      213: -5821776367010695803
+    second: d_Spartan_3Combo_13
+  - first:
+      213: 6718045811744389159
+    second: d_Spartan_3Combo_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -121,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cyclops_0
+      name: d_Spartan_3Combo_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71ae1fdd7bfaad0d0800000000000000
-      internalID: -3397209764660123113
+      spriteID: a750d28f8669b33e0800000000000000
+      internalID: -2072897825889516166
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cyclops_1
+      name: d_Spartan_3Combo_1
       rect:
         serializedVersion: 2
-        x: 48
+        x: 64
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71d098a1a09ace8b0800000000000000
-      internalID: -5121532815367140073
+      spriteID: e4def2ed75d59e6f0800000000000000
+      internalID: -654889638834475698
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cyclops_2
+      name: d_Spartan_3Combo_2
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,41 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd2ea1647a71a7d60800000000000000
-      internalID: 7888643704495989468
+      spriteID: ab44e27124ad741f0800000000000000
+      internalID: -1060639209830857542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cyclops_3
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d774dd8ffe8701d50800000000000000
-      internalID: 6705992817222436733
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cyclops_4
+      name: d_Spartan_3Combo_3
       rect:
         serializedVersion: 2
         x: 192
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -219,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 437e29d873de99e50800000000000000
-      internalID: 6816740333856155444
+      spriteID: 1e95bf8e863a1d0c0800000000000000
+      internalID: -4552678077314147871
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cyclops_5
+      name: d_Spartan_3Combo_4
       rect:
         serializedVersion: 2
-        x: 240
+        x: 256
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -240,20 +234,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c4b8d0fb4d1c7dc0800000000000000
-      internalID: -3640002186821716800
+      spriteID: b5c6861cdadc64720800000000000000
+      internalID: 2830175562006817883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cyclops_6
+      name: d_Spartan_3Combo_5
       rect:
         serializedVersion: 2
-        x: 288
+        x: 320
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,41 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6af7af0759cc78590800000000000000
-      internalID: -7671938497984692314
+      spriteID: 590826b4d34df5570800000000000000
+      internalID: 8457711984947921045
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cyclops_7
-      rect:
-        serializedVersion: 2
-        x: 336
-        y: 0
-        width: 48
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 06a14982520299570800000000000000
-      internalID: 8473839517840972384
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cyclops_8
+      name: d_Spartan_3Combo_6
       rect:
         serializedVersion: 2
         x: 384
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -303,20 +276,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 25b53fb03afa27910800000000000000
-      internalID: 1833721113108241234
+      spriteID: 641e806d5b96c97c0800000000000000
+      internalID: -4063256534094126778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cyclops_9
+      name: d_Spartan_3Combo_7
       rect:
         serializedVersion: 2
-        x: 432
+        x: 448
         y: 0
-        width: 48
-        height: 48
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,8 +297,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d9bf2591cf0a79c0800000000000000
-      internalID: -3928810400821298732
+      spriteID: 03b74e0f1d73d7ed0800000000000000
+      internalID: -2414712450371519696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: d_Spartan_3Combo_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc53f7d5078960ea0800000000000000
+      internalID: -5906866252877449777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: d_Spartan_3Combo_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef7306805b36591f0800000000000000
+      internalID: -1038814509858277378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: d_Spartan_3Combo_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45e854d279efd9d30800000000000000
+      internalID: 4439984732910227028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: d_Spartan_3Combo_11
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2905de66c65d8f800800000000000000
+      internalID: 646501208087679122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: d_Spartan_3Combo_12
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7328756bb9eac51d0800000000000000
+      internalID: -3360619238122880457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: d_Spartan_3Combo_13
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58530924d35e43fa0800000000000000
+      internalID: -5821776367010695803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: d_Spartan_3Combo_14
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72833d1721b4b3d50800000000000000
+      internalID: 6718045811744389159
       vertices: []
       indices: 
       edges: []
