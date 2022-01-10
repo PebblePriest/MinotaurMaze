@@ -212,7 +212,7 @@ MonoBehaviour:
   rightArrowButton: {fileID: 7535060551682979367}
   playerAvatar: {fileID: 3438877067091096324}
   avatars:
-  - {fileID: -6041668646813147605, guid: b5b6b54f18d8a694d91772e3fb9c7ba0, type: 3}
+  - {fileID: -6974330905970493696, guid: 204d968069709344990603a98e76c21f, type: 3}
   - {fileID: 4852486353466759713, guid: c7b4f6d88a113104297ede5c79feeb31, type: 3}
 --- !u!222 &4855847773637786909
 CanvasRenderer:

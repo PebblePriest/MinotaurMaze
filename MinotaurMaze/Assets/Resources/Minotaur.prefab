@@ -227,6 +227,7 @@ MonoBehaviour:
   theBossR: {fileID: 0}
   leftSide: {fileID: 0}
   rightSide: {fileID: 0}
+  theRB: {fileID: 0}
 --- !u!95 &6518284980919301551
 Animator:
   serializedVersion: 3

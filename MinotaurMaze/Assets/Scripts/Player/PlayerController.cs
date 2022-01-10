@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
 
     public GroundCheck ground;
 
+    public GameObject hitEff;
+
     public bool combo1, combo2, combo3;
 
     PhotonView view;
@@ -179,7 +181,8 @@ public class PlayerController : MonoBehaviour
                     if (enemy.gameObject.tag == "Enemy")
                     {
                         enemy.GetComponent<CyclopsEnemy>().TakeDamage(comboAttackDamage);
-                        
+
+                        PhotonNetwork.Instantiate(hitEff.name, attackPoint.position, attackPoint.rotation);
                     }
                 }
             }
@@ -198,6 +201,7 @@ public class PlayerController : MonoBehaviour
                     {
                         enemy.GetComponent<CyclopsEnemy>().TakeDamage(comboAttackDamage);
 
+                        PhotonNetwork.Instantiate(hitEff.name, attackPoint.position, attackPoint.rotation);
                     }
                 }
             }
@@ -216,6 +220,7 @@ public class PlayerController : MonoBehaviour
                     {
                         enemy.GetComponent<CyclopsEnemy>().TakeDamage(comboAttackDamage);
 
+                        PhotonNetwork.Instantiate(hitEff.name, attackPoint.position, attackPoint.rotation);
                     }
                 }
             }

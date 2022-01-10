@@ -120,6 +120,7 @@ MonoBehaviour:
   comboAttackDamage: 5
   knockBackLength: 0
   ground: {fileID: 3168061253400354871}
+  hitEff: {fileID: 9099966119076427316, guid: 104be42e56373b4499f61d7531c1cab9, type: 3}
   combo1: 0
   combo2: 0
   combo3: 0
